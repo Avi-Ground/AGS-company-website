@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.services-section {
+  background: #eef3f9;
+  padding: 48px 48px 60px;
+  text-align: center;
+}
+
+/* ── Title ── */
+.services-title {
+ font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 36px;
+}
+
+/* ── Services Grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 780px;
+  margin: 0 auto 56px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-img-wrap {
+  width: 100%;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #ccd6e8;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 2px;
+}
+
+.service-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-icon {
+  width: 22px;
+  height: 22px;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.service-name {
+font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.find-out-more {
+font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #003087;
+  text-decoration: none;
+  margin-top: 2px;
+  padding-left: 30px;
+}
+
+.find-out-more:hover {
+  text-decoration: underline;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: #dde6f0;
+  padding: 28px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-card:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.stat-card:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  color: #1a1a1a;
+}
+
+.stat-number {
+ font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+}
