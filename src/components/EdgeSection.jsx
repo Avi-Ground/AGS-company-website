@@ -1,9 +1,9 @@
 import './EdgeSection.css'
 
-import edge1 from '../assets/edge1.jpg'
-import edge2 from '../assets/edge2.jpg'
-import edge3 from '../assets/edge3.jpg'
-import edge4 from '../assets/edge4.jpg'
+import edge1 from '../assets/edge1.jpeg'
+import edge2 from '../assets/edge2.jpeg'
+import edge3 from '../assets/edge3.jpeg'
+import edge4 from '../assets/edge4.jpeg'
 
 function EdgeSection() {
   return (
@@ -28,7 +28,7 @@ function EdgeSection() {
       </p>
 
       {/* ── Why Choosing AGS ── */}
-      <h2 className="why-title">Why choosing AGS</h2>
+      <h2 className="why-title">Why choose AGS</h2>
 
       <div className="why-grid">
 

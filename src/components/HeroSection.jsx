@@ -1,16 +1,18 @@
-import heroImage from '../assets/hero.jpg'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import heroImage from '../assets/hero.png'
 import logo from '../assets/logo.png'
 import './HeroSection.css'
 
 function HeroSection() {
+  const [megaOpen, setMegaOpen] = useState(false)
+
   return (
     <>
-      {/* ── HERO WRAPPER (image spans topbar + nav + headline) ── */}
       <div
         className="hero-wrapper"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Overlay */}
         <div className="hero-overlay" />
 
         {/* Topbar */}
@@ -24,13 +26,80 @@ function HeroSection() {
         {/* Navbar */}
         <nav className="navbar">
           <div className="logo-area">
-  <img src={logo} alt="AGS Aviation Ground Services" className="logo-img" />
-</div>
+            <img src={logo} alt="AGS Aviation Ground Services" className="logo-img" />
+          </div>
+
           <ul className="nav-links">
-            <li><a href="#">Who we are</a></li>
-            <li><a href="#">Our services</a></li>
+
+            {/* WHO WE ARE — mega menu */}
+            <li
+              className="nav-item has-mega"
+              onMouseEnter={() => setMegaOpen(true)}
+              onMouseLeave={() => setMegaOpen(false)}
+            >
+              <a href="#">
+                Who we are
+                <svg className="nav-chevron" viewBox="0 0 12 8" fill="none">
+                  <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </a>
+
+              {megaOpen && (
+                <div className="mega-menu">
+                  {/* Col 1 — OUR IDENTITY */}
+                  <div className="mega-col">
+                    <span className="mega-col-title">OUR IDENTITY</span>
+                    <Link to="/our-story" className="mega-link">
+                      <span className="mega-link-title">Our Story</span>
+                      <span className="mega-link-sub">From humble beginnings to a global presence</span>
+                    </Link>
+                    <Link to="/mission-vision" className="mega-link">
+                      <span className="mega-link-title">Our Mission &amp; Vision</span>
+                      <span className="mega-link-sub">The principles that guide everything we do</span>
+                    </Link>
+                    <Link to="/our-values" className="mega-link">
+                      <span className="mega-link-title">Our Values</span>
+                      <span className="mega-link-sub">Integrity, excellence, and accountability</span>
+                    </Link>
+                  </div>
+
+                  {/* Col 2 — OUR PEOPLE */}
+                  <div className="mega-col">
+                    <span className="mega-col-title">OUR PEOPLE</span>
+                    <Link to="/our-people" className="mega-link">
+                      <span className="mega-link-title">Our People</span>
+                      <span className="mega-link-sub">The talent behind every success story</span>
+                    </Link>
+                    <Link to="/code-of-conduct" className="mega-link">
+                      <span className="mega-link-title">Business Code of Conduct</span>
+                      <span className="mega-link-sub">How we operate with integrity</span>
+                    </Link>
+                    <Link to="/community" className="mega-link">
+                      <span className="mega-link-title">Community &amp; Wellbeing</span>
+                      <span className="mega-link-sub">Our commitment beyond the tarmac</span>
+                    </Link>
+                  </div>
+
+                  {/* Col 3 — PERFORMANCE */}
+                  <div className="mega-col">
+                    <span className="mega-col-title">PERFORMANCE</span>
+                    <Link to="/service-commitments" className="mega-link">
+                      <span className="mega-link-title">Service Commitments</span>
+                      <span className="mega-link-sub">How we measure up to our promises</span>
+                    </Link>
+                    <Link to="/policies" className="mega-link">
+                      <span className="mega-link-title">Business Policies &amp; Practices</span>
+                      <span className="mega-link-sub">Standards that drive our operations</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </li>
+
+            <li><Link to="/our-services">Our Services</Link></li>
             <li><a href="#">Sustainability</a></li>
             <li><a href="#">News and Media</a></li>
+
           </ul>
         </nav>
 
@@ -48,7 +117,7 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* ── ABOUT SECTION ── */}
+      {/* ABOUT SECTION */}
       <section className="about-section">
         <h2 className="about-title">We are Aviation Ground Services</h2>
         <p className="about-body">

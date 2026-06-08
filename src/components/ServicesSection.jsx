@@ -1,8 +1,8 @@
 import './ServicesSection.css'
 
-import cargoImg from '../assets/cargo.jpg'
-import passengerImg from '../assets/passenger.jpg'
-import rampImg from '../assets/ramp.jpg'
+import cargoImg from '../assets/cargo.jpeg'
+import passengerImg from '../assets/passenger.jpeg'
+import rampImg from '../assets/ramp.jpeg'
 
 function ServicesSection() {
   return (

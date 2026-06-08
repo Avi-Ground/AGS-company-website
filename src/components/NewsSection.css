@@ -27,15 +27,15 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  border-radius: 20% ;
 }
 
 .news-img-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 12px;
-  background: #ccd6e8;
 }
 
 .news-img {
