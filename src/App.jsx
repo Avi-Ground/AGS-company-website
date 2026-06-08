@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom' 
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import ServicesSection from './components/ServicesSection'
@@ -35,7 +35,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/"                    element={<Home />} />
        <Route path="/our-story"            element={<OurStory />} />
@@ -48,7 +48,7 @@ function App() {
         <Route path="/service-commitments" element={<PageTemplate title="Service Commitments" />} />
         <Route path="/policies"            element={<PageTemplate title="Business Policies & Practices" />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
