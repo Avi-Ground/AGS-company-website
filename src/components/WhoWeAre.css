@@ -540,3 +540,119 @@
 
 .ww-footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
 .ww-footer a:hover { color: #fff; }
+
+/* ===================================
+   MOBILE RESPONSIVE FIXES - WHO WE ARE
+   =================================== */
+
+@media (max-width: 768px) {
+
+  .ww-nav {
+    padding: 14px 16px;
+    justify-content: center;
+  }
+
+  .ww-nav-anchors {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .ww-hero-content {
+    padding: 100px 20px 80px;
+  }
+
+  .ww-hero-title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .ww-hero-sub {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .ww-hero-scroll {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .ww-section {
+    padding: 70px 20px;
+  }
+
+  .ww-two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ww-mv-visual {
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .ww-big-quote {
+    font-size: 18px;
+  }
+
+  .ww-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-people-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-commitments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-policies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ww-value-card,
+  .ww-community-card,
+  .ww-policy-card,
+  .ww-commitment-card,
+  .ww-people-card {
+    padding: 24px 20px;
+  }
+
+  .ww-value-letter {
+    font-size: 48px;
+  }
+
+  .ww-people-count {
+    font-size: 34px;
+  }
+
+  .ww-commitment-metric {
+    font-size: 34px;
+  }
+
+  .ww-cta {
+    padding: 70px 20px;
+  }
+
+  .ww-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ww-btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .ww-footer {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

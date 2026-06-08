@@ -551,3 +551,90 @@
 
 .hp-social-icon:hover { color: #003087; background: #eef3f9; }
 .hp-social-icon svg { width: 20px; height: 20px; }
+
+
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .hp-topbar {
+    padding: 8px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .hp-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+  }
+
+  .hp-logo-img {
+    height: 70px;
+  }
+
+  .hp-nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .hp-mega-menu {
+    display: none;
+  }
+
+  .hp-hero-content {
+    padding: 40px 16px;
+  }
+
+  .hp-hero-headline {
+    font-size: 28px;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+
+  .hp-about,
+  .hp-vmr,
+  .hp-services,
+  .hp-edge,
+  .hp-news,
+  .hp-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hp-services-grid,
+  .hp-news-grid,
+  .hp-edge-photos,
+  .hp-stats-grid,
+  .hp-why-grid,
+  .hp-footer-top,
+  .hp-footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .hp-service-img-wrap {
+    height: 220px;
+  }
+
+  .hp-stat-card:first-child,
+  .hp-stat-card:last-child {
+    border-radius: 10px;
+  }
+
+  .hp-footer-top,
+  .hp-footer-bottom {
+    gap: 20px;
+  }
+}

@@ -519,3 +519,140 @@
 }
 
 .sv-footer a:hover { color: #fff; }
+
+/* ===================================
+   MOBILE RESPONSIVE FIXES - SERVICES
+   =================================== */
+
+@media (max-width: 768px) {
+
+  .sv-nav {
+    padding: 14px 16px;
+  }
+
+  .sv-nav-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .sv-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 90px 20px 60px;
+    gap: 30px;
+  }
+
+  .sv-hero-title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .sv-hero-sub {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .sv-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-hero-stat {
+    padding: 24px 20px;
+  }
+
+  .sv-strip {
+    padding: 24px 20px;
+  }
+
+  .sv-strip-text {
+    font-size: 14px;
+  }
+
+  .sv-service-row,
+  .sv-service-row--flip {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .sv-service-row--flip .sv-service-visual,
+  .sv-service-row--flip .sv-service-content {
+    order: unset;
+  }
+
+  .sv-service-visual {
+    min-height: 280px;
+    padding: 30px 24px;
+  }
+
+  .sv-service-num {
+    font-size: 60px;
+  }
+
+  .sv-service-big-icon {
+    font-size: 42px;
+  }
+
+  .sv-service-tagline {
+    font-size: 18px;
+  }
+
+  .sv-service-content {
+    padding: 32px 20px;
+  }
+
+  .sv-service-title {
+    font-size: 28px;
+  }
+
+  .sv-service-features {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-why {
+    padding: 70px 20px;
+  }
+
+  .sv-why-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sv-why-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-partners {
+    padding: 70px 20px;
+  }
+
+  .sv-partners-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sv-partner-pill {
+    text-align: center;
+  }
+
+  .sv-cta {
+    padding: 70px 20px;
+  }
+
+  .sv-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sv-btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .sv-footer {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

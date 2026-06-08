@@ -516,3 +516,132 @@
 }
 
 .os-footer a:hover { color: #fff; }
+
+
+/* ===================================
+   MOBILE RESPONSIVE FIXES - OUR STORY
+   =================================== */
+
+@media (max-width: 768px) {
+
+  .os-nav {
+    padding: 14px 16px;
+  }
+
+  .os-nav-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .os-hero {
+    min-height: auto;
+    padding-top: 80px;
+  }
+
+  .os-hero-content {
+    padding: 60px 20px 100px;
+  }
+
+  .os-hero-title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .os-hero-sub {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .os-hero-scroll {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .os-intro {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 70px 20px;
+  }
+
+  .os-achievements {
+    padding: 70px 20px;
+  }
+
+  .os-achievements-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .os-achievement {
+    padding: 24px 16px;
+  }
+
+  .os-achievement-num {
+    font-size: 30px;
+  }
+
+  .os-timeline-section {
+    padding: 70px 20px;
+  }
+
+  .os-timeline-header {
+    margin-bottom: 50px;
+  }
+
+  .os-tl-line {
+    left: 12px;
+    transform: none;
+  }
+
+  .os-tl-item,
+  .os-tl-left,
+  .os-tl-right {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+
+  .os-tl-card {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  .os-tl-dot {
+    left: 12px;
+    transform: translateX(-50%);
+  }
+
+  .os-today {
+    padding: 70px 20px;
+  }
+
+  .os-today-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .os-today-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .os-cta {
+    padding: 70px 20px;
+  }
+
+  .os-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .os-btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .os-footer {
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
