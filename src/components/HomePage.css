@@ -64,7 +64,7 @@
   overflow: hidden;
 }
 .hp-hamburger{
-  display:none;
+  display:none
 }
 .hp-hero-overlay {
   position: absolute;
@@ -866,12 +866,11 @@ html, body { overflow-x: hidden; width: 100%; }
   font-weight:600;
 }
   .hp-hamburger{
-  display:block;
-  background:none;
-  border:none;
+ order:2;
+    margin-left:auto;
+background:none;
   font-size:30px;
   color:#ffffff;
-  cursor:pointer;
 }
 
 .hp-nav-links{
@@ -899,14 +898,16 @@ html, body { overflow-x: hidden; width: 100%; }
   }
 
 .hp-navbar{
-    padding:0 12px;
-    min-height:60px;
+      display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16px;
   }
 
   .hp-logo-area{
-    position:static;
-    transform:none;
+      position:static;
     margin:0;
+    order:1;
   }
 
   .hp-logo-img { height: 50px; }
@@ -941,6 +942,28 @@ html, body { overflow-x: hidden; width: 100%; }
   .hp-edge, .hp-news, .hp-footer {
     padding-left: 16px;
     padding-right: 16px;
+  }
+ /* WHY CHOOSE AGS */
+  .hp-why-grid{
+    display:flex !important;
+    overflow-x:auto;
+    gap:12px;
+    padding-bottom:10px;
+
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+  }
+
+  .hp-why-grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .hp-why-card{
+    flex:0 0 180px;
+    min-width:180px;
+    scroll-snap-align:start;
   }
 
   .hp-services-grid, .hp-news-grid,
