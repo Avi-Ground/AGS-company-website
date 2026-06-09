@@ -187,7 +187,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  color: #2a0c7c;
+  color: #003087;
   text-decoration: none;
   letter-spacing: 0.5px;
   display: flex;
@@ -870,7 +870,7 @@ html, body { overflow-x: hidden; width: 100%; }
   background:none;
   border:none;
   font-size:30px;
-  color:#003087;
+  color:#ffffff;
   cursor:pointer;
 }
 
