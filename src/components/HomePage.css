@@ -891,7 +891,7 @@ html, body { overflow-x: hidden; width: 100%; }
     margin-top: 0;
   }
 
-  .hp-logo-img { height: 70px; }
+  .hp-logo-img { height: 50px; }
 
   .hp-nav-links {
     display: none;
@@ -900,6 +900,11 @@ html, body { overflow-x: hidden; width: 100%; }
   .hp-mega-menu { display: none; }
 
   .hp-hero-content { padding: 40px 16px; }
+.hp-hero{
+  min-height: 420px;
+  background-position:75% top;
+  background-size:125%;
+}
 
   .hp-hero-headline {
     font-size: 28px;
