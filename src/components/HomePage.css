@@ -872,7 +872,9 @@ html, body { overflow-x: hidden; width: 100%; }
   font-size:30px;
   cursor:pointer;
   color:#fff;
-  margin-left:auto;
+    margin-left:auto;
+    position:relative;
+    z-index:999;
 }
 .hp-nav-links{
   display:none;
@@ -899,16 +901,16 @@ html, body { overflow-x: hidden; width: 100%; }
   }
 
 .hp-navbar{
-      display:flex;
-    align-items:center;
+    display:flex;
     justify-content:space-between;
-    padding:0 16px;
+    align-items:center;
+    position:relative;
   }
 
   .hp-logo-area{
-      position:static;
-    margin:0;
-    order:1;
+      position:static !important;
+    transform:none !important;
+    margin:0 !important;
   }
 
   .hp-logo-img { height: 50px; }
@@ -920,7 +922,11 @@ html, body { overflow-x: hidden; width: 100%; }
   .hp-mega-menu { display: none; }
 
   .hp-hero-content{
-    padding:30px 16px 40px;
+     position:absolute;
+    left:16px;
+    bottom:40px;
+    z-index:20;
+    padding:0;
   }
 
    .hp-hero{
@@ -932,10 +938,9 @@ html, body { overflow-x: hidden; width: 100%; }
   }
 
    .hp-hero-headline{
-    font-size:26px;
-    line-height:1.15;
+   margin:0;
     max-width:280px;
-    margin-top:120px;
+    font-size:28px;
   }
 
 
