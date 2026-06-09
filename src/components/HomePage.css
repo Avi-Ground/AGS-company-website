@@ -167,9 +167,7 @@
     opacity: 1;
   }
 }
- .hp-logo-img{
-    height:45px;
-  }
+.hp-logo-img { height: 100px; width: auto; object-fit: contain; }
 .hp-logo-area {
   position: absolute;
   left: 48px;
@@ -831,17 +829,42 @@ html, body { overflow-x: hidden; width: 100%; }
 .hp-news-img-wrap{
   height:220px;
 }
-  .hp-edge-photos{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
 
-  .hp-edge-photo-wrap{
-    height:140px;
-    aspect-ratio:auto;
-  }
+.hp-edge-photos{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:0 0 10px;
 
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+
+.hp-edge-photo-wrap{
+  flex:0 0 180px;
+  height:220px;
+  aspect-ratio:auto;
+  scroll-snap-align:start;
+}
+
+.hp-edge-photos::-webkit-scrollbar{
+  display:none;
+}
+
+.hp-edge-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hp-edge::after{
+  content:"← Swipe →";
+  display:block;
+  margin-top:10px;
+  font-size:12px;
+  color:#003087;
+  font-weight:600;
+}
   .hp-hamburger{
   display:block;
   background:none;
@@ -900,8 +923,8 @@ html, body { overflow-x: hidden; width: 100%; }
 
    .hp-hero{
     min-height:520px;
-    background-size:cover;
-    background-position:center top;
+   background-size:120%;
+  background-position:65% top;
     background-repeat:no-repeat;
     overflow:hidden;
   }
