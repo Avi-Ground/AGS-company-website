@@ -829,10 +829,17 @@ html, body { overflow-x: hidden; width: 100%; }
 .hp-news-img-wrap{
   height:220px;
 }
+  .hp-edge-photos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
 
-.hp-edge-photo-wrap{
-  height:260px;
-}
+  .hp-edge-photo-wrap{
+    height:140px;
+    aspect-ratio:auto;
+  }
+
   .hp-hamburger{
   display:block;
   background:none;
