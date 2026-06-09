@@ -1,42 +1,56 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './OurStory.css'
-
 const timeline = [
   {
-    year: '2010',
+    year: '2001',
     title: 'The Beginning',
-    body: 'Aviation Ground Services was founded in Harare with a small but passionate team of 12 ground handling professionals. Our first contract was with a regional carrier at Harare International Airport — and we delivered flawlessly from day one.',
+    body: 'Aviation Ground Services was founded in Harare with a small but passionate team committed to delivering safe and reliable ground handling services for airlines operating in Zimbabwe.',
+  },
+  {
+    year: '2004',
+    title: 'Building Foundations',
+    body: 'AGS expanded its operational capabilities, invested in staff training, and strengthened relationships with regional airline partners, establishing a reputation for reliability and professionalism.',
+  },
+  {
+    year: '2007',
+    title: 'Growing Operations',
+    body: 'As demand increased, AGS expanded its workforce and introduced improved ground support processes, enabling the company to handle a greater number of aircraft movements efficiently.',
+  },
+  {
+    year: '2010',
+    title: 'Expanding Our Reach',
+    body: 'AGS broadened its presence within Zimbabwe’s aviation sector, supporting additional airline operations and continuing to build a highly skilled workforce trained to international standards.',
   },
   {
     year: '2013',
-    title: 'Expanding Our Reach',
-    body: 'AGS secured its first major airline partnership, extending operations to Bulawayo Joshua Mqabuko Nkomo International Airport. Our workforce grew to over 60 staff members, all trained to IATA ground handling standards.',
+    title: 'Cargo Operations Launch',
+    body: 'Recognising growing freight demand, AGS launched dedicated cargo handling services, supporting both passenger airline belly cargo and specialised freight operations.',
   },
   {
     year: '2016',
-    title: 'Cargo Operations Launch',
-    body: 'Recognising the growing demand for reliable freight handling, AGS launched a dedicated cargo division — offering belly freight and full freighter handling for international carriers flying into Zimbabwe.',
+    title: 'A Reputation for Excellence',
+    body: 'Continuous investment in people, equipment, and safety systems helped AGS become recognised as one of Zimbabwe’s most dependable aviation service providers.',
   },
   {
     year: '2019',
-    title: 'A Decade of Trust',
-    body: 'By our ninth year, AGS had handled over 10,000 aircraft turnarounds without a major safety incident. We reached 150 staff nationwide and were recognised as one of Zimbabwe\'s most reliable aviation service providers.',
+    title: 'Operational Milestone',
+    body: 'AGS achieved thousands of successful aircraft turnarounds while maintaining exceptional safety standards and strengthening partnerships with both regional and international carriers.',
   },
   {
     year: '2021',
-    title: 'Surviving & Thriving',
-    body: 'Despite the global aviation downturn, AGS retained its full workforce and used the period to invest in staff training, safety upgrades, and new ground support equipment — emerging stronger than ever.',
+    title: 'Resilience and Recovery',
+    body: 'Despite challenges affecting the global aviation industry, AGS retained its commitment to staff development, operational readiness, and customer service excellence.',
   },
   {
     year: '2023',
     title: 'International Partnerships',
-    body: 'AGS signed landmark handling agreements with Qatar Airways and Kenya Airways — marking our entry into serving Tier-1 international carriers. A proud milestone for Zimbabwean aviation.',
+    body: 'AGS secured major handling agreements with international airlines, including Qatar Airways and Kenya Airways, further strengthening its position within the region.',
   },
   {
     year: '2025',
-    title: 'Leading the Region',
-    body: 'With 250+ employees, 12 airline partnerships, and operations across 3 airports, AGS stands as Zimbabwe\'s premier ground handler — setting the standard for safety, speed, and service excellence across Southern Africa.',
+    title: 'Leading the Industry',
+    body: 'With over 250 employees, multiple airline partnerships, and operations across Zimbabwe’s major international airports, AGS continues to set the benchmark for ground handling excellence.',
   },
 ]
 
@@ -44,7 +58,7 @@ const achievements = [
   { number: '250+', label: 'Employees Nationwide' },
   { number: '12',   label: 'Airline Partnerships' },
   { number: '3',    label: 'Airports Served' },
-  { number: '15+',  label: 'Years of Excellence' },
+  { number: '25+',  label: 'Years of Excellence' },
   { number: '0',    label: 'Major Safety Incidents' },
   { number: '10K+', label: 'Aircraft Turnarounds' },
 ]
@@ -138,7 +152,7 @@ export default function OurStory() {
       <section className="os-timeline-section" ref={ref}>
         <div className="os-timeline-header">
           <p className="os-tag os-tag--dark">OUR JOURNEY</p>
-          <h2 className="os-h2">15 Years on the Ramp</h2>
+          <h2 className="os-h2">25 Years on the Ramp</h2>
           <p className="os-timeline-sub">
             Every year has brought new challenges, new milestones, and a growing
             team of professionals committed to keeping Zimbabwe's skies moving.
