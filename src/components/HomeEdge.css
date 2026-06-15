@@ -1,0 +1,240 @@
+/* ══════════════════════════════
+   EDGE
+══════════════════════════════ */
+.hp-edge {
+  background: #fff;
+  padding: 56px 48px 64px;
+  text-align: center;
+}
+
+.hp-edge-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 32px;
+}
+
+.hp-edge-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.hp-edge-photo-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #ccd6e8;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hp-edge-photo-wrap:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+
+/* Duplicate photos exist only to loop the mobile carousel seamlessly */
+.hp-edge-photo-clone {
+  display: none;
+}
+
+/* Next-photo arrow — shown top-left of each photo on mobile */
+.hp-edge-arrow {
+  display: none;
+}
+
+.hp-edge-photo { width: 100%; height: 100%; object-fit: cover; }
+
+.hp-edge-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14.5px;
+  color: #222;
+  line-height: 1.85;
+  max-width: 1000px;
+  margin: 0 auto 56px;
+}
+
+.hp-why-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 32px;
+}
+
+.hp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* On desktop the track is invisible to layout, so its cards act as direct grid items */
+.hp-why-track {
+  display: contents;
+}
+
+.hp-why-card {
+  background: #f0f4f8;
+  border-radius: 10px;
+  padding: 28px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* Duplicate cards exist only to loop the mobile marquee seamlessly */
+.hp-why-card-clone {
+  display: none;
+}
+
+/* Shimmer on why cards */
+.hp-why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: 0.8s;
+  z-index: 2;
+}
+
+.hp-why-card:hover::before { left: 160%; }
+
+.hp-why-card:hover {
+  background: #003087;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,48,135,0.2);
+}
+
+.hp-why-card:hover .hp-why-label { color: #fff; }
+
+.hp-why-icon { width: 48px; height: 48px; }
+
+.hp-why-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* ══════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .hp-edge {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Swipe hint */
+  .hp-edge::after {
+    content: "← Swipe →";
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: #003087;
+    font-weight: 600;
+    margin-top: 12px;
+    opacity: 0.7;
+  }
+
+  /* ── Edge photos swipeable ── */
+  .hp-edge-photos {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    margin: 0 0 32px;
+  }
+
+  .hp-edge-photos::-webkit-scrollbar { display: none; }
+
+  .hp-edge-photo-wrap {
+    flex: 0 0 180px;
+    height: 220px;
+    aspect-ratio: auto;
+    scroll-snap-align: start;
+  }
+
+  .hp-edge-photo-clone {
+    display: block;
+  }
+
+  /* Next-photo arrow */
+  .hp-edge-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    color: #003087;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .hp-edge-arrow svg { width: 16px; height: 16px; }
+
+  .hp-edge-arrow:hover { background: #fff; }
+  .hp-edge-arrow:active { transform: scale(0.92); }
+
+  /* ── Why grid auto-scrolling marquee (swipeable) ── */
+  .hp-why-grid {
+    display: block !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+    max-width: 100%;
+  }
+
+  .hp-why-grid::-webkit-scrollbar { display: none; }
+
+  .hp-why-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: hp-why-scroll 30s linear infinite;
+  }
+
+  .hp-why-card {
+    flex: 0 0 160px;
+    min-width: 160px;
+  }
+
+  .hp-why-card-clone {
+    display: flex;
+  }
+
+  @keyframes hp-why-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}

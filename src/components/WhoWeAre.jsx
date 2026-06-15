@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './WhoWeAre.css'
+import SiteFooter from './SiteFooter'
+import SiteHeader from './SiteHeader'
 
 export default function WhoWeAre() {
   const location = useLocation()
@@ -29,17 +31,7 @@ export default function WhoWeAre() {
     <div className="ww-page">
 
       {/* NAV */}
-      <nav className="ww-nav">
-        <Link to="/" className="ww-nav-back">← Back to Home</Link>
-        <div className="ww-nav-anchors">
-          <a href="#mission-vision">Mission & Vision</a>
-          <a href="#our-values">Our Values</a>
-          <a href="#our-people">Our People</a>
-          <a href="#community">Community</a>
-          <a href="#service-commitments">Commitments</a>
-          <a href="#policies">Policies</a>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* HERO */}
       <header className="ww-hero">
@@ -332,11 +324,7 @@ export default function WhoWeAre() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="ww-footer">
-        <span>© 2025 Aviation Ground Services. All rights reserved.</span>
-        <Link to="/">aviationgroundservices.com</Link>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

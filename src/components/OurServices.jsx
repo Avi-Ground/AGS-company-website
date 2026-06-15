@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './OurServices.css'
+import SiteFooter from './SiteFooter'
+import SiteHeader from './SiteHeader'
 
 import rampImg      from '../assets/service-ramp.jpg'
 import passengerImg from '../assets/service-passenger.jpg'
@@ -107,10 +109,7 @@ export default function OurServices() {
     <div className="sv-page">
 
       {/* NAV */}
-      <nav className="sv-nav">
-        <Link to="/" className="sv-nav-back">← Back to Home</Link>
-        <span className="sv-nav-label">Our Services</span>
-      </nav>
+      <SiteHeader />
 
       {/* HERO */}
       <header className="sv-hero">
@@ -236,11 +235,7 @@ export default function OurServices() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="sv-footer">
-        <span>© 2025 Aviation Ground Services. All rights reserved.</span>
-        <Link to="/">aviationgroundservices.com</Link>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

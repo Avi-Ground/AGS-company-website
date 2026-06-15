@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './OurStory.css'
+import SiteFooter from './SiteFooter'
+import SiteHeader from './SiteHeader'
 const timeline = [
   {
     year: '2001',
@@ -81,11 +83,8 @@ export default function OurStory() {
   return (
     <div className="os-page">
 
-      {/* ── SLIM NAV ── */}
-      <nav className="os-nav">
-        <Link to="/" className="os-nav-back">← Back to Home</Link>
-        <span className="os-nav-label">Who We Are</span>
-      </nav>
+      {/* ── NAV ── */}
+      <SiteHeader />
 
       {/* ── HERO ── */}
       <header className="os-hero">
@@ -129,7 +128,6 @@ export default function OurStory() {
           <blockquote>
             "We didn't just want to handle aircraft —<br/>we wanted to set the standard."
           </blockquote>
-          <cite>— Founder, Aviation Ground Services</cite>
         </div>
       </section>
 
@@ -174,42 +172,6 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* ── WHERE WE ARE TODAY ── */}
-      <section className="os-today" ref={ref}>
-        <div className="os-today-inner">
-          <div className="os-today-text">
-            <p className="os-tag os-tag--red">TODAY</p>
-            <h2 className="os-h2 os-h2--white">Zimbabwe's Premier Ground Handler</h2>
-            <p>
-              AGS today is a full-service ground handling company operating across
-              Harare, Bulawayo, and Victoria Falls International Airports. We serve
-              commercial airlines, cargo carriers, and private charter operators —
-              handling every aspect of ground operations from ramp services and
-              passenger handling to cargo management and aircraft cleaning.
-            </p>
-            <p>
-              Our team of over 250 trained professionals shows up every day with
-              the discipline of aviation and the warmth of Zimbabwean hospitality —
-              ensuring every aircraft departs on time, every passenger feels valued,
-              and every shipment arrives safely.
-            </p>
-          </div>
-          <div className="os-today-cards">
-            {[
-              { title: 'Ramp Handling', icon: '✈' },
-              { title: 'Passenger Services', icon: '🧳' },
-              { title: 'Cargo Operations', icon: '📦' },
-              { title: 'Charter Support', icon: '🛫' },
-            ].map((s, i) => (
-              <div className="os-today-card" key={i}>
-                <span className="os-today-card-icon">{s.icon}</span>
-                <span className="os-today-card-title">{s.title}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="os-cta" ref={ref}>
         <h2 className="os-cta-title">Be Part of the Next Chapter</h2>
@@ -224,11 +186,7 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="os-footer">
-        <span>© 2025 Aviation Ground Services. All rights reserved.</span>
-        <Link to="/">aviationgroundservices.com</Link>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

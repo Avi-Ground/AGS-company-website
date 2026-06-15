@@ -1,0 +1,50 @@
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.hp-about {
+  background: #eef3f9;
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-about::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: rgba(0,48,135,0.04);
+  top: -250px;
+  right: -250px;
+  animation: orbit 20s linear infinite;
+  pointer-events: none;
+}
+
+.hp-about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 16px;
+}
+
+.hp-about-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.8;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .hp-about {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

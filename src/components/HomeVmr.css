@@ -1,0 +1,61 @@
+/* ══════════════════════════════
+   VISION MISSION ROLE
+══════════════════════════════ */
+.hp-vmr {
+  background: #eef3f9;
+  padding: 20px 32px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-vmr::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: rgba(0,48,135,0.04);
+  top: -250px;
+  right: -250px;
+  animation: orbit 20s linear infinite;
+  pointer-events: none;
+}
+
+.hp-vmr-block {
+  max-width: 1300px;
+  margin: 0 auto 48px;
+}
+
+.hp-vmr-block:last-child { margin-bottom: 0; }
+
+.hp-vmr-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 14px;
+}
+
+.hp-vmr-heading.role {
+  font-size: 26px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hp-vmr-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14.5px;
+  color: #08153f;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .hp-vmr {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
