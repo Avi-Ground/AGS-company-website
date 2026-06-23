@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import './WhoWeAre.css'
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
+import communityKids from '../assets/community-kids.jpeg'
 
 export default function WhoWeAre() {
   const location = useLocation()
@@ -30,11 +31,9 @@ export default function WhoWeAre() {
   return (
     <div className="ww-page">
 
-      {/* NAV */}
-      <SiteHeader />
-
       {/* HERO */}
       <header className="ww-hero">
+        <SiteHeader />
         <div className="ww-hero-bg" />
         <div className="ww-hero-content">
           <div className="ww-tag">WHO WE ARE</div>
@@ -209,13 +208,27 @@ export default function WhoWeAre() {
       ══════════════════════════════ */}
       <section id="community" className="ww-section ww-section--light ww-fade">
         <div className="ww-section-inner">
-          <p className="ww-tag ww-tag--dark">BEYOND THE TARMAC</p>
-          <h2 className="ww-h2">Community &amp; Wellbeing</h2>
-          <p className="ww-section-intro">
-            AGS believes that a great company must be a good neighbour. We invest in
-            the communities around our airports and in the wellbeing of every member
-            of our team.
-          </p>
+          <div className="ww-community-header">
+            <div className="ww-community-intro">
+              <p className="ww-tag ww-tag--dark">BEYOND THE TARMAC</p>
+              <h2 className="ww-h2">Community &amp;<br />Wellbeing</h2>
+              <p className="ww-section-intro" style={{marginBottom: 0}}>
+                AGS believes that a great company must be a good neighbour. We invest in
+                the communities around our airports and in the wellbeing of every member
+                of our team.
+              </p>
+            </div>
+            <div className="ww-community-img-wrap">
+              <div className="ww-community-img-frame">
+                <img
+                  src={communityKids}
+                  alt="Children from the communities AGS serves"
+                  className="ww-community-img"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="ww-community-grid">
             {[
               {
@@ -279,52 +292,8 @@ export default function WhoWeAre() {
         </div>
       </section>
 
-      {/* ══════════════════════════════
-          BUSINESS POLICIES
-      ══════════════════════════════ */}
-      <section id="policies" className="ww-section ww-section--light ww-fade">
-        <div className="ww-section-inner">
-          <p className="ww-tag ww-tag--dark">HOW WE WORK</p>
-          <h2 className="ww-h2">Business Policies<br />&amp; Practices</h2>
-          <p className="ww-section-intro">
-            Our policies are designed to ensure consistency, fairness, and excellence
-            across every aspect of our business — from how we hire to how we handle
-            a complaint.
-          </p>
-          <div className="ww-policies-grid">
-            {[
-              { title: 'Quality Management', body: 'We operate a documented Quality Management System aligned with IATA ISAGO standards — reviewed and audited annually to ensure continuous improvement.' },
-              { title: 'Health & Safety Policy', body: 'The safety of our staff, airline partners, and passengers is paramount. Our H&S policy governs every airside activity with zero-compromise protocols.' },
-              { title: 'Equal Opportunities', body: 'AGS is an equal opportunity employer. We recruit, develop, and promote on the basis of merit — with zero tolerance for discrimination of any kind.' },
-              { title: 'Data Protection', body: 'Passenger and airline data is handled with the strictest confidentiality. We comply with all applicable data protection regulations and industry standards.' },
-              { title: 'Supplier Standards', body: 'We hold our suppliers to the same ethical and quality standards we hold ourselves — conducting due diligence on all procurement and supply chain relationships.' },
-              { title: 'Incident Reporting', body: 'All safety and operational incidents are reported, investigated, and documented. We share learnings openly and use every incident as an opportunity to improve.' },
-            ].map((p, i) => (
-              <div className="ww-policy-card" key={i}>
-                <div className="ww-policy-num">0{i + 1}</div>
-                <h3 className="ww-policy-title">{p.title}</h3>
-                <p className="ww-policy-body">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="ww-cta ww-fade">
-        <h2 className="ww-cta-title">Want to Know More?</h2>
-        <p className="ww-cta-body">
-          Get in touch with our team to learn how AGS can support your airline,
-          cargo operation, or charter fleet.
-        </p>
-        <div className="ww-cta-btns">
-          <Link to="/" className="ww-btn ww-btn--white">Contact Us</Link>
-          <Link to="/our-services" className="ww-btn ww-btn--outline">Our Services</Link>
-          <Link to="/our-story" className="ww-btn ww-btn--outline">Our Story</Link>
-        </div>
-      </section>
-
-      <SiteFooter />
+<SiteFooter />
 
     </div>
   )

@@ -13,7 +13,7 @@ export default function SiteHeader() {
       <div className="sh-topbar">
         <a href="#" className="sh-topbar-careers">Careers</a>
         <a href="#">Contact us</a>
-        <a href="#" className="sh-topbar-site">aviationgroundservices.com</a>
+        <a href="#" className="sh-topbar-site">avi-ground.com</a>
         <span className="sh-lang">EN</span>
       </div>
 

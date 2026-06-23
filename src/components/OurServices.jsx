@@ -108,12 +108,11 @@ export default function OurServices() {
   return (
     <div className="sv-page">
 
-      {/* NAV */}
-      <SiteHeader />
-
       {/* HERO */}
       <header className="sv-hero">
+        <SiteHeader />
         <div className="sv-hero-bg" />
+        <div className="sv-hero-inner">
         <div className="sv-hero-content">
           <div className="sv-tag">WHAT WE DO</div>
           <h1 className="sv-hero-title">
@@ -136,6 +135,7 @@ export default function OurServices() {
             </div>
           ))}
         </div>
+        </div>{/* /sv-hero-inner */}
       </header>
 
       {/* STRIP */}
