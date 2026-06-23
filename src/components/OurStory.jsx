@@ -4,6 +4,8 @@ import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
 import dasCargo from '../assets/das-cargo.jpeg'
 import qatarAirways from '../assets/qatar-airways.jpeg'
+import mkAirlines from '../assets/mk-airlines.jpeg'
+import atlasAir from '../assets/atlas-air.jpeg'
 
 
 export default function OurStory() {
@@ -31,7 +33,9 @@ export default function OurStory() {
         <div className="os-hero-bg" />
         <div className="os-hero-plane-wrap">
           <div className="os-hero-plane-frame">
-            <img src={dasCargo} alt="DAS Air Cargo aircraft on the tarmac" className="os-hero-plane-img" />
+            <img src={dasCargo}    alt="DAS Air Cargo aircraft on the tarmac" className="os-hero-plane-img os-slide os-slide--1" />
+            <img src={mkAirlines}  alt="MK Airlines Boeing 747 on the tarmac" className="os-hero-plane-img os-slide os-slide--2" />
+            <img src={atlasAir}    alt="Atlas Air Boeing 747 on the tarmac"    className="os-hero-plane-img os-slide os-slide--3" />
           </div>
         </div>
         <div className="os-hero-content">

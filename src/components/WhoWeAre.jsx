@@ -270,8 +270,12 @@ export default function WhoWeAre() {
           <p className="ww-tag ww-tag--red">OUR PROMISE</p>
           <h2 className="ww-h2 ww-h2--white">Service Commitments</h2>
           <p className="ww-section-intro ww-intro--white">
-            These are not aspirations. These are the measurable standards we commit
-            to delivering on every single flight we handle.
+            At AGS, operational excellence is driven by real-world accountability. We benchmark our
+            success against critical aviation metrics, continuously tracking our On-Time Performance (OTP),
+            baggage handling accuracy, and safety incident rates. Grounded in a corporate culture of
+            absolute transparency, we commit to measuring and openly reporting our performance to our
+            airline partners. We own our operational results — both our successes and our challenges —
+            ensuring we constantly refine our processes to deliver unmatched reliability.
           </p>
           <div className="ww-commitments-grid">
             {[
@@ -293,7 +297,25 @@ export default function WhoWeAre() {
       </section>
 
 
-<SiteFooter />
+      {/* ══════════════════════════════
+          BUSINESS POLICIES
+      ══════════════════════════════ */}
+      <section id="policies" className="ww-section ww-section--light ww-fade">
+        <div className="ww-section-inner">
+          <p className="ww-tag ww-tag--dark">HOW WE WORK</p>
+          <h2 className="ww-h2">Business Policies<br />&amp; Practices</h2>
+          <p className="ww-section-intro" style={{maxWidth: '760px'}}>
+            AGS operates in strict alignment with the highest international aviation standards,
+            embedding IATA and ISAGO-compliant protocols across all ground and cargo handling
+            activities. Our operations undergo rigorous, regular internal and external audits to
+            guarantee absolute compliance and safety. We believe that robust corporate governance
+            relies on complete transparency, and we provide clear, unvarnished reporting to our
+            stakeholders, establishing AGS as Zimbabwe's most trusted and compliant aviation partner.
+          </p>
+        </div>
+      </section>
+
+      <SiteFooter />
 
     </div>
   )
