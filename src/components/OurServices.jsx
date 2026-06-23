@@ -4,6 +4,7 @@ import './OurServices.css'
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
 
+import servicesHero from '../assets/services-hero.jpeg'
 import rampImg      from '../assets/service-ramp.jpg'
 import passengerImg from '../assets/service-passenger.jpg'
 import cargoImg     from '../assets/service-cargo.jpg'
@@ -68,13 +69,6 @@ const services = [
   },
 ]
 
-const stats = [
-  { num: '250+',  label: 'Trained Professionals' },
-  { num: '12',    label: 'Airline Partners' },
-  { num: '3',     label: 'Airports Nationwide' },
-  { num: '99.8%', label: 'On-Time Performance' },
-]
-
 const partners = [
   'Qatar Airways', 'Kenya Airways', 'Ethiopian Airlines',
   'South African Airways', 'Air Zimbabwe', 'Fastjet',
@@ -111,40 +105,25 @@ export default function OurServices() {
       {/* HERO */}
       <header className="sv-hero">
         <SiteHeader />
-        <div className="sv-hero-bg" />
+        <div className="sv-hero-bg">
+          <img src={servicesHero} alt="AGS passenger services agent at the check-in counter" className="sv-hero-img" />
+          <div className="sv-hero-overlay" />
+        </div>
         <div className="sv-hero-inner">
-        <div className="sv-hero-content">
-          <div className="sv-tag">WHAT WE DO</div>
-          <h1 className="sv-hero-title">
-            Ground Handling.<br />
-            <em>Elevated.</em>
-          </h1>
-          <p className="sv-hero-sub">
-            Six core service areas. One uncompromising standard.
-            AGS delivers end-to-end ground operations that keep airlines moving,
-            passengers smiling, and cargo flowing — safely, efficiently, and on time.
-          </p>
-          <Link to="/" className="sv-hero-cta">Get in Touch →</Link>
+          <div className="sv-hero-content">
+            <div className="sv-tag">WHAT WE DO</div>
+            <h1 className="sv-hero-title">
+              Ground.<br />
+              <em> Handling Elevated.</em>
+            </h1>
+            <p className="sv-hero-sub">
+              AGS delivers end-to-end ground operations that keep airlines moving,
+              passengers smiling, and cargo flowing — safely, efficiently, and on time.
+            </p>
+  
+          </div>
         </div>
-
-        <div className="sv-hero-stats">
-          {stats.map((s, i) => (
-            <div className="sv-hero-stat" key={i}>
-              <span className="sv-hero-stat-num">{s.num}</span>
-              <span className="sv-hero-stat-label">{s.label}</span>
-            </div>
-          ))}
-        </div>
-        </div>{/* /sv-hero-inner */}
       </header>
-
-      {/* STRIP */}
-      <div className="sv-strip">
-        <p className="sv-strip-text">
-          From the moment wheels touch down to the final boarding call —
-          <strong> AGS manages every ground operation in between.</strong>
-        </p>
-      </div>
 
       {/* SERVICES */}
       <section className="sv-services">
