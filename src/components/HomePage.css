@@ -9,7 +9,7 @@ html, body { overflow-x: hidden; width: 100%; }
 
 .hp-page {
   font-family: 'Montserrat', sans-serif;
-  background: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #fefeff 35%, #fcfdff 68%, #f8fafd 100%);
 }
 
 /* ══════════════════════════════
@@ -55,3 +55,4 @@ html, body { overflow-x: hidden; width: 100%; }
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+

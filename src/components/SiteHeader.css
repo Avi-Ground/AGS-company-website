@@ -20,7 +20,7 @@
 .sh-topbar a, .sh-topbar span {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: #fff;
+    color: var(--navy);
   text-decoration: none;
   opacity: 0.75;
   transition: opacity 0.2s;
@@ -34,29 +34,45 @@
   position: relative;
   z-index: 100;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 48px;
+  height: 0;
+  padding: 20px;
 }
 
-.sh-logo-area { display: flex; align-items: center; }
-.sh-logo-img { height: 52px; width: auto; object-fit: contain; }
+.sh-logo-area {
+  position: absolute;
+  left: 48px;
+  top: 18px;
+  transform: none;
+  display: flex;
+  align-items: center;
+}
+.sh-logo-img { height: 62px; width: auto; object-fit: contain; }
 
 .sh-hamburger { display: none; }
+
+/* Homepage desktop presentation. Mobile styling remains shared with every page. */
 
 /* ── NAV LINKS ── */
 .sh-nav-links {
   display: flex;
+  position: absolute;
+  top: 15px;
+  right: 48px;
   gap: 36px;
   list-style: none;
   align-items: center;
 }
 
-.sh-nav-links > li > a {
+.sh-nav-links > li > a,
+.sh-nav-trigger {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.85);
+  color: var(--navy);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
   text-decoration: none;
   letter-spacing: 0.5px;
   display: flex;
@@ -66,7 +82,8 @@
   position: relative;
 }
 
-.sh-nav-links > li > a::after {
+.sh-nav-links > li > a::after,
+.sh-nav-trigger::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -77,8 +94,10 @@
   transition: width 0.25s ease;
 }
 
-.sh-nav-links > li > a:hover::after { width: 100%; }
-.sh-nav-links > li > a:hover { color: #fff; }
+.sh-nav-links > li > a:hover::after,
+.sh-nav-trigger:hover::after { width: 100%; }
+.sh-nav-links > li > a:hover,
+.sh-nav-trigger:hover { color: #fff; }
 
 .sh-nav-item { position: relative; }
 
@@ -90,6 +109,76 @@
 
 .sh-nav-item:hover .sh-nav-chevron { transform: rotate(180deg); }
 
+/* ══════════════════════════════
+   HOMEPAGE-ONLY HEADER ADJUSTMENTS
+══════════════════════════════ */
+
+/* Bigger homepage logo */
+.sh-header--home .sh-logo-img {
+  height: 100px;
+  width: auto;
+  transform: translateY(-20px);
+}
+
+
+/* Move ONLY homepage navigation upward */
+.sh-header--home .sh-nav-links {
+  transform: translateY(5px);
+}
+/* ══════════════════════════════
+   HOME NAVIGATION
+══════════════════════════════ */
+
+.sh-home-item {
+  position: relative;
+}
+
+.sh-home-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 30px;
+
+  color: #003087;
+  text-decoration: none;
+
+  position: relative;
+
+  transition: color 0.2s ease;
+}
+
+.sh-home-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.sh-home-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -4px;
+
+  width: 0;
+  height: 2px;
+
+  background: #C8102E;
+
+  transition: width 0.25s ease;
+}
+
+.sh-home-link:hover {
+  color: #C8102E;
+}
+
+.sh-home-link:hover::after {
+  width: 100%;
+}
 /* ── MEGA MENU ── */
 .sh-mega-menu {
   position: absolute;
@@ -100,8 +189,9 @@
   border-top: 3px solid #C8102E;
   border-radius: 0 0 10px 10px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   width: 580px;
+  min-height: 360px;
   z-index: 300;
   box-shadow: 0 16px 48px rgba(0,0,0,0.35);
   animation: shMegaDrop 0.25s ease both;
@@ -142,6 +232,7 @@
 .sh-mega-link {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 4px;
   text-decoration: none;
   padding: 6px 0;
@@ -156,7 +247,7 @@
 .sh-mega-link-title {
   font-size: 13px;
   font-weight: 600;
-  color: #fff;
+  color: #C8102E;
   transition: color 0.2s;
 }
 
@@ -164,7 +255,28 @@
   font-size: 11px;
   color: rgba(255,255,255,0.5);
   line-height: 1.5;
+  min-height: 50px;
 }
+
+.sh-mega-link-image {
+  width: 100%;
+  height: 210px;
+  margin-top: 10px;
+  object-fit: cover;
+  object-position: center;
+  background: rgba(255,255,255,0.08);
+  border-radius: 5px;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.sh-mega-link-image--journey {
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border-radius: 0;
+}
+.sh-mega-link:hover .sh-mega-link-image { transform: scale(1.02); opacity: 0.9; }
 
 /* ── MOBILE MENU ── */
 .sh-mobile-menu {
@@ -201,7 +313,11 @@
     padding: 5px 16px;
     gap: 10px;
     font-size: 10px;
-    justify-content: space-between;
+    justify-content: flex-end;
+    min-height: 78px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 110;
   }
 
   .sh-topbar-careers,
@@ -209,11 +325,39 @@
     display: none;
   }
 
+  .sh-header--home .sh-topbar { padding: 5px 16px; }
+
   .sh-navbar {
-    padding: 8px 16px;
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 70;
+    min-height: 0;
+    height: auto;
   }
 
-  .sh-logo-img { height: 36px; }
+  .sh-header--home .sh-navbar {
+    justify-content: flex-start;
+    padding: 6px 0;
+    margin: 0;
+  }
+
+  .sh-logo-img { height: 58px; }
+  .sh-logo-area {
+    position: static;
+    transform: none;
+  }
+  .sh-header--home .sh-logo-area {
+    position: static;
+    transform: none;
+    margin: 0;
+  }
+  .sh-header--home .sh-logo-img { height: 200px; }
 
   .sh-hamburger {
     display: flex;
@@ -226,6 +370,7 @@
     font-size: 20px;
     width: 38px;
     height: 34px;
+    margin: 0;
     cursor: pointer;
     transition: background 0.2s;
   }

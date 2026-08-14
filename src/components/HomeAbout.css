@@ -2,31 +2,18 @@
    ABOUT
 ══════════════════════════════ */
 .hp-about {
-  background: #eef3f9;
+  background: transparent;
   padding: 48px 32px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.hp-about::before {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: rgba(0,48,135,0.04);
-  top: -250px;
-  right: -250px;
-  animation: orbit 20s linear infinite;
-  pointer-events: none;
-}
-
 .hp-about-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   font-weight: 700;
-  color: #003087;
+  color: #08153f;
   margin-bottom: 16px;
 }
 

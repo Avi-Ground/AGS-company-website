@@ -39,10 +39,10 @@ export default function OurStory() {
           </div>
         </div>
         <div className="os-hero-content">
-          <div className="os-tag">OUR STORY</div>
+          <div className="os-tag">OUR JOURNEY</div>
           <h1 className="os-hero-title">
-            From the tarmac<br />
-            <em>to the top.</em>
+            From the tarmac to<br />
+            <em>the top.</em>
           </h1>
           <p className="os-hero-sub">
             A Zimbabwean company built on dedication, discipline, and an unshakeable belief
@@ -58,7 +58,7 @@ export default function OurStory() {
       {/* ── INTRO ── */}
       <section className="os-intro" ref={ref}>
         <div className="os-intro-text">
-          <h2 className="os-h2">How It All Started</h2>
+          <h2 className="os-h2">Our Origins</h2>
           <p>
          AGS began with a dream in 2001 – a small team, a big vision,
           and a commitment to handle air cargo the right way. We started on the tarmac 
@@ -88,7 +88,7 @@ export default function OurStory() {
       <section className="os-focus" ref={ref}>
         <div className="os-focus-content">
           <div className="os-tag">Present Day</div>
-          <h2 className="os-h2">Our Present day focus </h2>
+          <h2 className="os-h2">Present Day </h2>
           <p>
             Today, Aviation Ground Services (AGS) is defined by an uncompromising commitment to safety,
             operational precision, and service excellence. As an ISAGO-registered handler, we anchor our
@@ -110,9 +110,10 @@ export default function OurStory() {
       </section>
 
       {/* ── THE FUTURE ── */}
-      <section className="os-future" ref={ref}>
+      <section className="os-focus os-future" ref={ref}>
+        <div className="os-focus-content">
         <div className="os-tag os-tag--dark">The Future</div>
-        <h2 className="os-h2">Where We Are Going</h2>
+        <h2 className="os-h2">Our Destination</h2>
         <p>
           The future of AGS is anchored in strategic growth and a digital-first approach, fully integrating
           advanced technology across all our operations to drive predictability and efficiency.
@@ -123,6 +124,12 @@ export default function OurStory() {
           and maintaining flawless ISAGO standards, we will consistently exceed evolving industry expectations
           and set new benchmarks in modern, agile aviation services.
         </p>
+        </div>
+        <div className="os-focus-img-wrap">
+          <div className="os-focus-img-frame">
+            <img src={atlasAir} alt="Atlas Air aircraft supported by AGS" className="os-focus-img" />
+          </div>
+        </div>
       </section>
 
       <SiteFooter />

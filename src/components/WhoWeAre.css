@@ -13,7 +13,7 @@
 .ww-page {
   font-family: 'Montserrat', sans-serif;
   color: var(--navy);
-  background: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #fefeff 35%, #fcfdff 68%, #f8fafd 100%);
   overflow-x: hidden;
 }
 
@@ -21,7 +21,7 @@
 .ww-hero {
   position: relative;
   min-height: 100vh;
-  background: #fff;
+  background: transparent;
   overflow: hidden;
 }
 
@@ -170,9 +170,9 @@
   background: #fff;
   border-top: 1px solid rgba(13,31,60,0.06);
 }
-.ww-section--light { background: #fff; }
-.ww-section--dark  { background: #fff; }
-.ww-section--red   { background: #fff; }
+.ww-section--light,
+.ww-section--dark,
+.ww-section--red { background: transparent; }
 
 .ww-section-inner { max-width: 1100px; margin: 0 auto; }
 

@@ -21,7 +21,7 @@
 .os-hero {
   position: relative;
   min-height: 100vh;
-  background: #fff;
+  background: linear-gradient(180deg, #fff 0%, #f7fbff 100%);
   overflow: hidden;
 }
 
@@ -400,10 +400,9 @@ font-family: 'Montserrat', sans-serif;
 
 /* ── THE FUTURE ── */
 .os-future {
-  padding: 100px 10vw;
-  background: var(--light);
-  max-width: 760px;
-  margin: 0 auto;
+  background: #fff;
+  max-width: none;
+  margin: 0;
 }
 
 .os-future .os-tag {
@@ -627,6 +626,19 @@ font-family: 'Montserrat', sans-serif;
   background: rgba(255,255,255,0.1);
   border-color: #fff;
 }
+
+/* One uninterrupted page background — individual content sections are transparent. */
+.os-page { background:linear-gradient(180deg,#ffffff 0%,#fefeff 35%,#fcfdff 68%,#f8fafd 100%); }
+.os-hero,.os-intro,.os-focus,.os-future,.os-achievements,.os-timeline-section,.os-cta { background:transparent; }
+.os-achievement { background:#fff; border-color:rgba(13,31,60,.08); }
+.os-achievement:hover { background:#fdf4f5; }
+.os-achievement-num { color:var(--navy); }
+.os-achievement-label { color:#68778c; }
+.os-cta-title { color:var(--navy); }
+.os-cta-body { color:#68778c; }
+.os-btn--white { background:var(--red); color:#fff; }
+.os-btn--outline { color:var(--navy); border-color:rgba(13,31,60,.3); }
+.os-btn--outline:hover { background:var(--navy); color:#fff; border-color:var(--navy); }
 
 /* ===================================
    MOBILE RESPONSIVE FIXES - OUR STORY

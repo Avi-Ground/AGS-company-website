@@ -3,6 +3,9 @@ import HomePage from './components/HomePage'
 import OurStory from './components/OurStory'
 import OurServices from './components/OurServices'
 import WhoWeAre from './components/WhoWeAre'
+import Sustainability from './components/Sustainability'
+import Edge from './components/Edge'
+import NewsMedia from './components/NewsMedia'
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
         <Route path="/our-story"     element={<OurStory />} />
         <Route path="/our-services"  element={<OurServices />} />
         <Route path="/who-we-are"    element={<WhoWeAre />} />
+        <Route path="/sustainability" element={<Sustainability />} />
+        <Route path="/edge"           element={<Edge />} />
+        <Route path="/news-media"     element={<NewsMedia />} />
       </Routes>
     </HashRouter>
   )

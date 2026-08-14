@@ -5,7 +5,6 @@ import HomeHero from './HomeHero'
 import HomeAbout from './HomeAbout'
 import HomeVmr from './HomeVmr'
 import HomeServices from './HomeServices'
-import HomeEdge from './HomeEdge'
 import SiteFooter from './SiteFooter'
 
 export default function HomePage() {
@@ -28,7 +27,6 @@ export default function HomePage() {
       <HomeAbout />
       <HomeVmr />
       <HomeServices />
-      <HomeEdge />
       <SiteFooter />
     </div>
   )

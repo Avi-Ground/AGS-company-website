@@ -76,7 +76,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
-   color:#003087 ;
+color: #08153f;
   text-decoration: none;
   letter-spacing: 0.5px;
   opacity: 0.92;
@@ -214,9 +214,9 @@
 
 .about-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 300px;
   font-weight: 700;
-  color: #003087;
+  color: #08153f;
   margin-bottom: 16px;
 }
 

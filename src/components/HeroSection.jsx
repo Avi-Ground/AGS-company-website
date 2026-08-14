@@ -6,6 +6,10 @@ import './HeroSection.css'
 
 function HeroSection() {
   const [megaOpen, setMegaOpen] = useState(false)
+  const scrollToNews = (event) => {
+    event.preventDefault()
+    document.getElementById('news-and-media')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <>
@@ -50,7 +54,7 @@ function HeroSection() {
                   <div className="mega-col">
                     <span className="mega-col-title">OUR IDENTITY</span>
                     <Link to="/our-story" className="mega-link">
-                      <span className="mega-link-title">Our Story</span>
+                      <span className="mega-link-title">Our Journey</span>
                       <span className="mega-link-sub">From humble beginnings to a global presence</span>
                     </Link>
                     <Link to="/mission-vision" className="mega-link">
@@ -83,7 +87,7 @@ function HeroSection() {
                   {/* Col 3 — PERFORMANCE */}
                   <div className="mega-col">
                     <span className="mega-col-title">PERFORMANCE</span>
-                    <Link to="/service-commitments" className="mega-link">
+                    <Link to="/our-services#safety-compliance" className="mega-link">
                       <span className="mega-link-title">Service Commitments</span>
                       <span className="mega-link-sub">How we measure up to our promises</span>
                     </Link>
@@ -97,8 +101,8 @@ function HeroSection() {
             </li>
 
             <li><Link to="/our-services">Our Services</Link></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">News and Media</a></li>
+            <li><Link to="/sustainability">Sustainability</Link></li>
+            <li><a href="#news-and-media" onClick={scrollToNews}>News and Media</a></li>
 
           </ul>
         </nav>

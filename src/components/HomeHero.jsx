@@ -1,131 +1,125 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './HomeHero.css'
-
-import heroImage from '../assets/hero.png'
-import logo      from '../assets/logo.png'
+import "./HomeHero.css";
+import heroImage from "../assets/hero.png";
+import SiteHeader from "./SiteHeader";
+import CountUp from "./CountUp";
 
 export default function HomeHero() {
-  const [megaOpen, setMegaOpen] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   return (
-    <div className="hp-hero" style={{ backgroundImage: `url(${heroImage})` }}>
-      <div className="hp-hero-overlay" />
+    <section className="hero">
 
-      <div className="hp-topbar">
-        <a href="#" className="hp-topbar-careers">Careers</a>
-        <a href="#">Contact us</a>
-        <a href="#" className="hp-topbar-site">aviationgroundservices.com</a>
-        <span className="hp-lang">EN</span>
+      <SiteHeader variant="home" />
+
+      {/* Background */}
+      <div className="hero-bg"></div>
+
+      <div className="hero-gradient"></div>
+
+      <div className="hero-route">
+        <svg viewBox="0 0 800 400">
+          <path
+            d="M20 350 C180 250 260 100 420 160 S650 280 780 80"
+            fill="none"
+            stroke="rgba(200,16,46,.18)"
+            strokeWidth="2"
+            strokeDasharray="8 8"
+          />
+        </svg>
       </div>
 
-      <nav className="hp-navbar">
-        <div className="hp-logo-area">
-          <img src={logo} alt="AGS Aviation Ground Services" className="hp-logo-img" />
+      <div className="hero-container">
+
+        {/* LEFT */}
+
+        <div className="hero-left">
+
+        
+          <h1>
+            Leaders in
+            <br />
+            Passenger,
+            <br />
+            Cargo &
+            <br />
+            Aircraft Handling
+          </h1>
+
+          <p>
+            Delivering safe, reliable and world-class aviation
+            ground handling services across Zimbabwe with a
+            commitment to operational excellence, efficiency
+            and customer satisfaction.
+          </p>
+
+          <div className="hero-buttons">
+
+          </div>
+
+          <div className="hero-stats">
+
+            <div className="stat">
+              <h2><CountUp end={25} suffix="+" /></h2>
+              <span>Years Experience</span>
+            </div>
+
+            <div className="stat">
+              <h2><CountUp end={200} suffix="+" /></h2>
+              <span>Employees</span>
+            </div>
+
+            <div className="stat">
+              <h2><CountUp end={24} suffix="/7" /></h2>
+              <span>Operations</span>
+            </div>
+
+            <div className="stat">
+              <h2><CountUp end={3} /></h2>
+              <span>Airport locations in Zimbabwe</span>
+            </div>
+          </div>
         </div>
-        <button
-          className="hp-hamburger"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          ☰
-        </button>
-        <ul className="hp-nav-links">
-          <li
-            className="hp-nav-item"
-            onMouseEnter={() => setMegaOpen(true)}
-            onMouseLeave={() => setMegaOpen(false)}
-          >
-            <a href="#">
-              Who we are
-              <svg className="hp-nav-chevron" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </a>
-            {megaOpen && (
-              <div className="hp-mega-menu">
-                <div className="hp-mega-col">
-                  <span className="hp-mega-col-title">OUR IDENTITY</span>
-                  <Link to="/our-story" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Our Story</span>
-                    <span className="hp-mega-link-sub">From humble beginnings to a global presence</span>
-                  </Link>
-                  <Link to="/who-we-are#mission-vision" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Our Mission &amp; Vision</span>
-                    <span className="hp-mega-link-sub">The principles that guide everything we do</span>
-                  </Link>
-                  <Link to="/who-we-are#our-values" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Our Values</span>
-                    <span className="hp-mega-link-sub">Integrity, excellence, and accountability</span>
-                  </Link>
-                </div>
-                <div className="hp-mega-col">
-                  <span className="hp-mega-col-title">OUR PEOPLE</span>
-                  <Link to="/who-we-are#our-people" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Our People</span>
-                    <span className="hp-mega-link-sub">The talent behind every success story</span>
-                  </Link>
-                  <Link to="/who-we-are#code-of-conduct" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Business Code of Conduct</span>
-                    <span className="hp-mega-link-sub">How we operate with integrity</span>
-                  </Link>
-                  <Link to="/who-we-are#community" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Community &amp; Wellbeing</span>
-                    <span className="hp-mega-link-sub">Our commitment beyond the tarmac</span>
-                  </Link>
-                </div>
-                <div className="hp-mega-col">
-                  <span className="hp-mega-col-title">PERFORMANCE</span>
-                  <Link to="/who-we-are#service-commitments" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Service Commitments</span>
-                    <span className="hp-mega-link-sub">How we measure up to our promises</span>
-                  </Link>
-                  <Link to="/who-we-are#policies" className="hp-mega-link">
-                    <span className="hp-mega-link-title">Business Policies &amp; Practices</span>
-                    <span className="hp-mega-link-sub">Standards that drive our operations</span>
-                  </Link>
-                </div>
-              </div>
-            )}
-          </li>
-          <li><Link to="/our-services">Our Services</Link></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">News and Media</a></li>
-        </ul>
-      </nav>
-      {mobileMenuOpen && (
-        <div className="hp-mobile-menu">
 
-          <Link
-            to="/our-story"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Our Story
-          </Link>
+        {/* RIGHT */}
 
-          <Link
-            to="/our-services"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Our Services
-          </Link>
+        <div className="hero-right">
 
-          <a href="#">Sustainability</a>
-          <a href="#">News and Media</a>
+          <div className="hero-circle">
+
+            <img
+              src={heroImage}
+              alt="AGS Aviation Ground Services"
+            />
+
+          </div>
+
+      
+          <div className="floating-card card-three">
+           
+
+            <div>
+              <h4>Cargo Handling</h4>
+              <p>Import & Export</p>
+            </div>
+
+          </div>
+
+          <div className="floating-card card-two">
+            <div>
+              <h4>Passenger Handling</h4>
+              <p>24 Hour Support</p>
+            </div>
+          </div>
+
+          <div className="floating-card card-one">
+            <div>
+              <h4>Aircraft Handling</h4>
+              <p>Ramp Operations</p>
+            </div>
+          </div>
 
         </div>
-      )}
-      <div className="hp-hero-content">
-        <h1 className="hp-hero-headline">
-          'Leaders in Passenger,<br />Cargo and Aircraft Handling'
-        </h1>
-        <button className="hp-arrow-btn" aria-label="Learn more">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </button>
+
       </div>
-    </div>
-  )
+
+    </section>
+  );
 }

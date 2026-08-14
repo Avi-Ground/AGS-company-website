@@ -2,7 +2,7 @@
    SERVICES
 ══════════════════════════════ */
 .hp-services {
-  background: #eef3f9;
+  background: transparent;
   padding: 48px 48px 60px;
   text-align: center;
 }
@@ -11,7 +11,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   font-weight: 700;
-  color: #003087;
+  color: #08153f;
   margin-bottom: 36px;
 }
 

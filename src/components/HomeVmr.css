@@ -2,24 +2,11 @@
    VISION MISSION ROLE
 ══════════════════════════════ */
 .hp-vmr {
-  background: #eef3f9;
+  background: transparent;
   padding: 20px 32px 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.hp-vmr::before {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: rgba(0,48,135,0.04);
-  top: -250px;
-  right: -250px;
-  animation: orbit 20s linear infinite;
-  pointer-events: none;
 }
 
 .hp-vmr-block {
@@ -33,14 +20,13 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #003087;
+ color: #08153f;
   margin-bottom: 14px;
 }
 
 .hp-vmr-heading.role {
-  font-size: 26px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hp-vmr-text {

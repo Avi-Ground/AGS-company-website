@@ -136,6 +136,7 @@ export default function WhoWeAre() {
       {/* ══════════════════════════════
           OUR PEOPLE
       ══════════════════════════════ */}
+      {false && <>
       <section id="our-people" className="ww-section ww-section--light ww-fade">
         <div className="ww-section-inner">
           <p className="ww-tag ww-tag--dark">THE TEAM</p>
@@ -167,6 +168,7 @@ export default function WhoWeAre() {
       {/* ══════════════════════════════
           CODE OF CONDUCT
       ══════════════════════════════ */}
+      </>}
       <section id="code-of-conduct" className="ww-section ww-section--red ww-fade">
         <div className="ww-section-inner ww-two-col">
           <div className="ww-text-col">
@@ -206,6 +208,7 @@ export default function WhoWeAre() {
       {/* ══════════════════════════════
           COMMUNITY & WELLBEING
       ══════════════════════════════ */}
+      {false && <>
       <section id="community" className="ww-section ww-section--light ww-fade">
         <div className="ww-section-inner">
           <div className="ww-community-header">
@@ -265,6 +268,8 @@ export default function WhoWeAre() {
       {/* ══════════════════════════════
           SERVICE COMMITMENTS
       ══════════════════════════════ */}
+      </>}
+      {false && <>
       <section id="service-commitments" className="ww-section ww-section--dark ww-fade">
         <div className="ww-section-inner">
           <p className="ww-tag ww-tag--red">OUR PROMISE</p>
@@ -300,6 +305,8 @@ export default function WhoWeAre() {
       {/* ══════════════════════════════
           BUSINESS POLICIES
       ══════════════════════════════ */}
+      </>}
+      {false && <>
       <section id="policies" className="ww-section ww-section--light ww-fade">
         <div className="ww-section-inner">
           <p className="ww-tag ww-tag--dark">HOW WE WORK</p>
@@ -315,6 +322,7 @@ export default function WhoWeAre() {
         </div>
       </section>
 
+      </>}
       <SiteFooter />
 
     </div>
