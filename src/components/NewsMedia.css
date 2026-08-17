@@ -6,7 +6,7 @@
 .nm-eyebrow { color:#c8102e; font-size:10px; font-weight:800; letter-spacing:3px; margin:0 0 18px; }
 .nm-hero h1,.nm-feature h2,.nm-latest h2,.nm-contact h2 { letter-spacing:-2.5px; line-height:.98; margin:0; }
 .nm-hero h1 { font-size:clamp(48px,6vw,78px); }
-.nm-hero h1 em { color:#c8102e; font-family:'Playfair Display',serif; font-weight:700; }
+.nm-hero h1 em { color:#c8102e; font-weight:700; }
 .nm-hero-copy > p:last-child { color:#637188; font-size:14px; line-height:1.85; max-width:490px; margin:27px 0 0; }
 .nm-flight-line { color:rgba(200,16,46,.35); position:absolute; width:min(53vw,720px); right:-4vw; top:122px; }
 .nm-flight-line svg { display:block; width:100%; }

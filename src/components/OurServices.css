@@ -216,7 +216,18 @@
   justify-content: flex-end;
   padding: 48px 40px;
   overflow: hidden;
+  background-size: cover;
 }
+
+/* Individual service-image crop positions — edit these independently. */
+.sv-service-visual--aircraft-handling {
+   background-position: 5% center;
+ }
+.sv-service-visual--passenger-handling { background-position: center center; }
+.sv-service-visual--cargo-handling { background-position: center center; }
+.sv-service-visual--charter-services { background-position: 20% 80%; }
+.sv-service-visual--aircraft-cleaning { background-position: 100% 50%; }
+.sv-service-visual--warehousing { background-position: 100% center; }
 
 .sv-service-big-icon {
   position: relative;

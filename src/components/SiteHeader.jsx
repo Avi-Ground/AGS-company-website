@@ -12,7 +12,7 @@ export default function SiteHeader({ variant = '' }) {
   return (
     <header className={`sh-header${variant ? ` sh-header--${variant}` : ''}`}>
       <div className="sh-topbar">
-        <a href="mailto:careers@avi-ground.com" className="sh-topbar-careers">Careers</a>
+        <Link to="/careers" className="sh-topbar-careers">Careers</Link>
         <a href="mailto:info@avi-ground.com">Contact us</a>
         <Link to="/" className="sh-topbar-site">
           {variant === 'home' ? 'aviationgroundservices.com' : 'avi-ground.com'}
@@ -96,6 +96,7 @@ export default function SiteHeader({ variant = '' }) {
           <Link to="/our-services" onClick={() => setMobileMenuOpen(false)}>Our Services</Link>
           <Link to="/sustainability" onClick={() => setMobileMenuOpen(false)}>Sustainability</Link>
           <Link to="/news-media" onClick={() => setMobileMenuOpen(false)}>News and Media</Link>
+          <Link to="/careers" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
         </div>
       )}
     </header>

@@ -91,30 +91,6 @@ export default function HomeHero() {
 
           </div>
 
-      
-          <div className="floating-card card-three">
-           
-
-            <div>
-              <h4>Cargo Handling</h4>
-              <p>Import & Export</p>
-            </div>
-
-          </div>
-
-          <div className="floating-card card-two">
-            <div>
-              <h4>Passenger Handling</h4>
-              <p>24 Hour Support</p>
-            </div>
-          </div>
-
-          <div className="floating-card card-one">
-            <div>
-              <h4>Aircraft Handling</h4>
-              <p>Ramp Operations</p>
-            </div>
-          </div>
 
         </div>
 

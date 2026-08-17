@@ -5,18 +5,19 @@ import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
 
 import servicesHero from '../assets/services-hero.jpeg'
-import qatarAirways from '../assets/airline-logos/qatar-airways.svg'
-import kenyaAirways from '../assets/airline-logos/kenya-airways.svg'
+import cargoImage from '../assets/cargo.jpeg'
+import qatarAirways from '../assets/airline-logos/qatar-airways.png'
+import flyEmirates from '../assets/airline-logos/fly-emirates.png'
+import kenyaAirways from '../assets/airline-logos/kenya-airways.png'
 import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
-import southAfricanAirways from '../assets/airline-logos/south-african-airways.svg'
 import rwandAir from '../assets/airline-logos/rwandair.png'
 import fastjet from '../assets/airline-logos/fastjet.png'
-import ugandaAircraft from '../assets/partner-aircraft/uganda-airlines.webp'
-import fastjetAircraft from '../assets/partner-aircraft/fastjet.webp'
-import kenyaAircraft from '../assets/partner-aircraft/kenya-airways.webp'
-import rwandAirAircraft from '../assets/partner-aircraft/rwandair.webp'
-import qatarAircraft from '../assets/partner-aircraft/qatar-airways.webp'
-import emiratesAircraft from '../assets/partner-aircraft/emirates.webp'
+import airTanzania from '../assets/airline-logos/air-tanzania.png'
+import ugandaAircraft from '../assets/partner-aircraft/Uganda_Airlines_high_resolution.jpg'
+import fastjetAircraft from '../assets/partner-aircraft/Fastjet_high_resolution.jpg'
+import rwandAirAircraft from '../assets/partner-aircraft/RwandAir_high_resolution.jpg'
+import qatarAircraft from '../assets/partner-aircraft/Qatar_Airways_high_resolution.jpg'
+import airTanzaniaAircraft from '../assets/partner-aircraft/Air_Tanzania_high_resolution.png'
 
 const services = [
   {
@@ -26,7 +27,8 @@ const services = [
     tagline: 'Precision on the tarmac, every single time.',
     body: 'Our ramp teams are the heartbeat of every turnaround. From aircraft marshalling and pushback to ground power supply and wheel chocking — we execute every procedure with military precision. Our agents are IATA-certified and trained to handle narrow-body, wide-body, and freighter aircraft across all weather conditions.',
     features: ['Aircraft Marshalling & Pushback', 'Ground Power Unit (GPU) Supply', 'Potable Water & Lavatory Service', 'Airstairs & Jet Bridge Operations', 'De-icing Coordination', 'FOD Checks & Tarmac Safety'],
-    image: kenyaAircraft,
+    image: airTanzaniaAircraft,
+    visualClass: 'sv-service-visual--aircraft-handling',
   },
   {
     id: '01',
@@ -36,6 +38,7 @@ const services = [
     body: "We believe the passenger experience begins on the ground. Our passenger services team manages everything from check-in and boarding to special assistance — delivering a seamless, professional, and warm experience that reflects your airline's brand. We handle high volumes with speed and dignity.",
     features: ['Check-in & Boarding Gate Management', 'VIP & CIP Lounge Coordination', 'Special Assistance (PRM Services)', 'Lost & Found Management', 'Baggage Reconciliation', 'Unaccompanied Minor Handling'],
     image: qatarAircraft,
+    visualClass: 'sv-service-visual--passenger-handling',
   },
   {
     id: '02',
@@ -44,7 +47,8 @@ const services = [
     tagline: 'Your freight in trusted hands.',
     body: 'From belly freight to full freighter operations, our cargo division manages the complete chain of custody for your shipments. We operate a modern cargo facility at Harare International Airport with trained handlers experienced in general cargo, express freight, perishables, live animals, and dangerous goods.',
     features: ['General & Express Cargo Handling', 'Perishables & Cold Chain Management', 'Dangerous Goods (DG) Handling', 'Live Animal Handling', 'Oversized & Heavy Cargo', 'Cargo Documentation & Manifests'],
-    image: emiratesAircraft,
+    image: cargoImage,
+    visualClass: 'sv-service-visual--cargo-handling',
   },
   {
     id: '05',
@@ -54,6 +58,7 @@ const services = [
     body: "AGS provides end-to-end ground support for private and charter operators requiring premium, personalised service. Whether it's a private jet, a VIP delegation, or a sports team charter — our dedicated charter team ensures a seamless, discreet, and efficient ground experience tailored to your exact requirements.",
     features: ['Private Jet Ground Handling', 'VIP & Diplomatic Flight Support', 'Customs & Immigration Facilitation', 'Fuel Coordination', 'Catering Liaison', 'Hangar & Parking Coordination'],
     image: rwandAirAircraft,
+    visualClass: 'sv-service-visual--charter-services',
   },
   {
     id: '06',
@@ -63,6 +68,7 @@ const services = [
     body: 'A clean aircraft is a safe aircraft. Our cabin and exterior cleaning crews work to strict airline specifications — ensuring every seat pocket, overhead bin, lavatory, and cockpit meets the hygiene standards your passengers and crew deserve. We work within tight turnaround windows without compromising quality.',
     features: ['Interior Cabin Cleaning & Sanitisation', 'Exterior Washing & Polishing', 'Deep Cleaning Between Rotations', 'Seat Pocket & IFE Restocking', 'Galley Cleaning & Waste Removal', 'Cockpit Cleaning Protocols'],
     image: fastjetAircraft,
+    visualClass: 'sv-service-visual--aircraft-cleaning',
   },
   {
     id: '04',
@@ -71,6 +77,7 @@ const services = [
     body: 'Our warehousing solutions keep freight secure, organised, and ready for onward movement. We manage storage, inventory, and handling with the operational discipline needed to keep every shipment protected and on schedule.',
     features: ['Secure Cargo Storage', 'Inventory Management', 'Cargo Build-up & Breakdown', 'Palletisation & Labelling', 'Shipment Tracking', 'Controlled Access Facilities'],
     image: ugandaAircraft,
+    visualClass: 'sv-service-visual--warehousing',
   },
 ]
 
@@ -78,9 +85,10 @@ const partners = [
   { name: 'Qatar Airways', logo: qatarAirways },
   { name: 'Kenya Airways', logo: kenyaAirways },
   { name: 'Uganda Airlines', logo: ugandaAirlines },
-  { name: 'South African Airways', logo: southAfricanAirways },
   { name: 'RwandAir', logo: rwandAir },
   { name: 'Fastjet', logo: fastjet },
+  { name: 'Fly Emirates', logo: flyEmirates },
+  { name: 'Air Tanzania', logo: airTanzania },
 ]
 
 const whyCards = [
@@ -162,11 +170,9 @@ export default function OurServices() {
             id={s.anchor}
           >
             <div
-              className="sv-service-visual"
+              className={`sv-service-visual ${s.visualClass}`}
               style={{
                 backgroundImage: `url(${s.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
             >
               <div className="sv-service-tagline">{s.tagline}</div>

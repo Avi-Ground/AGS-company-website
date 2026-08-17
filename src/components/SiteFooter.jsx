@@ -1,20 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './SiteFooter.css'
-import qatarAirways from '../assets/airline-logos/qatar-airways.svg'
-import kenyaAirways from '../assets/airline-logos/kenya-airways.svg'
+import qatarAirways from '../assets/airline-logos/qatar-airways.png'
+import kenyaAirways from '../assets/airline-logos/kenya-airways.png'
 import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
-import southAfricanAirways from '../assets/airline-logos/south-african-airways.svg'
 import rwandAir from '../assets/airline-logos/rwandair.png'
 import fastjet from '../assets/airline-logos/fastjet.png'
+import flyEmirates from '../assets/airline-logos/fly-emirates.png'
+import airTanzania from '../assets/airline-logos/air-tanzania.png'
 
 const airlineLogos = [
   { name: 'Qatar Airways', image: qatarAirways },
   { name: 'Kenya Airways', image: kenyaAirways },
   { name: 'Uganda Airlines', image: ugandaAirlines },
-  { name: 'South African Airways', image: southAfricanAirways },
+    { name: 'Fly Emirates', image: flyEmirates },
   { name: 'RwandAir', image: rwandAir },
   { name: 'Fastjet', image: fastjet },
+  { name: 'Air Tanzania', image: airTanzania },
 ]
 
 export default function SiteFooter() {
@@ -121,7 +123,7 @@ export default function SiteFooter() {
           <div className="hp-footer-col">
             <h4 className="hp-footer-col-title">Careers</h4>
             <ul className="hp-footer-links">
-              <li><a href="mailto:careers@avi-ground.com">Join us</a></li>
+              <li><Link to="/careers">Join us</Link></li>
             </ul>
           </div>
           <div className="hp-footer-col">
@@ -151,28 +153,48 @@ export default function SiteFooter() {
         <div className="hp-footer-col">
           <h4 className="hp-footer-col-title">Connect with us</h4>
           <div className="hp-social-icons">
-            <a href="#" className="hp-social-icon" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-              </svg>
-            </a>
-            <a href="#" className="hp-social-icon" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-              </svg>
-            </a>
-            <a href="#" className="hp-social-icon" aria-label="X">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="#" className="hp-social-icon" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-              </svg>
-            </a>
+          <a
+  href="https://www.instagram.com/aviationgroundservices?igsh=YnA2d3FqcDdkNjlj"
+  className="hp-social-icon"
+  aria-label="Instagram"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+  </svg>
+</a>
+           <a
+  href="https://www.facebook.com/share/1JyWGob3ru/"
+  className="hp-social-icon"
+  aria-label="Facebook"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+</a>
+           <a
+  href="https://x.com/avi_ground"
+  className="hp-social-icon"
+  aria-label="X"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+</a>
           </div>
         </div>
         <a className="hp-flight-radar" href="https://www.flightradar24.com/" target="_blank" rel="noreferrer" aria-label="Open FlightRadar24 in a new tab">
