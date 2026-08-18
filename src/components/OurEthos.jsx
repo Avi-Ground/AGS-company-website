@@ -173,8 +173,9 @@ export default function OurEthos() {
               </h2>
             </div>
             <p>
-              The four pillars define how AGS delivers consistent, dependable
-              and continuously improving ground handling services.
+              These four pillars define how AGS delivers a consistent and dependable service,
+              continuously setting the standard for ground handling services
+               in Zimbabwe and Beyond.
             </p>
           </header>
           <div className="edge-pillars-grid">
