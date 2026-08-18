@@ -1,14 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
 .nm-page { color:#0d1f3c; background:linear-gradient(180deg,#ffffff 0%,#fefeff 35%,#fcfdff 68%,#f8fafd 100%); font-family:'Montserrat',sans-serif; overflow:hidden; }
-.nm-hero { min-height:510px; padding:180px 10vw 95px; background:transparent; position:relative; }
-.nm-hero-copy { position:relative; z-index:1; max-width:620px; }
 .nm-eyebrow { color:#c8102e; font-size:10px; font-weight:800; letter-spacing:3px; margin:0 0 18px; }
-.nm-hero h1,.nm-feature h2,.nm-latest h2,.nm-contact h2 { letter-spacing:-2.5px; line-height:.98; margin:0; }
-.nm-hero h1 { font-size:clamp(48px,6vw,78px); }
-.nm-hero h1 em { color:#c8102e; font-weight:700; }
-.nm-hero-copy > p:last-child { color:#637188; font-size:14px; line-height:1.85; max-width:490px; margin:27px 0 0; }
-.nm-flight-line { color:rgba(200,16,46,.35); position:absolute; width:min(53vw,720px); right:-4vw; top:122px; }
+.nm-feature h2,.nm-latest h1,.nm-contact h2 { letter-spacing:-2.5px; line-height:.98; margin:0; }
+.nm-flight-line { color:rgba(200,16,46,.35); position:absolute; width:min(53vw,720px); right:-4vw; top:-105px; z-index:-1; }
 .nm-flight-line svg { display:block; width:100%; }
 .nm-flight-line span { color:rgba(13,31,60,.04); font-size:clamp(100px,18vw,250px); font-weight:800; position:absolute; right:9%; top:28%; letter-spacing:-16px; }
 .nm-feature { max-width:1120px; margin:0 auto; padding:105px 30px; display:grid; grid-template-columns:1fr 1fr; gap:75px; align-items:center; position:relative; isolation:isolate; }
@@ -22,9 +17,9 @@
 .nm-feature-copy > p { color:#637188; font-size:14px; line-height:1.85; margin:25px 0; }
 .nm-link,.nm-contact a { color:#c8102e; text-decoration:none; font-size:12px; font-weight:800; letter-spacing:.5px; }
 .nm-link span,.nm-contact a span { font-size:19px; padding-left:8px; vertical-align:-2px; }
-.nm-latest { background:transparent; padding:100px 10vw 112px; }
+.nm-latest { background:transparent; padding:145px 10vw 112px; position:relative; isolation:isolate; overflow:hidden; }
 .nm-section-heading { max-width:1120px; margin:0 auto 45px; display:flex; align-items:end; justify-content:space-between; gap:40px; }
-.nm-section-heading h2 { font-size:clamp(35px,4vw,54px); }
+.nm-section-heading h1 { font-size:clamp(35px,4vw,54px); }
 .nm-section-heading > p { color:#637188; font-size:13px; line-height:1.8; max-width:315px; margin:0; }
 .nm-story-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; max-width:1120px; margin:auto; }
 .nm-story { background:#fff; transition:transform .3s ease,box-shadow .3s ease; }
@@ -35,10 +30,10 @@
 .nm-story-body { padding:24px 25px 30px; }
 .nm-story-meta { display:flex; justify-content:space-between; color:#718095; font-size:10px; letter-spacing:.7px; }
 .nm-story-meta span { color:#c8102e; font-weight:800; text-transform:uppercase; }
-.nm-story h3 { font-size:18px; line-height:1.35; margin:15px 0 12px; }
+.nm-story h2 { font-size:18px; line-height:1.35; margin:15px 0 12px; }
 .nm-story-body p { color:#637188; font-size:12.5px; line-height:1.75; margin:0; }
 .nm-contact { padding:100px 25px; text-align:center; background:#0d1f3c; color:#fff; }
 .nm-contact h2 { font-size:clamp(38px,5vw,61px); }
 .nm-contact > p:not(.nm-eyebrow) { color:rgba(255,255,255,.67); max-width:490px; margin:22px auto 27px; font-size:14px; line-height:1.8; }
 .nm-contact a { color:#fff; border-bottom:1px solid #c8102e; padding-bottom:8px; }
-@media(max-width:760px) { .nm-hero { min-height:470px; padding:145px 25px 80px; }.nm-flight-line { width:600px; right:-280px; top:175px; opacity:.7; }.nm-feature { grid-template-columns:1fr; padding:70px 25px; gap:48px; }.nm-feature-image { max-width:450px; width:calc(100% - 14px); }.nm-section-heading { display:block; }.nm-section-heading > p { margin-top:24px; }.nm-latest { padding:70px 25px; }.nm-story-grid { grid-template-columns:1fr; gap:20px; }.nm-story-image { height:240px; }.nm-contact { padding:75px 25px; } }
+@media(max-width:760px) { .nm-flight-line { width:600px; right:-280px; top:-105px; opacity:.7; }.nm-feature { grid-template-columns:1fr; padding:70px 25px; gap:48px; }.nm-feature-image { max-width:450px; width:calc(100% - 14px); }.nm-section-heading { display:block; }.nm-section-heading > p { margin-top:24px; }.nm-latest { padding:105px 25px 70px; }.nm-story-grid { grid-template-columns:1fr; gap:20px; }.nm-story-image { height:240px; }.nm-contact { padding:75px 25px; } }

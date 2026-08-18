@@ -1,0 +1,28 @@
+.cu-page { color: var(--navy); background: #fff; overflow-x: hidden; }
+.cu-inner { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+.cu-hero { position: relative; overflow: hidden; min-height: 440px; display: flex; align-items: center; background: #f5f8fc; }
+.cu-hero-content { position: relative; z-index: 1; padding: 100px 0 70px; }
+.cu-eyebrow { color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; }
+.cu-hero h1, .cu-social-section h2 { font-size: clamp(42px, 6vw, 72px); line-height: 1.08; letter-spacing: -2px; }
+.cu-hero h1 em { color: var(--red); font-style: italic; }
+.cu-hero p:not(.cu-eyebrow) { max-width: 480px; margin-top: 22px; color: var(--gray); line-height: 1.8; font-size: 15px; }
+.cu-hero-orbit { position: absolute; border: 1px solid rgba(200, 16, 46, .15); border-radius: 50%; right: -115px; top: 50%; transform: translateY(-50%); }
+.cu-hero-orbit--one { width: 620px; height: 620px; }
+.cu-hero-orbit--two { width: 440px; height: 440px; right: -25px; border-color: rgba(200, 16, 46, .08); }
+.cu-details { padding: 80px 0; }
+.cu-details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cu-card { min-height: 230px; padding: 34px 30px; background: #f4f7fb; border: 1px solid rgba(13, 31, 60, .08); border-radius: 10px; display: flex; flex-direction: column; align-items: flex-start; }
+.cu-card-label { color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: 2px; margin-bottom: 26px; }
+.cu-card h2 { font-size: 20px; margin-bottom: 15px; }
+.cu-card address, .cu-card a { color: var(--gray); font-size: 14px; line-height: 1.9; text-decoration: none; font-style: normal; }
+.cu-card a:hover { color: var(--red); }
+.cu-social-section { padding: 80px 0 100px; text-align: center; background: var(--navy); color: #fff; }
+.cu-social-section h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1px; }
+.cu-social-copy { max-width: 470px; margin: 16px auto 36px; color: rgba(255, 255, 255, .66); font-size: 14px; line-height: 1.8; }
+.cu-social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cu-social-link { display: flex; align-items: center; gap: 11px; min-width: 190px; padding: 15px 18px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .15); border-radius: 5px; transition: transform .2s, background .2s; }
+.cu-social-link:hover { transform: translateY(-3px); background: var(--red); }
+.cu-social-icon { width: 20px; height: 20px; display: grid; place-items: center; }
+.cu-social-icon svg { width: 20px; height: 20px; }
+.cu-arrow { margin-left: auto; font-size: 18px; }
+@media (max-width: 768px) { .cu-hero { min-height: 370px; } .cu-hero-content { padding: 90px 0 58px; } .cu-hero h1 { font-size: 45px; } .cu-details { padding: 54px 0; } .cu-details-grid { grid-template-columns: 1fr; } .cu-card { min-height: auto; padding: 28px 24px; } .cu-social-section { padding: 60px 0; } .cu-social-link { width: 100%; } }
