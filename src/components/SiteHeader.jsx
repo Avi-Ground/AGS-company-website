@@ -96,7 +96,7 @@ export default function SiteHeader({ variant = '' }) {
           <Link to="/our-services" onClick={() => setMobileMenuOpen(false)}>Our Services</Link>
           <Link to="/sustainability" onClick={() => setMobileMenuOpen(false)}>Sustainability</Link>
           <Link to="/news-media" onClick={() => setMobileMenuOpen(false)}>News and Media</Link>
-          <Link to="/careers" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
+      
         </div>
       )}
     </header>
