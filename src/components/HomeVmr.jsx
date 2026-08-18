@@ -4,7 +4,7 @@ export default function HomeVmr() {
   return (
     <section className="hp-vmr">
       <div className="hp-vmr-block hp-animate">
-        <h2 className="hp-vmr-heading role">Our role in aviation</h2>
+        <h2 className="hp-vmr-heading role">Our Role in Aviation</h2>
         <p className="hp-vmr-text">
           To be the driving force behind continuous improvement in aviation ground services
           consistently raising the standard for safety, efficiency, and passenger experience.
