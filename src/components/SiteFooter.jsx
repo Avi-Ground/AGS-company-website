@@ -7,7 +7,6 @@ import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
 import rwandAir from '../assets/airline-logos/rwandair.png'
 import fastjet from '../assets/airline-logos/fastjet.png'
 import flyEmirates from '../assets/airline-logos/fly-emirates.png'
-import airTanzania from '../assets/airline-logos/air-tanzania.png'
 
 const airlineLogos = [
   { name: 'Qatar Airways', image: qatarAirways },
@@ -16,7 +15,6 @@ const airlineLogos = [
     { name: 'Fly Emirates', image: flyEmirates },
   { name: 'RwandAir', image: rwandAir },
   { name: 'Fastjet', image: fastjet },
-  { name: 'Air Tanzania', image: airTanzania },
 ]
 
 export default function SiteFooter() {
@@ -123,7 +121,7 @@ export default function SiteFooter() {
           <div className="hp-footer-col">
             <h4 className="hp-footer-col-title">Careers</h4>
             <ul className="hp-footer-links">
-              <li><Link to="/careers">Join us</Link></li>
+              <li><a href="mailto:careers@avi-ground.com">Join us</a></li>
             </ul>
           </div>
           <div className="hp-footer-col">
@@ -144,9 +142,9 @@ export default function SiteFooter() {
         <div className="hp-footer-col">
           <h4 className="hp-footer-col-title">Contact Us</h4>
           <ul className="hp-footer-links">
-            <li><a href="mailto:info@avi-ground.com?subject=Frequently%20asked%20questions">Frequently asked questions</a></li>
-            <li><a href="mailto:info@avi-ground.com?subject=Enquiry%20and%20feedback">Enquiry &amp; feedback form</a></li>
-            <li><a href="mailto:info@avi-ground.com?subject=Lost%20and%20found">Lost and found</a></li>
+            <li><a href="/contact-us#faq">Frequently asked questions</a></li>
+            <li><a href="/contact-us#enquiry">Enquiry &amp; feedback form</a></li>
+            <li><a href="/contact-us#lost-found">Lost and found</a></li>
             <li><a href="mailto:info@avi-ground.com?subject=Media%20contact">Media contact and resources</a></li>
           </ul>
         </div>
