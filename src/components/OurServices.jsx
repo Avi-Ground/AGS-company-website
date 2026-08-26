@@ -18,6 +18,16 @@ import fastjetAircraft from '../assets/partner-aircraft/Fastjet_high_resolution.
 import rwandAirAircraft from '../assets/partner-aircraft/RwandAir_high_resolution.jpg'
 import qatarAircraft from '../assets/partner-aircraft/Qatar_Airways_high_resolution.jpg'
 import airTanzaniaAircraft from '../assets/partner-aircraft/Air_Tanzania_high_resolution.png'
+import proCharter from '../assets/partner-logos/pro-charter.png'
+import fireblade from '../assets/partner-logos/fireblade.png'
+import airmaster from '../assets/partner-logos/airmaster.png'
+import national from '../assets/partner-logos/national.png'
+import skipAviation from '../assets/partner-logos/skip-aviation-consultants.png'
+import astral from '../assets/partner-logos/astral.png'
+import mkvAviation from '../assets/partner-logos/mkv-aviation.png'
+import astraAviation from '../assets/partner-logos/astra-aviation.png'
+import geosky from '../assets/partner-logos/geosky.png'
+import skyguard from '../assets/partner-logos/skyguard.png'
 
 const services = [
   {
@@ -79,6 +89,33 @@ const services = [
     image: ugandaAircraft,
     visualClass: 'sv-service-visual--warehousing',
   },
+  {
+    id: '07',
+    title: 'Ramp & Baggage Handling',
+    tagline: 'Safe, swift coordination from kerbside to aircraft.',
+    body: 'Our trained ramp teams coordinate baggage movement, aircraft loading and turnaround support with careful control at every stage. We work to airline procedures to keep bags, equipment and flights moving safely and on time.',
+    features: ['Baggage Sorting & Loading', 'Baggage Make-up & Delivery', 'Weight & Balance Support', 'Load Control Coordination', 'Turnaround Equipment Handling', 'Ramp Safety Monitoring'],
+    image: airTanzaniaAircraft,
+    visualClass: 'sv-service-visual--ramp-baggage',
+  },
+  {
+    id: '08',
+    title: 'Airport Appearance Services',
+    tagline: 'A polished airport experience at every touchpoint.',
+    body: 'AGS helps airlines maintain a professional, welcoming presence throughout their airport operation. From branded check-in areas to lounges and gate spaces, our teams support a consistently high standard of presentation.',
+    features: ['Check-in Area Presentation', 'Gate & Lounge Readiness', 'Airline Branding Support', 'Cabin Presentation Coordination', 'Customer-Facing Area Checks', 'Service Quality Monitoring'],
+    image: qatarAircraft,
+    visualClass: 'sv-service-visual--airport-appearance',
+  },
+  {
+    id: '09',
+    title: 'Airline Representation & Operations Support',
+    tagline: 'A capable local team for every operation.',
+    body: 'We provide dependable local representation for airline and aviation partners, coordinating stakeholders, monitoring day-to-day operations and providing the on-the-ground insight needed for smooth, compliant service delivery.',
+    features: ['Station & Airline Representation', 'Operational Coordination', 'Stakeholder Liaison', 'Irregular Operations Support', 'Performance Reporting', '24/7 Local Assistance'],
+    image: ugandaAircraft,
+    visualClass: 'sv-service-visual--airline-representation',
+  },
 ]
 
 const partners = [
@@ -89,6 +126,19 @@ const partners = [
   { name: 'Fastjet', logo: fastjet },
   { name: 'Fly Emirates', logo: flyEmirates },
   { name: 'Air Tanzania', logo: airTanzania },
+]
+
+const specialistPartners = [
+  { name: 'Pro Charter', logo: proCharter },
+  { name: 'Fireblade', logo: fireblade },
+  { name: 'Airmaster', logo: airmaster },
+  { name: 'National', logo: national },
+  { name: 'Skip Aviation Consultants', logo: skipAviation },
+  { name: 'Astral', logo: astral },
+  { name: 'MKV Aviation', logo: mkvAviation },
+  { name: 'Astra Aviation', logo: astraAviation },
+  { name: 'Geosky', logo: geosky },
+  { name: 'Skyguard', logo: skyguard },
 ]
 
 const whyCards = [
@@ -110,7 +160,7 @@ const serviceCommitments = [
 ]
 
 export default function OurServices() {
-  const orderedServices = [services[1], services[2], services[0], services[5], services[3], services[4]]
+  const orderedServices = [services[1], services[2], services[0], services[6], services[5], services[3], services[4], services[7], services[8]]
   const { hash } = useLocation()
 
   useEffect(() => {
@@ -128,7 +178,7 @@ export default function OurServices() {
       { threshold: 0.1 }
     )
     const targets = document.querySelectorAll(
-      '.sv-strip, .sv-service-row, .sv-why, .sv-partners, .sv-cta'
+      '.sv-strip, .sv-service-card, .sv-why, .sv-partners, .sv-cta'
     )
     targets.forEach(el => observer.observe(el))
     return () => observer.disconnect()
@@ -163,35 +213,57 @@ export default function OurServices() {
 
       {/* SERVICES */}
       <section className="sv-services">
-        {orderedServices.map((s, i) => (
-          <div
-            className={`sv-service-row ${i % 2 !== 0 ? 'sv-service-row--flip' : ''}`}
-            key={s.id}
-            id={s.anchor}
-          >
-            <div
-              className={`sv-service-visual ${s.visualClass}`}
-              style={{
-                backgroundImage: `url(${s.image})`,
-              }}
-            >
-              <div className="sv-service-tagline">{s.tagline}</div>
+        <div className="sv-services-inner">
+          <div className="sv-services-heading">
+            <div>
+              <p className="sv-tag">OUR SERVICES</p>
+              <h2 className="sv-services-title">Ground support built around <em>your operation.</em></h2>
             </div>
-
-            <div className="sv-service-content">
-              <h2 className="sv-service-title">{s.title}</h2>
-              <p className="sv-service-body">{s.body}</p>
-              <ul className="sv-service-features">
-                {s.features.map((f, j) => (
-                  <li key={j}>
-                    <span className="sv-check">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="sv-services-intro">
+              From passenger and aircraft handling to cargo, charter and airline representation,
+              AGS brings every part of the ground operation together under one dependable team.
+            </p>
           </div>
-        ))}
+
+          <div className="sv-services-grid">
+            {orderedServices.map((s, i) => (
+              <article
+                className="sv-service-card"
+                key={s.id}
+                id={s.anchor}
+              >
+                <div
+                  className={`sv-service-card-image ${s.visualClass}`}
+                  style={{ backgroundImage: `url(${s.image})` }}
+                >
+                  <span className="sv-service-number">{String(i + 1).padStart(2, '0')}</span>
+                  <div className="sv-service-image-overlay" />
+                  <span className="sv-service-card-tagline">{s.tagline}</span>
+                </div>
+
+                <div className="sv-service-card-content">
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+
+                  <div className="sv-service-card-divider" />
+
+                  <ul className="sv-service-features">
+                    {s.features.map((f, j) => (
+                      <li key={j}>
+                        <span className="sv-check">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link to={`/contact?service=${encodeURIComponent(s.title)}`} className="sv-service-link">
+                    Discuss this service <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* WHY AGS */}
@@ -236,6 +308,17 @@ export default function OurServices() {
               <img src={partner.logo} alt={partner.name} />
             </div>
           ))}
+        </div>
+        <div className="sv-specialist-partners">
+          <p className="sv-tag" style={{ textAlign: 'center', marginBottom: '16px' }}>ALSO TRUSTED BY</p>
+          <h3>Specialist aviation partners</h3>
+          <div className="sv-partners-grid">
+            {specialistPartners.map((partner) => (
+              <div className="sv-partner-logo" key={partner.name}>
+                <img src={partner.logo} alt={partner.name} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

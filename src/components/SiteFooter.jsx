@@ -7,6 +7,16 @@ import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
 import rwandAir from '../assets/airline-logos/rwandair.png'
 import fastjet from '../assets/airline-logos/fastjet.png'
 import flyEmirates from '../assets/airline-logos/fly-emirates.png'
+import proCharter from '../assets/partner-logos/pro-charter.png'
+import fireblade from '../assets/partner-logos/fireblade.png'
+import airmaster from '../assets/partner-logos/airmaster.png'
+import national from '../assets/partner-logos/national.png'
+import skipAviation from '../assets/partner-logos/skip-aviation-consultants.png'
+import astral from '../assets/partner-logos/astral.png'
+import mkvAviation from '../assets/partner-logos/mkv-aviation.png'
+import astraAviation from '../assets/partner-logos/astra-aviation.png'
+import geosky from '../assets/partner-logos/geosky.png'
+import skyguard from '../assets/partner-logos/skyguard.png'
 
 const airlineLogos = [
   { name: 'Qatar Airways', image: qatarAirways },
@@ -15,6 +25,16 @@ const airlineLogos = [
     { name: 'Fly Emirates', image: flyEmirates },
   { name: 'RwandAir', image: rwandAir },
   { name: 'Fastjet', image: fastjet },
+  { name: 'Pro Charter', image: proCharter },
+  { name: 'Fireblade', image: fireblade },
+  { name: 'Airmaster', image: airmaster },
+  { name: 'National', image: national },
+  { name: 'Skip Aviation Consultants', image: skipAviation },
+  { name: 'Astral', image: astral },
+  { name: 'MKV Aviation', image: mkvAviation },
+  { name: 'Astra Aviation', image: astraAviation },
+  { name: 'Geosky', image: geosky },
+  { name: 'Skyguard', image: skyguard },
 ]
 
 export default function SiteFooter() {
@@ -22,6 +42,7 @@ export default function SiteFooter() {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const { pathname } = useLocation()
   const isHome = pathname === '/'
+  const showRelatedPages = false
 
   // Scroll animation observer — self-contained so this footer works on any page
   useEffect(() => {
@@ -47,8 +68,8 @@ export default function SiteFooter() {
 
   return (
     <footer className="hp-footer" ref={footerRef}>
-      <section className="hp-airline-marquee" aria-label="Airlines we support">
-        <p>Trusted airline partners</p>
+      <section className="hp-airline-marquee" aria-label="Trusted aviation partners">
+        <p>Trusted aviation partners</p>
         <div className="hp-airline-marquee-window">
           <div className="hp-airline-marquee-track">
             {[...airlineLogos, ...airlineLogos].map((airline, index) => (
@@ -61,7 +82,7 @@ export default function SiteFooter() {
       </section>
 
       {/* Related Pages — all non-home pages */}
-      {false && (
+      {showRelatedPages && (
         <section className="hp-footer-related">
           <div className="hp-related-inner">
             <p className="hp-related-label">Related Pages</p>
