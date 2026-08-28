@@ -7,85 +7,46 @@ const edgePillars = [
     number: "01 ",
     title: "Excellence",
     description:
-      "Deliver reliable, high-quality service aligned to customer expectations.",
-    keyword: "QUALITY",
+      "Deliver reliable, high-quality service aligned to customer expectations."
   },
   {
     number: "02 ",
     title: "Discipline",
     description:
       "Strict adherence to safety, security and operational procedures.",
-    keyword: "SAFETY",
+
   },
   {
     number: "03 ",
     title: "Growth",
     description: "Continuous improvement, learning and innovation.",
-    keyword: "PROGRESS",
+  
   },
   {
     number: "04 ",
     title: "Engagement",
     description:
-      "Listening, communicating and responding to employees and customers.",
-    keyword: "CONNECTION",
+      "Listening, communicating and responding to employees, customers and stakeholders.",
+  
   },
 ];
 
 const values = [
-  {
-    number: "01",
-    title: "Professionalism",
-    quote:
-      "The standard in everything we do, from our first impression to the final pushback.",
-    description:
-      "We employ a safety-first mindset, placing importance on our presentation and technical competence.",
-  },
-  {
-    number: "02",
-    title: "Accountability & Ownership",
-    quote: "We own the turn, the load and the outcome.",
-    description:
-      "Our services are premised on reliable execution, accuracy and problem-solving.",
-  },
-  {
-    number: "03",
-    title: "Service Excellence",
-    quote: "On-time, every time, with care.",
-    description:
-      "We prioritise our airline partnerships and engage in passenger-centric support.",
-  },
-  {
-    number: "04",
-    title: "Teamwork",
-    quote: "One aircraft, one team.",
-    description:
-      "AGS believes in the power of one; our team moves together as one synchronised and fluid unit.",
-  },
-  {
-    number: "05",
-    title: "Transparency",
-    quote:
-      "Clear communication builds trust among airlines, passengers and each other.",
-    description:
-      "Our team executes honest reporting and has open processes with no hidden issues.",
-  },
-  {
-    number: "06",
-    title: "Sustainability",
-    quote: "Protecting people, aircraft and the environment we operate in.",
-    description:
-      "We engage in efficient operations driven by people sustainability.",
-  },
+  { number: "01", title: "Professionalism", quote: "We conduct ourselves with integrity and pride." },
+  { number: "02", title: "Accountability & Ownership", quote: "We own our actions and our results." },
+  { number: "03", title: "Service Excellence", quote: "We go beyond expectations." },
+  { number: "04", title: "Teamwork", quote: "We succeed together." },
+  { number: "05", title: "Transparency", quote: "We communicate honestly." },
+  { number: "06", title: "Sustainability", quote: "We protect our environment for future generations." },
 ];
 
-const people = [
-  ["80+", "Ramp Agents"],
-  ["60+", "Passenger Services"],
-  ["40+", "Cargo Handlers"],
-  ["30+", "Operations & Management"],
-  ["20+", "Safety & Compliance"],
-  ["20+", "Support Staff"],
+
+
+const outcomes = [
+  { number: "01", title: "Responsive teams", description: "Listening, communicating and responding to client needs." },
+  { number: "02", title: "Consistent service", description: "Reliable standards and dependable service delivery." },
+  { number: "03", title: "Prompt resolution", description: "Client concerns are reviewed and followed up." },
+  { number: "04", title: "Continuous improvement", description: "Customer insights are turned into meaningful action." },
 ];
 
 const wordCloud = [
@@ -118,7 +79,7 @@ export default function OurEthos() {
           <div className="edge-intro-content">
             <p className="edge-eyebrow">
               <i />
-              OUR ETHOS
+              OUR CULTURE
             </p>
             <h1>
               The AGS <span>EDGE</span>
@@ -159,137 +120,119 @@ export default function OurEthos() {
           </div>
         </section>
 
-        <section className="edge-pillars-section">
-          <header className="edge-section-heading">
-            <div>
-              <p className="edge-eyebrow">
-                <i />
-                OUR FOUR PILLARS
-              </p>
-              <h2>
-                The principles
-                <br />
-                <span>behind the EDGE.</span>
-              </h2>
+        <section className="edge-strip">
+        
+          <div className="edge-strip-body">
+            <div className="edge-strip-main">
+              <p className="edge-eyebrow"><i /> WHAT EDGE MEANS</p>
+              <h2>More than values.<br /><em>A way of working.</em></h2>
+              <p>As part of our drive to strengthen our service and excellence culture, AGS has introduced AGS EDGE — Excellence, Discipline, Growth and Engagement. EDGE guides how our people work, serve and make decisions.</p>
             </div>
-            <p>
-              These four pillars define how AGS delivers a consistent and dependable service,
-              continuously setting the standard for ground handling services
-               in Zimbabwe and Beyond.
-            </p>
-          </header>
-          <div className="edge-pillars-grid">
+            <div className="edge-strip-side">
+              <div className="edge-strip-mark">EDGE</div>
+              <p>It guides how we operate, forms our culture and is embedded in our DNA.</p>
+            </div>
+          </div>
+      
+        </section>
+
+        <section className="edge-gates">
+          <div className="edge-gates-head">
+            <div>
+              <p className="edge-eyebrow"><i /> THE FOUR PILLARS</p>
+              <h2>Four gates.<br /><em>One standard.</em></h2>
+            </div>
+            <p className="edge-lede">The four EDGE pillars define the standards that underpin AGS service and excellence: quality, safety, progress and meaningful engagement with our people and stakeholders.</p>
+          </div>
+
+          <div className="edge-gates-row">
             {edgePillars.map((pillar) => (
-              <article className="edge-pillar" key={pillar.number}>
-                <header>
-                  <b>{pillar.number}</b>
-                </header>
-                <i />
+              <article className="edge-gate" key={pillar.number}>
+                <div className="edge-gate-top">
+                  <span className="edge-gate-no">GATE {pillar.number.trim()}</span>
+                  <span className="edge-gate-status">{pillar.keyword}</span>
+                </div>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.description}</p>
-                <strong>↗</strong>
+                <div className="edge-gate-foot" aria-hidden="true"><i /><i /><i /><i /><i /></div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="edge-improvement">
-          <b>02</b>
-          <div>
-            <p className="edge-eyebrow">
-              <i />
-              CONTINUOUS IMPROVEMENT
-            </p>
-            <h2>
-              Better today.
-              <br />
-              <span>Better tomorrow.</span>
-            </h2>
-            <p>
-              Through AGS EDGE, we are continuously improving, innovating and
-              proactively seeking feedback at all levels. Customer insights are
-              turned into faster, safer and more dependable turnarounds.
-            </p>
-          </div>
-          <div className="edge-progress">
-            <div>
-              <span>EDGE</span>
-              <i />
+        <section className="edge-signal">
+          <div className="edge-signal-top">
+            <div className="edge-signal-radar" aria-hidden="true">
+              <div className="edge-radar-rings">
+                <i /><i /><i /><i />
+                <div className="edge-radar-sweep" />
+                <span className="edge-radar-blip edge-radar-blip-1" />
+                <span className="edge-radar-blip edge-radar-blip-2" />
+                <span className="edge-radar-blip edge-radar-blip-3" />
+              </div>
             </div>
-            <small>
-              CONTINUOUS
-              <br />
-              IMPROVEMENT
-            </small>
+            <p className="edge-signal-lead">
+              <strong>Continuous improvement.</strong> Through AGS EDGE, we are continuously improving, innovating and proactively seeking feedback at all levels, and turning customer insights into faster, safer and more dependable turnarounds.
+            </p>
+          </div>
+
+          <div className="edge-signal-connector" aria-hidden="true"><i /><i /><i /><i /></div>
+
+          <div className="edge-signal-engagement">
+            <div className="edge-tower-heading">
+              <p className="edge-eyebrow"><i /> CLIENT ENGAGEMENT</p>
+              <h2>Your feedback<br /><em>drives action.</em></h2>
+            </div>
+            <div className="edge-tower-panel">
+              <div className="edge-tower-bars" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
+              <p>Client engagement is a primary pillar of EDGE. AGS has introduced a dedicated channel through which clients can share suggestions, concerns and recognition directly with AGS.</p>
+              <p>Every submission is reviewed and followed up, ensuring our clients are heard and their feedback leads to meaningful action and service improvement.</p>
+              <a href="mailto:EDGE@aviground.com" className="edge-tower-freq">
+              
+                <span className="edge-tower-freq-value">EDGE@aviground.com</span>
+                <span className="edge-tower-freq-go" aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div className="edge-tower-badge" aria-hidden="true">
+              <span>LISTEN</span><span>RESPOND</span><span>IMPROVE</span>
+            </div>
           </div>
         </section>
 
-        <section className="edge-values-section">
-          <header>
-            <p className="edge-eyebrow">
-              <i />
-              OUR VALUES
-            </p>
-            <h2>
-              What we stand <span>for.</span>
-            </h2>
-          </header>
-          <div className="edge-values-grid">
+        <section className="edge-flapboard">
+          <div className="edge-flapboard-head">
+        
+              <p className="edge-eyebrow"><i /> OUR VALUES</p>
+          </div>
+          <div className="edge-flapboard-grid">
             {values.map((value) => (
-              <article className="edge-value" key={value.number}>
-                <b>{value.number}</b>
-                <div>
-                  <h3>{value.title}</h3>
-                  <blockquote>“{value.quote}”</blockquote>
-                  <p>{value.description}</p>
-                </div>
-                <strong>↗</strong>
+              <article className="edge-flap" key={value.number}>
+                <div className="edge-flap-code"><span>{value.number}</span><i>VALUE</i></div>
+                <div className="edge-flap-face"><h3>{value.title}</h3></div>
+                <p className="edge-flap-quote">{value.quote}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="edge-people">
-          <p className="edge-eyebrow">
-            <i />
-            THE TEAM
-          </p>
-          <h2>Our People</h2>
-          <p className="edge-people-intro">
-            Our 250+ strong team is the engine behind every safe landing, every
-            on-time departure, and every satisfied passenger.
-          </p>
-          <div className="edge-people-grid">
-            {people.map(([count, role]) => (
-              <article key={role}>
-                <strong>{count}</strong>
-                <h3>{role}</h3>
-                <p>
-                  Dedicated professionals delivering safe, dependable ground
-                  handling at every shift.
-                </p>
-              </article>
+        <section className="edge-taxiway">
+          <div className="edge-taxiway-head">
+            <p className="edge-eyebrow"><i /> THE EDGE IN PRACTICE</p>
+            <h2>What EDGE<br /><em>delivers.</em></h2>
+            <p className="edge-lede">Through EDGE, our clients benefit from responsive teams, consistent service, prompt resolution of concerns and a strong culture of continuous improvement.</p>
+          </div>
+          <div className="edge-taxiway-route">
+            <div className="edge-taxiway-line" aria-hidden="true" />
+            {outcomes.map((outcome) => (
+              <div className="edge-taxiway-stop" key={outcome.number}>
+                <span className="edge-taxiway-marker" aria-hidden="true">{outcome.number}</span>
+                <strong>{outcome.title}</strong>
+                <p>{outcome.description}</p>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="edge-closing">
-          <div>EDGE</div>
-          <article>
-            <p>THE AGS COMMITMENT</p>
-            <h2>
-              Safe.<span> On time.</span>
-              <br />
-              Professional.
-            </h2>
-            <p>
-              AGS delivers safe, on-time and professional ground handling
-              through accountable teams who communicate openly and operate
-              sustainably.
-            </p>
-          </article>
-          <i />
-        </section>
       </main>
       <SiteFooter />
     </div>

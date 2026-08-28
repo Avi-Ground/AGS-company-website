@@ -62,7 +62,7 @@ export default function HomeHero() {
             </div>
 
             <div className="stat">
-              <h2><CountUp end={200} suffix="+" /></h2>
+              <h2><CountUp end={350} suffix="+" /></h2>
               <span>Employees</span>
             </div>
 

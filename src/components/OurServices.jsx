@@ -5,7 +5,15 @@ import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
 
 import servicesHero from '../assets/services-hero.jpeg'
-import cargoImage from '../assets/cargo.jpeg'
+import charterImage from '../assets/our-services/charter.jpg'
+import cargoImage from '../assets/our-services/cargo.jpeg'
+import airlineRepresentationImage from '../assets/our-services/airline-representation.jpg'
+import aircraftAppearanceImage from '../assets/our-services/aircraft-appearance.jpg'
+import passengerImage from '../assets/our-services/passenger.jpg'
+import baggageImage from '../assets/our-services/baggage.jpg'
+import loungeImage from '../assets/our-services/lounge.jpg'
+import salesImage from '../assets/our-services/sales.jpg'
+
 import qatarAirways from '../assets/airline-logos/qatar-airways.png'
 import flyEmirates from '../assets/airline-logos/fly-emirates.png'
 import kenyaAirways from '../assets/airline-logos/kenya-airways.png'
@@ -13,11 +21,6 @@ import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
 import rwandAir from '../assets/airline-logos/rwandair.png'
 import fastjet from '../assets/airline-logos/fastjet.png'
 import airTanzania from '../assets/airline-logos/air-tanzania.png'
-import ugandaAircraft from '../assets/partner-aircraft/Uganda_Airlines_high_resolution.jpg'
-import fastjetAircraft from '../assets/partner-aircraft/Fastjet_high_resolution.jpg'
-import rwandAirAircraft from '../assets/partner-aircraft/RwandAir_high_resolution.jpg'
-import qatarAircraft from '../assets/partner-aircraft/Qatar_Airways_high_resolution.jpg'
-import airTanzaniaAircraft from '../assets/partner-aircraft/Air_Tanzania_high_resolution.png'
 import proCharter from '../assets/partner-logos/pro-charter.png'
 import fireblade from '../assets/partner-logos/fireblade.png'
 import airmaster from '../assets/partner-logos/airmaster.png'
@@ -31,89 +34,172 @@ import skyguard from '../assets/partner-logos/skyguard.png'
 
 const services = [
   {
-    id: '03',
-    icon: '✈',
-    title: 'Aircraft Handling',
-    tagline: 'Precision on the tarmac, every single time.',
-    body: 'Our ramp teams are the heartbeat of every turnaround. From aircraft marshalling and pushback to ground power supply and wheel chocking — we execute every procedure with military precision. Our agents are IATA-certified and trained to handle narrow-body, wide-body, and freighter aircraft across all weather conditions.',
-    features: ['Aircraft Marshalling & Pushback', 'Ground Power Unit (GPU) Supply', 'Potable Water & Lavatory Service', 'Airstairs & Jet Bridge Operations', 'De-icing Coordination', 'FOD Checks & Tarmac Safety'],
-    image: airTanzaniaAircraft,
-    visualClass: 'sv-service-visual--aircraft-handling',
-  },
-  {
     id: '01',
+    anchor: 'passenger-ticketing',
     icon: '🧳',
-    title: 'Passenger Handling',
-    tagline: 'Every passenger. Every flight. Every time.',
-    body: "We believe the passenger experience begins on the ground. Our passenger services team manages everything from check-in and boarding to special assistance — delivering a seamless, professional, and warm experience that reflects your airline's brand. We handle high volumes with speed and dignity.",
-    features: ['Check-in & Boarding Gate Management', 'VIP & CIP Lounge Coordination', 'Special Assistance (PRM Services)', 'Lost & Found Management', 'Baggage Reconciliation', 'Unaccompanied Minor Handling'],
-    image: qatarAircraft,
+    title: 'Passenger and Ticketing Services',
+    tagline: 'Seamless, professional passenger service on the ground.',
+    body: "Our passenger services team manages everything from check-in and boarding to special assistance, delivering a seamless, professional and warm customer experience that reflects your airline's brand. We handle high volumes with speed, effectiveness and dignity.",
+    features: [
+      'Check-in, Travel Document Verification',
+      'Boarding and Gate Management',
+      'VIP & CIP Lounge Coordination',
+      'Special Assistance (VIP, CIP and PRM Services)',
+      'Lost & Found Baggage Management',
+      'Baggage Reconciliation',
+      'Unaccompanied Minor Handling',
+      'Reservations, Ticket Issuance and Rebooking (from 1 September 2026)',
+      'Airport Ticket Desk Services',
+      'Excess Baggage Processing and Collection',
+      'Arrival and Transfer Passenger Assistance',
+    ],
+    image: passengerImage,
     visualClass: 'sv-service-visual--passenger-handling',
   },
   {
     id: '02',
+    anchor: 'ramp-baggage',
+    icon: '🛄',
+    title: 'Ramp and Baggage Handling',
+    tagline: 'Safe, efficient support throughout every aircraft turnaround.',
+    body: 'Our ramp teams coordinate every stage of the aircraft turnaround in line with airline procedures, agreed service standards and safety requirements.',
+    features: [
+      'Aircraft Marshalling and Chocking',
+      'Baggage, Cargo and Mail Loading and Unloading',
+      'Baggage Sorting and Transportation',
+      'Aircraft Pushback and Towing',
+      'Passenger Steps and Passenger Assistance Units',
+      'Ground Power and Air-Start Services',
+      'Belt Loader and High-Loader Services',
+      'Headset Communication',
+      'Foreign Object Debris Inspections',
+      'Aircraft Arrival and Departure Support',
+      'Turnaround Coordination',
+      'Ground Support Equipment Provision',
+    ],
+    image: baggageImage,
+    visualClass: 'sv-service-visual--ramp-baggage',
+  },
+  {
+    id: '03',
+    anchor: 'cargo-handling',
     icon: '📦',
     title: 'Cargo Handling',
-    tagline: 'Your freight in trusted hands.',
-    body: 'From belly freight to full freighter operations, our cargo division manages the complete chain of custody for your shipments. We operate a modern cargo facility at Harare International Airport with trained handlers experienced in general cargo, express freight, perishables, live animals, and dangerous goods.',
-    features: ['General & Express Cargo Handling', 'Perishables & Cold Chain Management', 'Dangerous Goods (DG) Handling', 'Live Animal Handling', 'Oversized & Heavy Cargo', 'Cargo Documentation & Manifests'],
+    tagline: 'Reliable handling from acceptance through release.',
+    body: 'From belly freight to full freighter operations, our cargo division manages the complete chain of custody for your shipments. We operate a modern cargo facility at Harare International Airport with trained handlers experienced in general cargo, express freight, perishables, live animals and dangerous goods.',
+    features: [
+      'General & Express Cargo Handling',
+      'Import and Export Cargo Handling',
+      'General and Express Cargo',
+      'Cargo Acceptance and Release',
+      'Warehouse Handling and Inventory Control',
+      'Cargo Build-Up and Breakdown',
+      'Cargo Documentation and Manifest Processing',
+      'Perishable and Temperature-Sensitive Cargo',
+      'Dangerous Goods Handling',
+      'Valuable and Vulnerable Cargo',
+      'Live Animal Handling',
+      'Oversized and Heavy Cargo',
+      'Mail Handling and Transfer',
+      'Security Screening and Cargo Surveillance',
+      'Customs and Stakeholder Coordination',
+      'Full-Freighter Ramp and Warehouse Handling',
+    ],
     image: cargoImage,
     visualClass: 'sv-service-visual--cargo-handling',
   },
   {
+    id: '04',
+    anchor: 'general-sales-agent',
+    icon: '📈',
+    title: 'General Sales Agent',
+    tagline: 'Dedicated sales and cargo support for regional carriers.',
+    body: 'AGS offers dedicated General Sales Agents for premier regional carriers, including Kenya Airways and Uganda Airlines. We manage complete cargo operations and ensure seamless logistics support.',
+    features: [
+      'Cargo Marketing',
+      'Cargo Bookings',
+      'Sales Returns',
+      'Query Resolution',
+    ],
+    image: salesImage,
+    visualClass: 'sv-service-visual--sales',
+  },
+  {
     id: '05',
-    icon: '🛫',
-    title: 'Charter Services',
-    tagline: 'Flexible. Discreet. World-class.',
-    body: "AGS provides end-to-end ground support for private and charter operators requiring premium, personalised service. Whether it's a private jet, a VIP delegation, or a sports team charter — our dedicated charter team ensures a seamless, discreet, and efficient ground experience tailored to your exact requirements.",
-    features: ['Private Jet Ground Handling', 'VIP & Diplomatic Flight Support', 'Customs & Immigration Facilitation', 'Fuel Coordination', 'Catering Liaison', 'Hangar & Parking Coordination'],
-    image: rwandAirAircraft,
+    anchor: 'charter-executive-diplomatic',
+    icon: '✈',
+    title: 'Charter, Executive and Diplomatic Aviation',
+    tagline: 'Discreet and responsive support for specialised operations.',
+    body: 'AGS provides discreet and responsive support for private, charter, executive, diplomatic and VVIP operations. Each flight is coordinated according to the operator’s specific requirements.',
+    features: [
+      'Private and Charter Aircraft Handling',
+      'VVIP and Diplomatic Flight Support',
+      'Passenger and Crew Assistance',
+      'Customs and Immigration Coordination',
+      'Fuel and Catering Coordination',
+      'Aircraft Parking and Hangar Coordination',
+      'Ground Transportation Arrangements',
+      'Baggage and Cargo Handling',
+      'Meet-and-Greet Services',
+      'Turnaround and Departure Coordination',
+    ],
+    image: charterImage,
     visualClass: 'sv-service-visual--charter-services',
   },
   {
     id: '06',
-    icon: '🔧',
-    title: 'Aircraft Cleaning',
-    tagline: 'Immaculate cabins. Elevated standards.',
-    body: 'A clean aircraft is a safe aircraft. Our cabin and exterior cleaning crews work to strict airline specifications — ensuring every seat pocket, overhead bin, lavatory, and cockpit meets the hygiene standards your passengers and crew deserve. We work within tight turnaround windows without compromising quality.',
-    features: ['Interior Cabin Cleaning & Sanitisation', 'Exterior Washing & Polishing', 'Deep Cleaning Between Rotations', 'Seat Pocket & IFE Restocking', 'Galley Cleaning & Waste Removal', 'Cockpit Cleaning Protocols'],
-    image: fastjetAircraft,
-    visualClass: 'sv-service-visual--aircraft-cleaning',
-  },
-  {
-    id: '04',
-    title: 'Warehousing',
-    tagline: 'Secure storage, ready when you need it.',
-    body: 'Our warehousing solutions keep freight secure, organised, and ready for onward movement. We manage storage, inventory, and handling with the operational discipline needed to keep every shipment protected and on schedule.',
-    features: ['Secure Cargo Storage', 'Inventory Management', 'Cargo Build-up & Breakdown', 'Palletisation & Labelling', 'Shipment Tracking', 'Controlled Access Facilities'],
-    image: ugandaAircraft,
-    visualClass: 'sv-service-visual--warehousing',
+    anchor: 'lounge-hospitality',
+    icon: '☕',
+    title: 'Lounge and Hospitality Services',
+    tagline: 'Comfort, convenience and personalised attention.',
+    body: 'AGS supports airlines and their premium passengers through professional lounge and hospitality services designed to provide comfort, convenience and personalised attention.',
+    features: [
+      'Business and Premium Passenger Lounge Services',
+      'VIP and CIP Lounge Coordination',
+      'Passenger Reception and Assistance',
+      'Refreshment and Hospitality Services',
+      'Flight Information and Boarding Coordination',
+      'Meet-and-Greet Services',
+    ],
+    image: loungeImage,
+    visualClass: 'sv-service-visual--lounge',
   },
   {
     id: '07',
-    title: 'Ramp & Baggage Handling',
-    tagline: 'Safe, swift coordination from kerbside to aircraft.',
-    body: 'Our trained ramp teams coordinate baggage movement, aircraft loading and turnaround support with careful control at every stage. We work to airline procedures to keep bags, equipment and flights moving safely and on time.',
-    features: ['Baggage Sorting & Loading', 'Baggage Make-up & Delivery', 'Weight & Balance Support', 'Load Control Coordination', 'Turnaround Equipment Handling', 'Ramp Safety Monitoring'],
-    image: airTanzaniaAircraft,
-    visualClass: 'sv-service-visual--ramp-baggage',
+    anchor: 'aircraft-appearance',
+    icon: '✨',
+    title: 'Aircraft Appearance Services',
+    tagline: 'A clean, welcoming cabin within demanding turnaround times.',
+    body: 'Our aircraft appearance teams work within demanding turnaround times to deliver a clean, welcoming cabin that meets each airline’s presentation and hygiene standards.',
+    features: [
+      'Cabin Cleaning and Sanitisation',
+      'Deep Cleaning Between Rotations',
+      'Seat Pocket and Cabin Presentation',
+      'Galley and Lavatory Cleaning',
+      'Waste Removal',
+      'Cabin Supply and Amenity Replenishment',
+      'Cockpit Cleaning in Accordance with Airline Procedures',
+    ],
+    image: aircraftAppearanceImage,
+    visualClass: 'sv-service-visual--aircraft-appearance',
   },
   {
     id: '08',
-    title: 'Airport Appearance Services',
-    tagline: 'A polished airport experience at every touchpoint.',
-    body: 'AGS helps airlines maintain a professional, welcoming presence throughout their airport operation. From branded check-in areas to lounges and gate spaces, our teams support a consistently high standard of presentation.',
-    features: ['Check-in Area Presentation', 'Gate & Lounge Readiness', 'Airline Branding Support', 'Cabin Presentation Coordination', 'Customer-Facing Area Checks', 'Service Quality Monitoring'],
-    image: qatarAircraft,
-    visualClass: 'sv-service-visual--airport-appearance',
-  },
-  {
-    id: '09',
-    title: 'Airline Representation & Operations Support',
-    tagline: 'A capable local team for every operation.',
-    body: 'We provide dependable local representation for airline and aviation partners, coordinating stakeholders, monitoring day-to-day operations and providing the on-the-ground insight needed for smooth, compliant service delivery.',
-    features: ['Station & Airline Representation', 'Operational Coordination', 'Stakeholder Liaison', 'Irregular Operations Support', 'Performance Reporting', '24/7 Local Assistance'],
-    image: ugandaAircraft,
+    anchor: 'airline-representation',
+    icon: '🌍',
+    title: 'Airline Representation and Operational Support',
+    tagline: 'Locally managed support for effective airline operations.',
+    body: 'AGS can provide locally managed support that allows airline clients to maintain effective oversight of their operations and customer service requirements in Zimbabwe.',
+    features: [
+      'Airport Representation',
+      'Airline and Stakeholder Liaison',
+      'Passenger Sales and Service Support',
+      'Operational Reporting',
+      'Disruption and Irregular Operations Support',
+      'Service Provider Coordination',
+      'Local Administrative and Logistical Support',
+    ],
+    image: airlineRepresentationImage,
     visualClass: 'sv-service-visual--airline-representation',
   },
 ]
@@ -147,7 +233,7 @@ const whyCards = [
   { icon: '🤝', title: 'Airline Aligned',      body: 'We learn your SOPs and brand standards. We become your team.' },
   { icon: '📊', title: 'Performance Data',     body: 'Real-time reporting and KPI tracking for every turnaround.' },
   { icon: '🌍', title: 'Local Knowledge',      body: "Deep expertise in Zimbabwe's airports, regulations, and conditions." },
-  { icon: '🏆', title: 'Proven Track Record',  body: '15+ years. 10,000+ turnarounds. Zero major safety incidents.' },
+  { icon: '🏆', title: 'Proven Track Record',  body: '25+ years. 10,000+ turnarounds. Zero major safety incidents.' },
 ]
 
 const serviceCommitments = [
@@ -160,7 +246,6 @@ const serviceCommitments = [
 ]
 
 export default function OurServices() {
-  const orderedServices = [services[1], services[2], services[0], services[6], services[5], services[3], services[4], services[7], services[8]]
   const { hash } = useLocation()
 
   useEffect(() => {
@@ -186,7 +271,6 @@ export default function OurServices() {
 
   return (
     <div className="sv-page">
-
       {/* HERO */}
       <header className="sv-hero">
         <SiteHeader />
@@ -198,10 +282,9 @@ export default function OurServices() {
               <em> Handling Elevated.</em>
             </h1>
             <p className="sv-hero-sub">
-              AGS delivers end-to-end ground operations that keep airlines moving,
-              passengers smiling, and cargo flowing — safely, efficiently, and on time.
+              AGS provides integrated aviation ground-handling services tailored to the operational
+              requirements and service standards of each client.
             </p>
-  
           </div>
         </div>
         <div className="sv-hero-art" aria-hidden="true">
@@ -220,13 +303,13 @@ export default function OurServices() {
               <h2 className="sv-services-title">Ground support built around <em>your operation.</em></h2>
             </div>
             <p className="sv-services-intro">
-              From passenger and aircraft handling to cargo, charter and airline representation,
-              AGS brings every part of the ground operation together under one dependable team.
+              From passenger check-in and aircraft turnaround to cargo handling and charter support,
+              our trained teams work together to deliver safe, efficient and reliable operations.
             </p>
           </div>
 
           <div className="sv-services-grid">
-            {orderedServices.map((s, i) => (
+            {services.map((s, i) => (
               <article
                 className="sv-service-card"
                 key={s.id}
@@ -336,7 +419,6 @@ export default function OurServices() {
       </section>
 
       <SiteFooter />
-
     </div>
   )
 }
