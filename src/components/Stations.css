@@ -1,0 +1,79 @@
+.stations-page{min-height:100vh;background:#f5f7fb;color:#102b4e;font-family:'Montserrat',sans-serif}
+.stations-hero{min-height:350px;background:linear-gradient(118deg,#0d2b5c 0%,#174b7a 100%);color:#fff}
+.stations-hero .sh-header{background:#fff}
+.stations-hero-content{width:min(1180px,92%);margin:0 auto;padding:68px 0 72px}
+.stations-eyebrow,.stations-country{font-size:11px;font-weight:700;letter-spacing:1.8px;color:#c8102e}
+.stations-eyebrow{color:#ffc0ca}
+.stations-hero h1{margin:13px 0 12px;font-size:clamp(44px,6vw,68px);line-height:1.04;letter-spacing:-1.8px}
+.stations-hero-content p{max-width:640px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.84)}
+.stations-main{width:min(1180px,92%);margin:0 auto;padding:38px 0 80px}
+.station-location{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:20px;padding:24px 28px;margin-bottom:34px;background:#fff;border:1px solid #e3e9f1;border-radius:14px;box-shadow:0 10px 30px rgba(16,43,78,.05)}
+.station-location-mark{display:grid;place-items:center;width:58px;height:58px;border-radius:14px;background:#edf3f9;color:#164b78;font-weight:800;font-size:14px}
+.station-location h2{font-size:20px;margin:5px 0}
+.station-location p{font-size:13px;line-height:1.6;color:#64748b}
+.station-location>a{white-space:nowrap;color:#c8102e;font-size:13px;font-weight:700;text-decoration:none}
+.station-location>a span{margin-left:5px;font-size:17px}
+.station-inventory{overflow:hidden;background:#fff;border:1px solid #e1e7ef;border-radius:16px;box-shadow:0 18px 50px rgba(16,43,78,.07)}
+.station-inventory+.station-inventory{margin-top:34px}
+.station-airport-heading{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:18px;padding:28px 30px 22px;border-bottom:1px solid #edf0f4}
+.station-airport-heading-victoria-falls{position:relative;isolation:isolate;overflow:hidden;min-height:360px;box-sizing:border-box;align-content:center;color:#fff;border-bottom-color:rgba(255,255,255,.22);background:#123c66}
+.station-airport-heading-victoria-falls::before{position:absolute;z-index:1;inset:0;content:"";background:linear-gradient(90deg,#123c66 0%,rgba(18,60,102,.94) 36%,rgba(18,60,102,.42) 70%,rgba(18,60,102,.16) 100%);pointer-events:none}
+.station-airport-heading-victoria-falls>*:not(.station-heading-image){position:relative;z-index:2}
+.station-heading-image{position:absolute;z-index:0;top:0;right:0;width:54%;height:100%;object-fit:cover;object-position:center 48%;filter:brightness(.86)}
+.station-airport-heading-victoria-falls .stations-country{color:#ffd2d8}
+.station-airport-heading-victoria-falls h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.3)}
+.station-airport-heading-victoria-falls p{color:rgba(255,255,255,.88)}
+.station-airport-heading-victoria-falls .station-location-mark{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px)}
+.station-airport-heading-victoria-falls .inventory-total{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(5px)}
+.station-services{margin-top:16px}
+.station-services-label{display:block;margin-bottom:8px;color:#64748b;font-size:10px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
+.station-services ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.station-services li{padding:7px 11px;border:1px solid #dfe7ef;border-radius:999px;background:#f7f9fc;color:#234564;font-size:11px;font-weight:700}
+.station-airport-heading-victoria-falls .station-services-label{color:rgba(255,255,255,.78)}
+.station-airport-heading-victoria-falls .station-services li{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px)}
+.station-airport-heading .station-location-mark{width:54px;height:54px}
+.station-airport-heading h2{margin:6px 0;font-size:clamp(21px,2.5vw,29px);line-height:1.2}
+.station-airport-heading p{color:#68778b;font-size:13px}
+.inventory-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px 30px 22px}
+.inventory-heading h2{margin:7px 0 5px;font-size:clamp(24px,3vw,32px);letter-spacing:-.6px}
+.inventory-heading p{color:#68778b;font-size:14px}
+.inventory-station-switch{display:flex;flex-wrap:wrap;gap:5px;padding:4px;border-radius:10px;background:#f0f3f7}
+.inventory-station-switch button{border:0;border-radius:7px;padding:9px 12px;background:transparent;color:#56677c;font:inherit;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.inventory-station-switch button.is-active{background:#194d78;color:#fff;box-shadow:0 2px 6px rgba(16,43,78,.16)}
+.inventory-total-line{padding:0 30px 18px}
+.inventory-total{padding:7px 10px;border-radius:999px;background:#eef3f8;color:#42566f;font-size:11px;font-weight:700;white-space:nowrap}
+.inventory-summary{display:flex;gap:12px;padding:0 30px 24px}
+.inventory-summary>div{display:flex;align-items:baseline;gap:9px;padding:11px 14px;border-radius:9px;background:#f5f7fa}
+.inventory-summary strong{font-size:18px;color:#153f68}
+.inventory-summary span{font-size:11px;color:#65758a}
+.inventory-summary>div:nth-child(2) strong{color:#16845b}.inventory-summary>div:nth-child(3) strong{color:#c8102e}
+.inventory-overview{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 30px 22px}
+.inventory-overview .inventory-summary{padding:0}
+.inventory-toggle{display:inline-flex;align-items:center;gap:12px;padding:12px 16px;border:0;border-radius:8px;background:#c8102e;color:#fff;font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s ease,transform .2s ease}
+.inventory-toggle:hover{background:#a80d26;transform:translateY(-1px)}
+.inventory-toggle span{font-size:16px}
+.inventory-toolbar{position:sticky;left:0;display:flex;gap:10px;flex-wrap:wrap;padding:15px 30px;background:#f7f9fc;border-top:1px solid #e9edf3;border-bottom:1px solid #e9edf3}
+.inventory-search,.inventory-select{height:42px;display:flex;align-items:center;border:1px solid #dce3ec;border-radius:8px;background:#fff;color:#516176}
+.inventory-search{flex:1 1 280px;gap:9px;padding:0 12px}.inventory-search>span{font-size:22px;color:#8593a5}
+.inventory-search input{width:100%;border:0;outline:0;color:#172b45;font:inherit;font-size:12px;background:transparent}
+.inventory-search input::placeholder{color:#91a0b2}
+.inventory-select{padding:0 10px}.inventory-select select{height:100%;border:0;outline:0;background:transparent;color:#34465e;font:inherit;font-size:12px;min-width:145px}
+.inventory-table-wrap{overflow:auto;max-height:670px}
+.inventory-table{width:100%;min-width:1080px;border-collapse:collapse;text-align:left;font-size:11px}
+.inventory-table th{position:sticky;top:0;z-index:1;padding:13px 11px;background:#194d78;color:#fff;font-size:10px;font-weight:700;letter-spacing:.25px;white-space:nowrap}
+.inventory-table td{padding:10px 11px;border-bottom:1px solid #e9edf2;color:#35465b;line-height:1.5;vertical-align:middle}
+.inventory-table tbody tr:nth-child(even){background:#f8fafc}.inventory-table tbody tr:hover{background:#eff5fa}
+.inventory-table td:first-child{text-transform:capitalize;font-weight:600;color:#193b5c;white-space:nowrap}
+.inventory-table td:nth-child(2),.inventory-table th:nth-child(2){text-align:center}
+.status-pill{display:inline-block;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700;white-space:nowrap}
+.status-serviceable{background:#e5f5ee;color:#13714e}.status-unserviceable{background:#fdebed;color:#b42335}.status-unreliable{background:#fff2dc;color:#9a5c00}
+.inventory-empty{text-align:center;padding:34px!important;color:#718096!important}
+.inventory-footnote{padding:14px 20px 18px;color:#79879a;font-size:11px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){
+ .stations-hero{min-height:320px}.stations-hero-content{padding:55px 0 58px}.stations-main{padding-top:22px}
+ .station-location{grid-template-columns:48px 1fr;gap:14px;padding:18px;margin-bottom:22px}.station-location-mark{width:46px;height:46px;font-size:12px}.station-location h2{font-size:17px}.station-location p{font-size:12px}.station-location>a{grid-column:2}
+ .station-inventory+.station-inventory{margin-top:22px}.station-airport-heading{grid-template-columns:46px 1fr;gap:13px;padding:20px 18px 17px}.station-airport-heading .station-location-mark{grid-row:1;width:44px;height:44px}.station-airport-heading>div{grid-column:2}.station-airport-heading .inventory-total{grid-column:2;justify-self:start;margin-top:-5px}.station-airport-heading h2{font-size:19px}.station-airport-heading p{font-size:11px}.station-airport-heading-victoria-falls{min-height:330px}.station-heading-image{width:68%;object-position:52% center}.station-services{margin-top:12px}.station-services ul{gap:6px}.station-services li{font-size:10px;padding:6px 9px}.inventory-overview{align-items:stretch;flex-direction:column;padding:0 18px 18px;gap:12px}.inventory-overview .inventory-summary{padding:0;gap:6px}.inventory-summary>div{display:block;flex:1;padding:10px 8px}.inventory-summary strong,.inventory-summary span{display:block}.inventory-summary strong{font-size:16px}.inventory-summary span{margin-top:3px;font-size:9px}.inventory-toggle{justify-content:center;width:100%}
+ .inventory-toolbar{padding:12px;gap:8px}.inventory-search{flex-basis:100%}.inventory-select{flex:1}.inventory-select select{min-width:0;width:100%;font-size:11px}
+ .inventory-table-wrap{max-height:none;overflow:visible}.inventory-table{min-width:0;display:block}.inventory-table thead{display:none}.inventory-table tbody{display:grid;gap:10px;padding:12px}.inventory-table tr{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px;padding:13px;border:1px solid #e7ecf2;border-radius:10px;background:#fff!important}.inventory-table td{display:flex;flex-direction:column;gap:3px;padding:0;border:0;font-size:11px;overflow-wrap:anywhere}.inventory-table td::before{content:attr(data-label);color:#8491a2;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}.inventory-table td:first-child{grid-column:1/-1;font-size:13px}.inventory-table .inventory-empty{display:block;grid-column:1/-1;text-align:center}.inventory-footnote{padding:0 18px 18px;line-height:1.6}
+}

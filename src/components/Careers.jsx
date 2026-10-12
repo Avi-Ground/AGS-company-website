@@ -28,7 +28,17 @@ export default function Careers() {
   useEffect(() => {
     window.scrollTo(0, 0)
     const deadlineCheck = window.setInterval(() => setNow(Date.now()), 60_000)
-    return () => window.clearInterval(deadlineCheck)
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('cr-visible')
+      }),
+      { threshold: 0.12 }
+    )
+    document.querySelectorAll('.cr-fade').forEach((el) => observer.observe(el))
+    return () => {
+      window.clearInterval(deadlineCheck)
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -38,21 +48,25 @@ export default function Careers() {
         <section className="cr-hero">
           <div className="cr-hero-copy">
             <h1>Join <em>AGS.</em></h1>
-            <p>Join the people behind safe, seamless and welcoming airport experiences. At AGS, every role plays a part in keeping aviation moving.</p>
+            <p>Join the teams supporting airport operations and passenger services. At AGS, every role plays a part in keeping aviation moving.</p>
           </div>
           <div className="cr-flight-mark" aria-hidden="true">AGS</div>
         </section>
 
         <section className="cr-roles" id="open-roles">
-          <div className="cr-section-heading">
+          <div className="cr-section-heading cr-fade">
             <div><p className="cr-eyebrow">OPPORTUNITIES</p><h2>Open roles</h2></div>
             <p>Submit your CV and a short cover note to <a href="mailto:hr@avi-ground.com">hr@avi-ground.com</a>.</p>
           </div>
 
           {openJobs.length > 0 ? (
             <div className="cr-job-list">
-              {openJobs.map((job) => (
-                <article className="cr-job" key={job.id}>
+              {openJobs.map((job, i) => (
+                <article
+                  className="cr-job cr-fade"
+                  key={job.id}
+                  style={{ transitionDelay: `${i * 0.1}s` }}
+                >
                   <div>
                     <div className="cr-job-meta"><span>{job.location}</span><span>{job.type}</span></div>
                     <h3>{job.title}</h3>
@@ -66,14 +80,14 @@ export default function Careers() {
               ))}
             </div>
           ) : (
-            <div className="cr-empty">
+            <div className="cr-empty cr-fade">
               <h3>No current vacancies</h3>
               <p>We do not have any open positions at the moment. Please check back soon, or send your CV to <a href="mailto:hr@avi-ground.com">hr@avi-ground.com</a> for future consideration.</p>
             </div>
           )}
         </section>
 
-        <section className="cr-apply">
+        <section className="cr-apply cr-fade">
           <p className="cr-eyebrow">STAY CONNECTED</p>
           <h2>Ready when<br /><em>the right role is.</em></h2>
           <p>Email your CV and tell us which area of the business interests you. We will keep your details in mind for relevant future opportunities.</p>

@@ -8,6 +8,8 @@ import Edge from './components/Edge'
 import NewsMedia from './components/NewsMedia'
 import Careers from './components/Careers'
 import ContactUs from './components/ContactUs'
+import SafetyCompliance from './components/SafetyCompliance'
+import Stations from './components/Stations'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/news-media"     element={<NewsMedia />} />
         <Route path="/careers"        element={<Careers />} />
         <Route path="/contact-us"     element={<ContactUs />} />
+        <Route path="/safety-compliance" element={<SafetyCompliance />} />
+        <Route path="/stations"    element={<Stations />} />
       </Routes>
     </BrowserRouter>
   )

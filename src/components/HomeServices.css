@@ -189,11 +189,11 @@
   .hp-services-grid::-webkit-scrollbar { display: none; }
 
   .hp-service-card {
-    flex: 0 0 85%;
+    flex: 0 0 72%;
     scroll-snap-align: center;
   }
 
-  .hp-service-img-wrap { height: 220px; }
+  .hp-service-img-wrap { height: 180px; }
 
   /* ── Stats ── */
   .hp-stats-grid { grid-template-columns: 1fr; gap: 8px; }

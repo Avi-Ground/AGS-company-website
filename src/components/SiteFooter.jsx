@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './SiteFooter.css'
 import qatarAirways from '../assets/airline-logos/qatar-airways.png'
 import kenyaAirways from '../assets/airline-logos/kenya-airways.png'
@@ -24,24 +24,23 @@ const airlineLogos = [
   { name: 'Uganda Airlines', image: ugandaAirlines },
     { name: 'Fly Emirates', image: flyEmirates },
   { name: 'RwandAir', image: rwandAir },
-  { name: 'Fastjet', image: fastjet },
-  { name: 'Pro Charter', image: proCharter },
-  { name: 'Fireblade', image: fireblade },
-  { name: 'Airmaster', image: airmaster },
-  { name: 'National', image: national },
-  { name: 'Skip Aviation Consultants', image: skipAviation },
-  { name: 'Astral', image: astral },
-  { name: 'MKV Aviation', image: mkvAviation },
-  { name: 'Astra Aviation', image: astraAviation },
-  { name: 'Geosky', image: geosky },
-  { name: 'Skyguard', image: skyguard },
+  { name: 'Fastjet', image: fastjet, large: true },
+  { name: 'Pro Charter', image: proCharter, large: true },
+  { name: 'Fireblade', image: fireblade, large: true },
+  { name: 'Airmaster', image: airmaster, large: true },
+  { name: 'National', image: national, large: true },
+  { name: 'Skip Aviation Consultants', image: skipAviation, large: true },
+  { name: 'Astral', image: astral, large: true },
+  { name: 'MKV Aviation', image: mkvAviation, large: true },
+  { name: 'Astra Aviation', image: astraAviation, large: true },
+  { name: 'Geosky', image: geosky, large: true },
+  { name: 'Skyguard', image: skyguard, large: true },
 ]
 
 export default function SiteFooter() {
   const footerRef = useRef(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
-  const { pathname } = useLocation()
-  const isHome = pathname === '/'
+  const showFooterNavigation = false
   const showRelatedPages = false
 
   // Scroll animation observer — self-contained so this footer works on any page
@@ -68,12 +67,12 @@ export default function SiteFooter() {
 
   return (
     <footer className="hp-footer" ref={footerRef}>
-      <section className="hp-airline-marquee" aria-label="Trusted aviation partners">
-        <p>Trusted aviation partners</p>
+      <section className="hp-airline-marquee" aria-label="Airline partners">
+        <p>Airline partners</p>
         <div className="hp-airline-marquee-window">
           <div className="hp-airline-marquee-track">
             {[...airlineLogos, ...airlineLogos].map((airline, index) => (
-              <div className="hp-airline-logo" key={`${airline.name}-${index}`}>
+              <div className={`hp-airline-logo${airline.large ? ' hp-airline-logo--large' : ''}`} key={`${airline.name}-${index}`}>
                 <img src={airline.image} alt={airline.name} />
               </div>
             ))}
@@ -101,7 +100,7 @@ export default function SiteFooter() {
                   icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 },
                 {
-                  to: '/our-story', title: 'Our Journey', sub: 'From the tarmac to the top',
+                  to: '/our-story', title: 'Our Journey', sub: 'Our experience on the tarmac',
                   icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
                 },
               ].map((p) => (
@@ -118,7 +117,7 @@ export default function SiteFooter() {
 
       {/* Latest Business News — all pages */}
       {/* Who we are / Services / Careers / News columns — homepage only */}
-      {isHome && (
+      {showFooterNavigation && (
         <div className="hp-footer-top">
           <div className="hp-footer-col">
             <h4 className="hp-footer-col-title">Who we are</h4>

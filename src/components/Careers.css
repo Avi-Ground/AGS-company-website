@@ -19,3 +19,6 @@
 .cr-empty { background:#fff; padding:45px; text-align:center; }.cr-empty h3 { font-size:23px; margin:0 0 12px; }.cr-empty p { color:#637188; max-width:570px; font-size:13px; line-height:1.8; margin:0 auto; }
 .cr-apply { padding:115px 30px; text-align:center; background:#0d1f3c; color:#fff; }.cr-apply .cr-eyebrow { color:#ed5870; }.cr-apply h2 { font-size:clamp(39px,5vw,63px); }.cr-apply > p:not(.cr-eyebrow) { color:rgba(255,255,255,.68); max-width:510px; font-size:14px; line-height:1.85; margin:25px auto 27px; }.cr-apply a { color:#fff; border-bottom:1px solid #c8102e; padding-bottom:8px; }
 @media(max-width:760px) { .cr-hero { min-height:465px; padding:145px 25px 75px; }.cr-flight-mark { font-size:190px; right:-30px; }.cr-intro { padding:75px 25px; }.cr-roles { padding:72px 25px; }.cr-section-heading { display:block; }.cr-section-heading > p { margin-top:24px; }.cr-job { display:block; padding:28px 25px; }.cr-job-action { text-align:left; margin-top:23px; }.cr-empty { padding:35px 25px; }.cr-apply { padding:78px 25px; } }
+
+.cr-fade { opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease; }
+.cr-fade.cr-visible { opacity:1; transform:translateY(0); }

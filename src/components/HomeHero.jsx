@@ -2,6 +2,7 @@ import "./HomeHero.css";
 import heroImage from "../assets/hero.png";
 import SiteHeader from "./SiteHeader";
 import CountUp from "./CountUp";
+import { Link } from 'react-router-dom'
 
 export default function HomeHero() {
   return (
@@ -31,27 +32,25 @@ export default function HomeHero() {
         {/* LEFT */}
 
         <div className="hero-left">
-
-        
+          <div className="hero-copy">
           <h1>
-            Leaders in
-            <br />
-            Passenger,
+            Leaders in 
+            <br />Passenger,
             <br />
             Cargo &
             <br />
             Aircraft Handling
           </h1>
 
-          <p>
-            Delivering safe, reliable and world-class aviation
-            ground handling services across Zimbabwe with a
-            commitment to operational excellence, efficiency
-            and customer satisfaction.
-          </p>
+          <div className="hero-intro-row">
+            <p>
+            Delivering safe, reliable and world-class aviation ground handling services across Zimbabwe with a commitment to operational excellence, efficiency and customer satisfaction.
+            </p>
+            <Link className="hero-stations-link" to="/stations">Visit our stations <span aria-hidden="true">→</span></Link>
+          </div>
 
           <div className="hero-buttons">
-
+          </div>
           </div>
 
           <div className="hero-stats">

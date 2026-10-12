@@ -1,13 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './SiteHeader.css'
 
 import logo from '../assets/logo.png'
 import journeyImage from '../assets/edge2.jpeg'
 import edgeImage from '../assets/edge3.jpeg'
 
+const mobileNavPages = [
+  { to: '/', label: 'Home' },
+  { to: '/our-story', label: 'Our Journey' },
+  { to: '/edge', label: 'EDGE' },
+  { to: '/our-services', label: 'Our Services' },
+  { to: '/stations', label: 'Stations' },
+  { to: '/sustainability', label: 'Sustainability' },
+  { to: '/safety-compliance', label: 'Safety & Compliance' },
+  { to: '/news-media', label: 'News and Media' },
+  { to: '/careers', label: 'Careers' },
+  { to: '/contact-us', label: 'Contact us' },
+]
+
 export default function SiteHeader({ variant = '' }) {
   const [megaOpen, setMegaOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Lock background scroll while the mobile menu panel is open.
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileMenuOpen])
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
+
   return (
     <header className={`sh-header${variant ? ` sh-header--${variant}` : ''}`}>
       <div className="sh-topbar">
@@ -20,17 +42,23 @@ export default function SiteHeader({ variant = '' }) {
       </div>
 
       <nav className="sh-navbar">
+        <button
+          className={`sh-hamburger${mobileMenuOpen ? ' sh-hamburger--open' : ''}`}
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          aria-label="Toggle navigation"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span /><span /><span />
+        </button>
+
         <a href="/" className="sh-logo-area">
           <img src={logo} alt="AGS Aviation Ground Services" className="sh-logo-img" />
         </a>
 
-        <button
-          className="sh-hamburger"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation"
-        >
-          ☰
-        </button>
+        <div className="sh-mobile-actions">
+          <a href="/contact-us">Contact us</a>
+          <span className="sh-lang">EN</span>
+        </div>
 
        <ul className="sh-nav-links">
 
@@ -84,21 +112,23 @@ export default function SiteHeader({ variant = '' }) {
           </li>
           <li><a href="/our-services">Our Services</a></li>
           <li><a href="/sustainability">Sustainability</a></li>
+          <li><a href="/safety-compliance">Safety &amp; Compliance</a></li>
           <li><a href="/news-media">News and Media</a></li>
         </ul>
       </nav>
 
       {mobileMenuOpen && (
-        <div className="sh-mobile-menu">
-          <a href="/our-story" onClick={() => setMobileMenuOpen(false)}>Our Journey</a>
-          <a href="/edge" onClick={() => setMobileMenuOpen(false)}>EDGE</a>
-          <a href="/our-services" onClick={() => setMobileMenuOpen(false)}>Our Services</a>
-          <a href="/sustainability" onClick={() => setMobileMenuOpen(false)}>Sustainability</a>
-          <a href="/news-media" onClick={() => setMobileMenuOpen(false)}>News and Media</a>
-          <a href="/contact-us" onClick={() => setMobileMenuOpen(false)}>Contact us</a>
-      
-        </div>
+        <div className="sh-mobile-backdrop" onClick={closeMobileMenu} aria-hidden="true" />
       )}
+      <div className={`sh-mobile-menu${mobileMenuOpen ? ' sh-mobile-menu--open' : ''}`} aria-hidden={!mobileMenuOpen}>
+        <ul className="sh-mobile-links">
+          {mobileNavPages.map((page, i) => (
+            <li key={page.to} style={{ transitionDelay: mobileMenuOpen ? `${i * 0.04}s` : '0s' }}>
+              <a href={page.to} onClick={closeMobileMenu}>{page.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   )
 }

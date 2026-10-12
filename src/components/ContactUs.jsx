@@ -43,7 +43,17 @@ export default function ContactUs() {
   const [openFaq, setOpenFaq] = useState(null)
   const [form, setForm] = useState({ name: '', email: '', topic: 'General enquiry', message: '' })
 
-  useEffect(() => window.scrollTo(0, 0), [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('cu-visible')
+      }),
+      { threshold: 0.12 }
+    )
+    document.querySelectorAll('.cu-fade').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   const submitEnquiry = (event) => {
     event.preventDefault()
@@ -60,18 +70,18 @@ export default function ContactUs() {
       <main>
         <section className="cu-details">
           <div className="cu-inner cu-details-grid">
-            <article className="cu-card">
+            <article className="cu-card cu-fade">
               <span className="cu-card-label">POSTAL ADDRESS</span>
               <h2>Aviation Ground Services</h2>
               <address>P.O. Box AP 13<br />R.G. Mugabe International Airport</address>
             </article>
-            <article className="cu-card">
+            <article className="cu-card cu-fade" style={{ transitionDelay: '0.1s' }}>
               <span className="cu-card-label">TELEPHONE</span>
               <h2>Call our team</h2>
               <a href="tel:+263242575000">+263 242 575000–9</a>
               <a href="tel:+2638677004791">08677004791</a>
             </article>
-            <article className="cu-card">
+            <article className="cu-card cu-fade" style={{ transitionDelay: '0.2s' }}>
               <span className="cu-card-label">FAX</span>
               <h2>Send a fax</h2>
               <a href="fax:+263242575513">+263 242 575513</a>
@@ -79,7 +89,7 @@ export default function ContactUs() {
           </div>
         </section>
 
-        <section className="cu-support" id="faq" aria-labelledby="support-heading">
+        <section className="cu-support cu-fade" id="faq" aria-labelledby="support-heading">
           <div className="cu-inner">
             <p className="cu-eyebrow">HOW CAN WE HELP?</p>
             <h2 id="support-heading">Frequently asked questions</h2>
@@ -105,7 +115,7 @@ export default function ContactUs() {
           </div>
         </section>
 
-        <section className="cu-enquiry" id="enquiry" aria-labelledby="enquiry-heading">
+        <section className="cu-enquiry cu-fade" id="enquiry" aria-labelledby="enquiry-heading">
           <div className="cu-inner cu-enquiry-grid">
             <div>
               <p className="cu-eyebrow">GET IN TOUCH</p>
@@ -139,7 +149,7 @@ export default function ContactUs() {
           </div>
         </section>
 
-        <section className="cu-lost-found" id="lost-found" aria-labelledby="lost-found-heading">
+        <section className="cu-lost-found cu-fade" id="lost-found" aria-labelledby="lost-found-heading">
           <div className="cu-inner cu-lost-found-content">
             <div>
               <p className="cu-eyebrow">LOST PROPERTY</p>
@@ -153,7 +163,7 @@ export default function ContactUs() {
           </div>
         </section>
 
-        <section className="cu-social-section">
+        <section className="cu-social-section cu-fade">
           <div className="cu-inner">
             <p className="cu-eyebrow">FOLLOW AGS</p>
             <h2>Connect with us</h2>

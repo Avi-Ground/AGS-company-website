@@ -9,7 +9,7 @@ import communityImage from '../assets/news3.jpeg'
 import featureImage from '../assets/atlas-air.jpeg'
 
 const stories = [
-  { category: 'Operations', date: 'Service update', title: 'Keeping every turnaround moving with confidence', copy: 'Behind every departure is a coordinated team focused on safe, efficient and dependable ground handling.', image: cargoImage },
+  { category: 'Operations', date: 'Service update', title: 'Coordinating ground handling for flight turnarounds', copy: 'Our teams coordinate ground handling tasks that support safe and efficient departures.', image: cargoImage },
   { category: 'Cargo', date: 'Service update', title: 'Cargo handling built around care and precision', copy: 'From acceptance through to release, our teams help keep freight moving through every stage of the journey.', image: operationsImage },
   { category: 'Community', date: 'In the community', title: 'Supporting the communities around us', copy: 'We believe meaningful service extends beyond the airport and into the communities we call home.', image: communityImage },
 ]
@@ -17,6 +17,14 @@ const stories = [
 export default function NewsMedia() {
   useEffect(() => {
     window.scrollTo(0, 0)
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('nm-visible')
+      }),
+      { threshold: 0.12 }
+    )
+    document.querySelectorAll('.nm-fade').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -32,8 +40,12 @@ export default function NewsMedia() {
             <p>Updates from our operations, our people and the aviation community.</p>
           </div>
           <div className="nm-story-grid">
-            {stories.map((story) => (
-              <article className="nm-story" key={story.title}>
+            {stories.map((story, i) => (
+              <article
+                className="nm-story nm-fade"
+                key={story.title}
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
                 <div className="nm-story-image"><img src={story.image} alt="" /></div>
                 <div className="nm-story-body">
                   <div className="nm-story-meta"><span>{story.category}</span><time>{story.date}</time></div>
@@ -45,18 +57,18 @@ export default function NewsMedia() {
           </div>
         </section>
 
-        <section className="nm-feature">
+        <section className="nm-feature nm-fade">
           <div className="nm-feature-image"><img src={featureImage} alt="Aircraft receiving AGS ground support" /></div>
           <article className="nm-feature-copy">
             <p className="nm-eyebrow">FEATURED STORY</p>
             <span className="nm-meta">OUR OPERATIONS</span>
             <h2>Ground handling that lets airlines focus on the journey ahead.</h2>
-            <p>Our experienced teams provide thoughtful, disciplined support across passenger, ramp and cargo operations, always with safety at the centre.</p>
+            <p>Our teams provide passenger, ramp and cargo support, with safety as a priority across operations.</p>
             <a href="mailto:info@avi-ground.com" className="nm-link">Talk to our team <span aria-hidden="true">&rarr;</span></a>
           </article>
         </section>
 
-        <section className="nm-contact">
+        <section className="nm-contact nm-fade">
           <p className="nm-eyebrow">MEDIA ENQUIRIES</p>
           <h2>Need to get in touch?</h2>
           <p>For media enquiries, company information or interview requests, our team is ready to help.</p>

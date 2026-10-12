@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./OurEthos.css";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
@@ -34,7 +35,7 @@ const edgePillars = [
 const values = [
   { number: "01", title: "Professionalism", quote: "We conduct ourselves with integrity and pride." },
   { number: "02", title: "Accountability & Ownership", quote: "We own our actions and our results." },
-  { number: "03", title: "Service Excellence", quote: "We go beyond expectations." },
+  { number: "03", title: "Service Excellence", quote: "We aim for consistent service." },
   { number: "04", title: "Teamwork", quote: "We succeed together." },
   { number: "05", title: "Transparency", quote: "We communicate honestly." },
   { number: "06", title: "Sustainability", quote: "We protect our environment for future generations." },
@@ -65,6 +66,17 @@ const wordCloud = [
 ];
 
 export default function OurEthos() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('edge-visible')
+      }),
+      { threshold: 0.12 }
+    )
+    document.querySelectorAll('.edge-fade').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="edge-page">
       <SiteHeader />
@@ -88,8 +100,8 @@ export default function OurEthos() {
               Excellence. Discipline. Growth. Engagement.
             </p>
             <p className="edge-intro-text">
-              AGS EDGE drives everything we do. It is our heartbeat, guiding how
-              we operate, shaping our culture and remaining embedded in our DNA.
+              AGS EDGE describes the principles that guide how our people work,
+              serve clients and make decisions.
             </p>
           </div>
           <div className="edge-word-cloud" aria-hidden="true">
@@ -120,116 +132,102 @@ export default function OurEthos() {
           </div>
         </section>
 
-        <section className="edge-strip">
-        
-          <div className="edge-strip-body">
-            <div className="edge-strip-main">
-              <p className="edge-eyebrow"><i /> WHAT EDGE MEANS</p>
-              <h2>More than values.<br /><em>A way of working.</em></h2>
-              <p>As part of our drive to strengthen our service and excellence culture, AGS has introduced AGS EDGE — Excellence, Discipline, Growth and Engagement. EDGE guides how our people work, serve and make decisions.</p>
-            </div>
-            <div className="edge-strip-side">
-              <div className="edge-strip-mark">EDGE</div>
-              <p>It guides how we operate, forms our culture and is embedded in our DNA.</p>
-            </div>
-          </div>
-      
-        </section>
-
-        <section className="edge-gates">
-          <div className="edge-gates-head">
+        <section className="edge-section edge-fade">
+          <div className="edge-inner edge-two-col">
             <div>
-              <p className="edge-eyebrow"><i /> THE FOUR PILLARS</p>
-              <h2>Four gates.<br /><em>One standard.</em></h2>
+              <p className="edge-eyebrow"><i /> WHAT EDGE MEANS</p>
+              <h2 className="edge-h2">More than values.<br /><em>A way of working.</em></h2>
+              <p className="edge-lede" style={{ marginTop: '22px', maxWidth: '520px' }}>As part of our drive to strengthen our service and excellence culture, AGS has introduced AGS EDGE — Excellence, Discipline, Growth and Engagement. EDGE guides how our people work, serve and make decisions.</p>
             </div>
-            <p className="edge-lede">The four EDGE pillars define the standards that underpin AGS service and excellence: quality, safety, progress and meaningful engagement with our people and stakeholders.</p>
-          </div>
-
-          <div className="edge-gates-row">
-            {edgePillars.map((pillar) => (
-              <article className="edge-gate" key={pillar.number}>
-                <div className="edge-gate-top">
-                  <span className="edge-gate-no">GATE {pillar.number.trim()}</span>
-                  <span className="edge-gate-status">{pillar.keyword}</span>
-                </div>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-                <div className="edge-gate-foot" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-              </article>
-            ))}
+            <div className="edge-quote-card">
+              <div className="edge-quote-mark">EDGE</div>
+              <p>It describes principles that guide how we operate.</p>
+            </div>
           </div>
         </section>
 
-        <section className="edge-signal">
-          <div className="edge-signal-top">
-            <div className="edge-signal-radar" aria-hidden="true">
-              <div className="edge-radar-rings">
-                <i /><i /><i /><i />
-                <div className="edge-radar-sweep" />
-                <span className="edge-radar-blip edge-radar-blip-1" />
-                <span className="edge-radar-blip edge-radar-blip-2" />
-                <span className="edge-radar-blip edge-radar-blip-3" />
+        <section className="edge-section">
+          <div className="edge-inner">
+            <div className="edge-section-head edge-fade">
+              <div>
+                <p className="edge-eyebrow"><i /> THE FOUR PILLARS</p>
+                <h2 className="edge-h2">Four EDGE<br /><em>principles.</em></h2>
               </div>
+              <p className="edge-lede">The four EDGE pillars define the standards that underpin AGS service and excellence: quality, safety, progress and meaningful engagement with our people and stakeholders.</p>
             </div>
-            <p className="edge-signal-lead">
-              <strong>Continuous improvement.</strong> Through AGS EDGE, we are continuously improving, innovating and proactively seeking feedback at all levels, and turning customer insights into faster, safer and more dependable turnarounds.
+
+            <div className="edge-cards-grid">
+              {edgePillars.map((pillar, i) => (
+                <article
+                  className="edge-card edge-fade"
+                  key={pillar.number}
+                  style={{ transitionDelay: `${i * 0.1}s` }}
+                >
+                  <span className="edge-card-number">{pillar.number.trim()}</span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="edge-section edge-section--dark edge-fade">
+          <div className="edge-inner edge-inner--narrow" style={{ textAlign: 'center' }}>
+            <p className="edge-eyebrow edge-eyebrow--center"><i /> CLIENT ENGAGEMENT</p>
+            <h2 className="edge-h2">Your feedback<br /><em>helps us improve.</em></h2>
+            <p className="edge-lede" style={{ margin: '22px auto 0' }}>
+              Client engagement is one of the AGS EDGE pillars. Clients can share suggestions, concerns and recognition directly with AGS. We review feedback and use it to inform service improvements.
             </p>
-          </div>
-
-          <div className="edge-signal-connector" aria-hidden="true"><i /><i /><i /><i /></div>
-
-          <div className="edge-signal-engagement">
-            <div className="edge-tower-heading">
-              <p className="edge-eyebrow"><i /> CLIENT ENGAGEMENT</p>
-              <h2>Your feedback<br /><em>drives action.</em></h2>
-            </div>
-            <div className="edge-tower-panel">
-              <div className="edge-tower-bars" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
-              <p>Client engagement is a primary pillar of EDGE. AGS has introduced a dedicated channel through which clients can share suggestions, concerns and recognition directly with AGS.</p>
-              <p>Every submission is reviewed and followed up, ensuring our clients are heard and their feedback leads to meaningful action and service improvement.</p>
-              <a href="mailto:EDGE@aviground.com" className="edge-tower-freq">
-              
-                <span className="edge-tower-freq-value">EDGE@aviground.com</span>
-                <span className="edge-tower-freq-go" aria-hidden="true">↗</span>
-              </a>
-            </div>
-            <div className="edge-tower-badge" aria-hidden="true">
-              <span>LISTEN</span><span>RESPOND</span><span>IMPROVE</span>
-            </div>
+            <a href="mailto:EDGE@aviground.com" className="edge-contact-link">
+              EDGE@avi-ground.com <span aria-hidden="true">→</span>
+            </a>
           </div>
         </section>
 
-        <section className="edge-flapboard">
-          <div className="edge-flapboard-head">
-        
+        <section className="edge-section">
+          <div className="edge-inner">
+            <div className="edge-section-head edge-fade">
               <p className="edge-eyebrow"><i /> OUR VALUES</p>
-          </div>
-          <div className="edge-flapboard-grid">
-            {values.map((value) => (
-              <article className="edge-flap" key={value.number}>
-                <div className="edge-flap-code"><span>{value.number}</span><i>VALUE</i></div>
-                <div className="edge-flap-face"><h3>{value.title}</h3></div>
-                <p className="edge-flap-quote">{value.quote}</p>
-              </article>
-            ))}
+            </div>
+            <div className="edge-values-grid">
+              {values.map((value, i) => (
+                <article
+                  className="edge-card edge-fade"
+                  key={value.number}
+                  style={{ transitionDelay: `${(i % 3) * 0.1}s` }}
+                >
+                  <span className="edge-card-number">{value.number}</span>
+                  <h3>{value.title}</h3>
+                  <p className="edge-card-quote">{value.quote}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="edge-taxiway">
-          <div className="edge-taxiway-head">
-            <p className="edge-eyebrow"><i /> THE EDGE IN PRACTICE</p>
-            <h2>What EDGE<br /><em>delivers.</em></h2>
-            <p className="edge-lede">Through EDGE, our clients benefit from responsive teams, consistent service, prompt resolution of concerns and a strong culture of continuous improvement.</p>
-          </div>
-          <div className="edge-taxiway-route">
-            <div className="edge-taxiway-line" aria-hidden="true" />
-            {outcomes.map((outcome) => (
-              <div className="edge-taxiway-stop" key={outcome.number}>
-                <span className="edge-taxiway-marker" aria-hidden="true">{outcome.number}</span>
-                <strong>{outcome.title}</strong>
-                <p>{outcome.description}</p>
+        <section className="edge-section">
+          <div className="edge-inner">
+            <div className="edge-section-head edge-fade">
+              <div>
+                <p className="edge-eyebrow"><i /> THE EDGE IN PRACTICE</p>
+                <h2 className="edge-h2">What EDGE<br /><em>delivers.</em></h2>
               </div>
-            ))}
+              <p className="edge-lede">Through EDGE, our clients benefit from responsive teams, consistent service, prompt resolution of concerns and a strong culture of continuous improvement.</p>
+            </div>
+            <div className="edge-cards-grid">
+              {outcomes.map((outcome, i) => (
+                <article
+                  className="edge-card edge-fade"
+                  key={outcome.number}
+                  style={{ transitionDelay: `${i * 0.1}s` }}
+                >
+                  <span className="edge-card-number">{outcome.number}</span>
+                  <h3>{outcome.title}</h3>
+                  <p>{outcome.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

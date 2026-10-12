@@ -43,9 +43,7 @@ export default function WhoWeAre() {
             <em>A Partner.</em>
           </h1>
           <p className="ww-hero-sub">
-            Everything we do — every value we hold, every commitment we make,
-            every person we employ — is built around one purpose: to be the
-            most trusted aviation ground services company in Zimbabwe.
+            AGS provides aviation ground services in Zimbabwe, with a focus on safe operations and support for airline customers.
           </p>
         </div>
         <div className="ww-hero-scroll">
@@ -65,23 +63,21 @@ export default function WhoWeAre() {
             <div className="ww-block">
               <div className="ww-block-label">MISSION</div>
               <p>
-                To be the most sought after provider of aviation handling services by meeting
-                and exceeding customer expectations through innovation and dedicated staff
-                to maximise stakeholder value.
+                To provide aviation handling services that meet customer requirements through
+                capable staff, clear procedures, and ongoing service development.
               </p>
             </div>
             <div className="ww-block">
               <div className="ww-block-label">VISION</div>
               <p>
-                To be the trusted partner in ground handling and other aviation support
-                services in Zimbabwe — setting the regional benchmark for safety,
-                reliability, and operational excellence.
+                To provide ground handling and aviation support services in Zimbabwe and the
+                region, with a focus on safety, reliability, and consistent service.
               </p>
             </div>
           </div>
           <div className="ww-visual-col ww-mv-visual">
             <div className="ww-big-quote">
-              "Every aircraft we handle carries our reputation with it."
+              "Each operation reflects the care our teams bring to their work."
             </div>
             <div className="ww-quote-attr">— Aviation Ground Services</div>
           </div>
@@ -96,16 +92,15 @@ export default function WhoWeAre() {
           <p className="ww-tag ww-tag--red">THE AGS EDGE</p>
           <h2 className="ww-h2 ww-h2--white">Our Values</h2>
           <p className="ww-section-intro ww-intro--white">
-            The AGS EDGE — Excellence, Discipline, Growth, Engagement — is not a
-            slogan. It is the standard we hold ourselves to on every ramp,
-            in every terminal, with every flight.
+            The AGS EDGE — Excellence, Discipline, Growth, Engagement — describes the
+            principles that guide our teams across ramp, terminal, and flight operations.
           </p>
           <div className="ww-values-grid">
             {[
               {
                 letter: 'E',
                 value: 'Excellence',
-                body: 'We do not settle for good enough. From the way we handle an aircraft to the way we greet a passenger — excellence is the only standard we accept.'
+                body: 'We work to provide careful, consistent service, from aircraft handling to passenger assistance.'
               },
               {
                 letter: 'D',
@@ -120,7 +115,7 @@ export default function WhoWeAre() {
               {
                 letter: 'E',
                 value: 'Engagement',
-                body: 'We engage deeply with our airline partners, our staff, and our communities — building relationships that go beyond contracts and into true partnership.'
+                body: 'We value communication with airline partners, our staff, and the communities around our stations.'
               },
             ].map((v, i) => (
               <div className="ww-value-card" key={i}>
@@ -142,18 +137,16 @@ export default function WhoWeAre() {
           <p className="ww-tag ww-tag--dark">THE TEAM</p>
           <h2 className="ww-h2">Our People</h2>
           <p className="ww-section-intro">
-            Our 250+ strong team is the engine behind every safe landing, every on-time
-            departure, and every satisfied passenger. We hire for attitude, train for
-            excellence, and retain through respect.
+            Our team of more than 250 people works across ground operations, passenger services, cargo, and support functions. We provide role-related training and support staff development.
           </p>
           <div className="ww-people-grid">
             {[
-              { role: 'Ramp Agents', count: '80+', desc: 'The backbone of every turnaround. On the tarmac before dawn, ensuring every aircraft is ready to fly.' },
-              { role: 'Passenger Services', count: '60+', desc: 'The face of AGS to every traveller. Professional, warm, and trained to handle any situation.' },
-              { role: 'Cargo Handlers', count: '40+', desc: 'Precision and care for every shipment — from fragile freight to high-value and dangerous goods.' },
-              { role: 'Operations & Management', count: '30+', desc: 'The command centre — coordinating every moving part to keep the tarmac running like clockwork.' },
-              { role: 'Safety & Compliance', count: '20+', desc: 'Our safety guardians — auditing, training, and ensuring we never compromise on what matters most.' },
-              { role: 'Support Staff', count: '20+', desc: 'Administration, HR, finance, and IT — the unseen force that keeps AGS running efficiently.' },
+              { role: 'Ramp Agents', count: '80+', desc: 'Ramp teams support aircraft turnarounds and related ground operations.' },
+              { role: 'Passenger Services', count: '60+', desc: 'Passenger services staff assist travellers with check-in, boarding, and service enquiries.' },
+              { role: 'Cargo Handlers', count: '40+', desc: 'Cargo teams handle freight and support cargo operations.' },
+              { role: 'Operations & Management', count: '30+', desc: 'Operations and management teams coordinate ground handling activities.' },
+              { role: 'Safety & Compliance', count: '20+', desc: 'The safety and compliance team supports audits, staff training, and operational procedures.' },
+              { role: 'Support Staff', count: '20+', desc: 'Administration, HR, finance, and IT support day-to-day company operations.' },
             ].map((p, i) => (
               <div className="ww-people-card" key={i}>
                 <div className="ww-people-count">{p.count}</div>
@@ -180,9 +173,9 @@ export default function WhoWeAre() {
               with colleagues, clients, and the communities we serve.
             </p>
             <p className="ww-body--white">
-              We operate with full transparency, zero tolerance for corruption, and
-              a deep commitment to ethical business practices — because trust is the
-              foundation of every lasting airline partnership.
+              We aim for transparent reporting and follow anti-corruption policies in
+              our business practices.
+              
             </p>
           </div>
           <div className="ww-conduct-list">
@@ -216,9 +209,9 @@ export default function WhoWeAre() {
               <p className="ww-tag ww-tag--dark">BEYOND THE TARMAC</p>
               <h2 className="ww-h2">Community &amp;<br />Wellbeing</h2>
               <p className="ww-section-intro" style={{marginBottom: 0}}>
-                AGS believes that a great company must be a good neighbour. We invest in
-                the communities around our airports and in the wellbeing of every member
-                of our team.
+                AGS aims to be a constructive neighbour and supports
+                community initiatives around our airports and staff wellbeing.
+                
               </p>
             </div>
             <div className="ww-community-img-wrap">
@@ -275,21 +268,19 @@ export default function WhoWeAre() {
           <p className="ww-tag ww-tag--red">OUR PROMISE</p>
           <h2 className="ww-h2 ww-h2--white">Service Commitments</h2>
           <p className="ww-section-intro ww-intro--white">
-            At AGS, operational excellence is driven by real-world accountability. We benchmark our
-            success against critical aviation metrics, continuously tracking our On-Time Performance (OTP),
-            baggage handling accuracy, and safety incident rates. Grounded in a corporate culture of
-            absolute transparency, we commit to measuring and openly reporting our performance to our
-            airline partners. We own our operational results — both our successes and our challenges —
-            ensuring we constantly refine our processes to deliver unmatched reliability.
+            At AGS, service development is supported by operational data. We review
+            performance measures such as On-Time Performance (OTP), baggage handling accuracy,
+            and safety incident rates. We share relevant performance information with our airline
+            partners and use results and operational feedback to review our processes.
           </p>
           <div className="ww-commitments-grid">
             {[
-              { metric: '99.8%', label: 'On-Time Performance', desc: 'We target and consistently achieve industry-leading on-time departure rates across all handled flights.' },
-              { metric: '< 30 min', label: 'Turnaround Time', desc: 'Narrow-body aircraft turnarounds completed within 30 minutes — without compromising safety or quality.' },
-              { metric: '24 / 7', label: 'Operations Support', desc: 'Our operations team is available around the clock — no flight goes without support at any hour.' },
-              { metric: '0', label: 'Major Safety Incidents', desc: 'Our safety record speaks for itself. Zero major incidents across 15+ years of operations.' },
-              { metric: '100%', label: 'Trained Staff', desc: 'Every agent on the ramp is fully certified. No shortcuts, no unqualified staff on any aircraft.' },
-              { metric: '< 2 hrs', label: 'Issue Resolution', desc: 'Operational issues reported to us are escalated and resolved within two hours, guaranteed.' },
+              { metric: '99.8%', label: 'On-Time Performance', desc: 'Reported on-time departure performance across handled flights.' },
+              { metric: '< 30 min', label: 'Turnaround Time', desc: 'Target turnaround time for narrow-body aircraft; actual times vary by flight and operating conditions.' },
+              { metric: '24 / 7', label: 'Operations Support', desc: 'Operations support is provided throughout the day and night.' },
+              { metric: '0', label: 'Major Safety Incidents', desc: 'No major incidents recorded in the period represented by this figure.' },
+              { metric: '100%', label: 'Trained Staff', desc: 'Ramp staff receive role-specific training and certification.' },
+              { metric: '< 2 hrs', label: 'Issue Follow-up', desc: 'Reported issues are assigned for follow-up; response times depend on the issue.' },
             ].map((c, i) => (
               <div className="ww-commitment-card" key={i}>
                 <div className="ww-commitment-metric">{c.metric}</div>
@@ -312,12 +303,9 @@ export default function WhoWeAre() {
           <p className="ww-tag ww-tag--dark">HOW WE WORK</p>
           <h2 className="ww-h2">Business Policies<br />&amp; Practices</h2>
           <p className="ww-section-intro" style={{maxWidth: '760px'}}>
-            AGS operates in strict alignment with the highest international aviation standards,
-            embedding IATA and ISAGO-compliant protocols across all ground and cargo handling
-            activities. Our operations undergo rigorous, regular internal and external audits to
-            guarantee absolute compliance and safety. We believe that robust corporate governance
-            relies on complete transparency, and we provide clear, unvarnished reporting to our
-            stakeholders, establishing AGS as Zimbabwe's most trusted and compliant aviation partner.
+            AGS follows applicable international aviation standards and uses relevant IATA and
+            ISAGO procedures in ground and cargo handling. Regular internal and external audits
+            support compliance reviews. We share relevant policy information with stakeholders.
           </p>
         </div>
       </section>

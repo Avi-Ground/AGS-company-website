@@ -72,7 +72,7 @@ function HeroSection() {
                     <span className="mega-col-title">OUR PEOPLE</span>
                     <Link to="/our-people" className="mega-link">
                       <span className="mega-link-title">Our People</span>
-                      <span className="mega-link-sub">The talent behind every success story</span>
+                      <span className="mega-link-sub">The people behind our operations</span>
                     </Link>
                     <Link to="/code-of-conduct" className="mega-link">
                       <span className="mega-link-title">Business Code of Conduct</span>
@@ -102,6 +102,7 @@ function HeroSection() {
 
             <li><Link to="/our-services">Our Services</Link></li>
             <li><Link to="/sustainability">Sustainability</Link></li>
+            <li><Link to="/safety-compliance">Safety &amp; Compliance</Link></li>
             <li><a href="#news-and-media" onClick={scrollToNews}>News and Media</a></li>
 
           </ul>
@@ -110,7 +111,7 @@ function HeroSection() {
         {/* Hero Headline */}
         <div className="hero-content">
           <h1 className="hero-headline">
-            'Leaders in Passenger,<br />Cargo and Aircraft Handling'
+            'Leaders in ,<br />Passenger, Cargo<br />and Aircraft Handling'
           </h1>
           <button className="arrow-btn" aria-label="Learn more">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -125,12 +126,10 @@ function HeroSection() {
       <section className="about-section">
         <h2 className="about-title">We are Aviation Ground Services</h2>
         <p className="about-body">
-          Aviation Ground Services (AGS) is a premier provider of end to end ground handling
-          solutions focused on safety, efficiency, and operational excellence. We bridge the gap
-          between airline schedules and ground logistics, delivering seamless turnarounds,
-          passenger handling, and cargo management. AGS serves commercial airlines, cargo
-          carriers, and private charter operators — ensuring every aircraft departs on time with
-          precision and safety.
+          Aviation Ground Services (AGS) provides ground handling services focused on safety
+          and efficient operations. We support airline schedules with passenger handling,
+          aircraft turnaround, and cargo management for commercial airlines, cargo carriers,
+          and private charter operators.
         </p>
       </section>
     </>

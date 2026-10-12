@@ -52,3 +52,6 @@
 .cu-arrow { margin-left: auto; font-size: 18px; }
 @media (max-width: 768px) { .cu-hero { min-height: 370px; } .cu-hero-content { padding: 90px 0 58px; } .cu-hero h1 { font-size: 45px; } .cu-details { padding: 54px 0; } .cu-details-grid, .cu-enquiry-grid { grid-template-columns: 1fr; } .cu-card { min-height: auto; padding: 28px 24px; } .cu-support, .cu-enquiry { padding: 60px 0; } .cu-lost-found { padding: 52px 0; } .cu-lost-found-content { display: block; } .cu-whatsapp { margin-top: 28px; } .cu-form { margin-top: -5px; } .cu-social-section { padding: 60px 0; } .cu-social-link { width: 100%; } }
 @media (max-width: 480px) { .cu-form { grid-template-columns: 1fr; } .cu-form label:nth-child(3), .cu-form label:nth-child(4) { grid-column: auto; } }
+
+.cu-fade { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+.cu-fade.cu-visible { opacity: 1; transform: translateY(0); }
