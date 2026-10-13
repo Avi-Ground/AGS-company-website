@@ -3,10 +3,12 @@ import { Link, useLocation } from 'react-router-dom'
 import './WhoWeAre.css'
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
+import { rich, useTranslation } from '../i18n'
 import communityKids from '../assets/community-kids.jpeg'
 
 export default function WhoWeAre() {
   const location = useLocation()
+  const { t } = useTranslation()
 
   useEffect(() => {
     // Smooth scroll to anchor if present
@@ -36,19 +38,13 @@ export default function WhoWeAre() {
         <SiteHeader />
         <div className="ww-hero-bg" />
         <div className="ww-hero-content">
-          <div className="ww-tag">WHO WE ARE</div>
-          <h1 className="ww-hero-title">
-            More Than a<br />
-            Ground Handler.<br />
-            <em>A Partner.</em>
-          </h1>
-          <p className="ww-hero-sub">
-            AGS provides aviation ground services in Zimbabwe, with a focus on safe operations and support for airline customers.
-          </p>
+          <div className="ww-tag">{t('whoWeAre.tag')}</div>
+          <h1 className="ww-hero-title">{rich(t('whoWeAre.heroTitle'))}</h1>
+          <p className="ww-hero-sub">{t('whoWeAre.heroSub')}</p>
         </div>
         <div className="ww-hero-scroll">
           <div className="ww-scroll-mouse"><div className="ww-scroll-dot" /></div>
-          <span>Scroll to explore</span>
+          <span>{t('whoWeAre.scroll')}</span>
         </div>
       </header>
 
@@ -58,28 +54,20 @@ export default function WhoWeAre() {
       <section id="mission-vision" className="ww-section ww-section--light ww-fade">
         <div className="ww-section-inner ww-two-col">
           <div className="ww-text-col">
-            <p className="ww-tag ww-tag--dark">OUR PURPOSE</p>
-            <h2 className="ww-h2">Mission &amp; Vision</h2>
+            <p className="ww-tag ww-tag--dark">{t('whoWeAre.purposeTag')}</p>
+            <h2 className="ww-h2">{t('whoWeAre.mvTitle')}</h2>
             <div className="ww-block">
-              <div className="ww-block-label">MISSION</div>
-              <p>
-                To provide aviation handling services that meet customer requirements through
-                capable staff, clear procedures, and ongoing service development.
-              </p>
+              <div className="ww-block-label">{t('whoWeAre.missionLabel')}</div>
+              <p>{t('whoWeAre.mission')}</p>
             </div>
             <div className="ww-block">
-              <div className="ww-block-label">VISION</div>
-              <p>
-                To provide ground handling and aviation support services in Zimbabwe and the
-                region, with a focus on safety, reliability, and consistent service.
-              </p>
+              <div className="ww-block-label">{t('whoWeAre.visionLabel')}</div>
+              <p>{t('whoWeAre.vision')}</p>
             </div>
           </div>
           <div className="ww-visual-col ww-mv-visual">
-            <div className="ww-big-quote">
-              "Each operation reflects the care our teams bring to their work."
-            </div>
-            <div className="ww-quote-attr">— Aviation Ground Services</div>
+            <div className="ww-big-quote">{t('whoWeAre.quote')}</div>
+            <div className="ww-quote-attr">{t('whoWeAre.quoteAttr')}</div>
           </div>
         </div>
       </section>
@@ -89,37 +77,13 @@ export default function WhoWeAre() {
       ══════════════════════════════ */}
       <section id="our-values" className="ww-section ww-section--dark ww-fade">
         <div className="ww-section-inner">
-          <p className="ww-tag ww-tag--red">THE AGS EDGE</p>
-          <h2 className="ww-h2 ww-h2--white">Our Values</h2>
-          <p className="ww-section-intro ww-intro--white">
-            The AGS EDGE — Excellence, Discipline, Growth, Engagement — describes the
-            principles that guide our teams across ramp, terminal, and flight operations.
-          </p>
+          <p className="ww-tag ww-tag--red">{t('whoWeAre.valuesTag')}</p>
+          <h2 className="ww-h2 ww-h2--white">{t('whoWeAre.valuesTitle')}</h2>
+          <p className="ww-section-intro ww-intro--white">{t('whoWeAre.valuesIntro')}</p>
           <div className="ww-values-grid">
-            {[
-              {
-                letter: 'E',
-                value: 'Excellence',
-                body: 'We work to provide careful, consistent service, from aircraft handling to passenger assistance.'
-              },
-              {
-                letter: 'D',
-                value: 'Discipline',
-                body: 'Aviation demands precision. Our teams follow procedures with military discipline — because in our industry, shortcuts cost lives and reputations.'
-              },
-              {
-                letter: 'G',
-                value: 'Growth',
-                body: 'We invest in our people, our processes, and our capabilities — constantly evolving to meet the demands of a dynamic industry and a growing continent.'
-              },
-              {
-                letter: 'E',
-                value: 'Engagement',
-                body: 'We value communication with airline partners, our staff, and the communities around our stations.'
-              },
-            ].map((v, i) => (
+            {t('whoWeAre.values').map((v, i) => (
               <div className="ww-value-card" key={i}>
-                <div className="ww-value-letter">{v.letter}</div>
+                <div className="ww-value-letter">{'EDGE'[i]}</div>
                 <h3 className="ww-value-title">{v.value}</h3>
                 <p className="ww-value-body">{v.body}</p>
               </div>
@@ -165,30 +129,13 @@ export default function WhoWeAre() {
       <section id="code-of-conduct" className="ww-section ww-section--red ww-fade">
         <div className="ww-section-inner ww-two-col">
           <div className="ww-text-col">
-            <p className="ww-tag ww-tag--white-border">HOW WE OPERATE</p>
-            <h2 className="ww-h2 ww-h2--white">Business Code<br />of Conduct</h2>
-            <p className="ww-body--white">
-              At AGS, integrity is non-negotiable. Our Business Code of Conduct sets
-              the standard for how every employee, contractor, and partner interacts
-              with colleagues, clients, and the communities we serve.
-            </p>
-            <p className="ww-body--white">
-              We aim for transparent reporting and follow anti-corruption policies in
-              our business practices.
-              
-            </p>
+            <p className="ww-tag ww-tag--white-border">{t('whoWeAre.conductTag')}</p>
+            <h2 className="ww-h2 ww-h2--white">{rich(t('whoWeAre.conductTitle'))}</h2>
+            <p className="ww-body--white">{t('whoWeAre.conduct1')}</p>
+            <p className="ww-body--white">{t('whoWeAre.conduct2')}</p>
           </div>
           <div className="ww-conduct-list">
-            {[
-              'Zero tolerance for bribery and corruption',
-              'Transparent reporting and accountability',
-              'Respect and dignity for all employees',
-              'Fair and ethical procurement practices',
-              'Confidentiality of airline and passenger data',
-              'Compliance with all aviation regulations',
-              'Environmental responsibility in all operations',
-              'Whistleblower protection and open reporting',
-            ].map((item, i) => (
+            {t('whoWeAre.conductList').map((item, i) => (
               <div className="ww-conduct-item" key={i}>
                 <span className="ww-conduct-check">✓</span>
                 <span>{item}</span>

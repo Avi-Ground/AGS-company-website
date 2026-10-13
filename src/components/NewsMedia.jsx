@@ -2,19 +2,19 @@ import { useEffect } from 'react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import './NewsMedia.css'
+import { useTranslation } from '../i18n'
 
 import cargoImage from '../assets/news1.jpeg'
 import operationsImage from '../assets/news2.jpeg'
 import communityImage from '../assets/news3.jpeg'
 import featureImage from '../assets/atlas-air.jpeg'
 
-const stories = [
-  { category: 'Operations', date: 'Service update', title: 'Coordinating ground handling for flight turnarounds', copy: 'Our teams coordinate ground handling tasks that support safe and efficient departures.', image: cargoImage },
-  { category: 'Cargo', date: 'Service update', title: 'Cargo handling built around care and precision', copy: 'From acceptance through to release, our teams help keep freight moving through every stage of the journey.', image: operationsImage },
-  { category: 'Community', date: 'In the community', title: 'Supporting the communities around us', copy: 'We believe meaningful service extends beyond the airport and into the communities we call home.', image: communityImage },
-]
+// Story text lives in the locale files under news.stories (same order).
+const storyImages = [cargoImage, operationsImage, communityImage]
 
 export default function NewsMedia() {
+  const { t } = useTranslation()
+  const stories = t('news.stories').map((story, i) => ({ ...story, image: storyImages[i] }))
   useEffect(() => {
     window.scrollTo(0, 0)
     const observer = new IntersectionObserver(
@@ -36,14 +36,14 @@ export default function NewsMedia() {
             <span>AGS</span>
           </div>
           <div className="nm-section-heading">
-            <div><p className="nm-eyebrow">LATEST</p><h1>News from AGS</h1></div>
-            <p>Updates from our operations, our people and the aviation community.</p>
+            <div><p className="nm-eyebrow">{t('news.latestTag')}</p><h1>{t('news.title')}</h1></div>
+            <p>{t('news.intro')}</p>
           </div>
           <div className="nm-story-grid">
             {stories.map((story, i) => (
               <article
                 className="nm-story nm-fade"
-                key={story.title}
+                key={i}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="nm-story-image"><img src={story.image} alt="" /></div>
@@ -60,19 +60,19 @@ export default function NewsMedia() {
         <section className="nm-feature nm-fade">
           <div className="nm-feature-image"><img src={featureImage} alt="Aircraft receiving AGS ground support" /></div>
           <article className="nm-feature-copy">
-            <p className="nm-eyebrow">FEATURED STORY</p>
-            <span className="nm-meta">OUR OPERATIONS</span>
-            <h2>Ground handling that lets airlines focus on the journey ahead.</h2>
-            <p>Our teams provide passenger, ramp and cargo support, with safety as a priority across operations.</p>
-            <a href="mailto:info@avi-ground.com" className="nm-link">Talk to our team <span aria-hidden="true">&rarr;</span></a>
+            <p className="nm-eyebrow">{t('news.featuredTag')}</p>
+            <span className="nm-meta">{t('news.featuredMeta')}</span>
+            <h2>{t('news.featuredTitle')}</h2>
+            <p>{t('news.featuredBody')}</p>
+            <a href="mailto:info@avi-ground.com" className="nm-link">{t('news.featuredLink')} <span className="dir-arrow" aria-hidden="true">&rarr;</span></a>
           </article>
         </section>
 
         <section className="nm-contact nm-fade">
-          <p className="nm-eyebrow">MEDIA ENQUIRIES</p>
-          <h2>Need to get in touch?</h2>
-          <p>For media enquiries, company information or interview requests, our team is ready to help.</p>
-          <a href="mailto:info@avi-ground.com">Contact AGS <span aria-hidden="true">&rarr;</span></a>
+          <p className="nm-eyebrow">{t('news.mediaTag')}</p>
+          <h2>{t('news.mediaTitle')}</h2>
+          <p>{t('news.mediaBody')}</p>
+          <a href="mailto:info@avi-ground.com">{t('news.mediaLink')} <span className="dir-arrow" aria-hidden="true">&rarr;</span></a>
         </section>
       </main>
       <SiteFooter />

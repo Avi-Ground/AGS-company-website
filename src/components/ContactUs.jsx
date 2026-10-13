@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import './ContactUs.css'
+import { useTranslation } from '../i18n'
 
 const socialLinks = [
   {
@@ -21,19 +22,12 @@ const socialLinks = [
   },
 ]
 
-const faqs = [
-  {
-    question: 'What services does AGS provide?',
-    answer: 'AGS provides a full range of aircraft, passenger, ramp, cargo and flight operations ground-handling services at R.G. Mugabe International Airport.',
-  },
-  {
-    question: 'How can I request assistance or send feedback?',
-    answer: 'Use the enquiry and feedback form below. Select the topic that best matches your request and our team will receive your message by email.',
-  },
-  {
-    question: 'Who should I contact about lost property?',
-    answer: 'For items left at the airport or on an aircraft, message the Lost Property Office directly on WhatsApp using the link below.',
-  },
+// Enquiry topics: the key picks the translated label; the English value is what the team receives by email.
+const topics = [
+  ['general', 'General enquiry'],
+  ['feedback', 'Feedback'],
+  ['service', 'Service request'],
+  ['other', 'Other'],
 ]
 
 // Update this number if the Lost Property Office contact changes.
@@ -41,6 +35,8 @@ const lostPropertyWhatsApp = '2638677004791'
 
 export default function ContactUs() {
   const [openFaq, setOpenFaq] = useState(null)
+  const { t } = useTranslation()
+  const faqs = t('contact.faqs')
   const [form, setForm] = useState({ name: '', email: '', topic: 'General enquiry', message: '' })
 
   useEffect(() => {
@@ -71,33 +67,33 @@ export default function ContactUs() {
         <section className="cu-details">
           <div className="cu-inner cu-details-grid">
             <article className="cu-card cu-fade">
-              <span className="cu-card-label">POSTAL ADDRESS</span>
+              <span className="cu-card-label">{t('contact.postalLabel')}</span>
               <h2>Aviation Ground Services</h2>
-              <address>P.O. Box AP 13<br />R.G. Mugabe International Airport</address>
+              <address>P.O. Box AP 13<br />{t('contact.postalAirport')}</address>
             </article>
             <article className="cu-card cu-fade" style={{ transitionDelay: '0.1s' }}>
-              <span className="cu-card-label">TELEPHONE</span>
-              <h2>Call our team</h2>
-              <a href="tel:+263242575000">+263 242 575000–9</a>
-              <a href="tel:+2638677004791">08677004791</a>
+              <span className="cu-card-label">{t('contact.phoneLabel')}</span>
+              <h2>{t('contact.phoneTitle')}</h2>
+              <a href="tel:+263242575000" dir="ltr">+263 242 575000–9</a>
+              <a href="tel:+2638677004791" dir="ltr">08677004791</a>
             </article>
             <article className="cu-card cu-fade" style={{ transitionDelay: '0.2s' }}>
-              <span className="cu-card-label">FAX</span>
-              <h2>Send a fax</h2>
-              <a href="fax:+263242575513">+263 242 575513</a>
+              <span className="cu-card-label">{t('contact.emailLabel')}</span>
+              <h2>{t('contact.emailTitle')}</h2>
+              <a href="mailto:info@avi-ground.com" dir="ltr">info@avi-ground.com</a>
             </article>
           </div>
         </section>
 
         <section className="cu-support cu-fade" id="faq" aria-labelledby="support-heading">
           <div className="cu-inner">
-            <p className="cu-eyebrow">HOW CAN WE HELP?</p>
-            <h2 id="support-heading">Frequently asked questions</h2>
+            <p className="cu-eyebrow">{t('contact.helpTag')}</p>
+            <h2 id="support-heading">{t('contact.faqTitle')}</h2>
             <div className="cu-faq-list">
               {faqs.map(({ question, answer }, index) => {
                 const isOpen = openFaq === index
                 return (
-                  <article className="cu-faq-item" key={question}>
+                  <article className="cu-faq-item" key={index}>
                     <button
                       type="button"
                       className="cu-faq-question"
@@ -118,33 +114,30 @@ export default function ContactUs() {
         <section className="cu-enquiry cu-fade" id="enquiry" aria-labelledby="enquiry-heading">
           <div className="cu-inner cu-enquiry-grid">
             <div>
-              <p className="cu-eyebrow">GET IN TOUCH</p>
-              <h2 id="enquiry-heading">Enquiry &amp; feedback form</h2>
-              <p>Tell us how we can help. Your email app will open with your completed message addressed to our team.</p>
+              <p className="cu-eyebrow">{t('contact.touchTag')}</p>
+              <h2 id="enquiry-heading">{t('contact.formTitle')}</h2>
+              <p>{t('contact.formIntro')}</p>
             </div>
             <form className="cu-form" onSubmit={submitEnquiry}>
               <label>
-                Full name
+                {t('contact.fullName')}
                 <input name="name" value={form.name} onChange={updateForm} autoComplete="name" required />
               </label>
               <label>
-                Email address
+                {t('contact.email')}
                 <input name="email" type="email" value={form.email} onChange={updateForm} autoComplete="email" required />
               </label>
               <label>
-                Enquiry type
+                {t('contact.topic')}
                 <select name="topic" value={form.topic} onChange={updateForm}>
-                  <option>General enquiry</option>
-                  <option>Feedback</option>
-                  <option>Service request</option>
-                  <option>Other</option>
+                  {topics.map(([key, value]) => <option key={key} value={value}>{t(`contact.topics.${key}`)}</option>)}
                 </select>
               </label>
               <label>
-                Your message
+                {t('contact.message')}
                 <textarea name="message" value={form.message} onChange={updateForm} rows="5" required />
               </label>
-              <button type="submit" className="cu-submit">Send enquiry <span aria-hidden="true">→</span></button>
+              <button type="submit" className="cu-submit">{t('contact.send')} <span className="dir-arrow" aria-hidden="true">→</span></button>
             </form>
           </div>
         </section>
@@ -152,28 +145,28 @@ export default function ContactUs() {
         <section className="cu-lost-found cu-fade" id="lost-found" aria-labelledby="lost-found-heading">
           <div className="cu-inner cu-lost-found-content">
             <div>
-              <p className="cu-eyebrow">LOST PROPERTY</p>
-              <h2 id="lost-found-heading">Lost and found</h2>
-              <p>Need help locating an item? Contact the Lost Property Office directly on WhatsApp.</p>
+              <p className="cu-eyebrow">{t('contact.lostTag')}</p>
+              <h2 id="lost-found-heading">{t('contact.lostTitle')}</h2>
+              <p>{t('contact.lostBody')}</p>
             </div>
             <a className="cu-whatsapp" href={`https://wa.me/${lostPropertyWhatsApp}`} target="_blank" rel="noopener noreferrer">
               <span className="cu-whatsapp-icon" aria-hidden="true">◔</span>
-              Message on WhatsApp <span aria-hidden="true">→</span>
+              {t('contact.whatsapp')} <span className="dir-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </section>
 
         <section className="cu-social-section cu-fade">
           <div className="cu-inner">
-            <p className="cu-eyebrow">FOLLOW AGS</p>
-            <h2>Connect with us</h2>
-            <p className="cu-social-copy">Follow our latest news, stories and updates on social media.</p>
+            <p className="cu-eyebrow">{t('contact.followTag')}</p>
+            <h2>{t('contact.followTitle')}</h2>
+            <p className="cu-social-copy">{t('contact.followBody')}</p>
             <div className="cu-social-links">
               {socialLinks.map(({ name, href, icon }) => (
                 <a key={name} href={href} target="_blank" rel="noopener noreferrer" className="cu-social-link">
                   <span className="cu-social-icon">{icon}</span>
                   <span>{name}</span>
-                  <span className="cu-arrow" aria-hidden="true">→</span>
+                  <span className="cu-arrow dir-arrow" aria-hidden="true">→</span>
                 </a>
               ))}
             </div>

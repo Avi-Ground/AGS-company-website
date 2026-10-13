@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import './Careers.css'
+import { rich, useTranslation } from '../i18n'
 
 // Add vacancies here. Listings automatically stop appearing after their deadline.
 const jobListings = [
@@ -15,12 +16,13 @@ const jobListings = [
   // },
 ]
 
-const formatDeadline = (deadline) => new Intl.DateTimeFormat('en', {
+const formatDeadline = (deadline, locale) => new Intl.DateTimeFormat(locale, {
   day: 'numeric', month: 'long', year: 'numeric',
 }).format(new Date(`${deadline}T12:00:00`))
 
 export default function Careers() {
   const [now, setNow] = useState(() => Date.now())
+  const { t, language } = useTranslation()
   const openJobs = useMemo(() => {
     return jobListings.filter(({ deadline }) => new Date(`${deadline}T23:59:59`).getTime() >= now)
   }, [now])
@@ -47,16 +49,16 @@ export default function Careers() {
       <main>
         <section className="cr-hero">
           <div className="cr-hero-copy">
-            <h1>Join <em>AGS.</em></h1>
-            <p>Join the teams supporting airport operations and passenger services. At AGS, every role plays a part in keeping aviation moving.</p>
+            <h1>{rich(t('careers.heroTitle'))}</h1>
+            <p>{t('careers.heroBody')}</p>
           </div>
           <div className="cr-flight-mark" aria-hidden="true">AGS</div>
         </section>
 
         <section className="cr-roles" id="open-roles">
           <div className="cr-section-heading cr-fade">
-            <div><p className="cr-eyebrow">OPPORTUNITIES</p><h2>Open roles</h2></div>
-            <p>Submit your CV and a short cover note to <a href="mailto:hr@avi-ground.com">hr@avi-ground.com</a>.</p>
+            <div><p className="cr-eyebrow">{t('careers.rolesTag')}</p><h2>{t('careers.rolesTitle')}</h2></div>
+            <p>{t('careers.rolesIntro')} <a href="mailto:hr@avi-ground.com" dir="ltr">hr@avi-ground.com</a>.</p>
           </div>
 
           {openJobs.length > 0 ? (
@@ -73,25 +75,25 @@ export default function Careers() {
                     <p>{job.summary}</p>
                   </div>
                   <div className="cr-job-action">
-                    <time dateTime={job.deadline}>Apply by {formatDeadline(job.deadline)}</time>
-                    <a href={`mailto:hr@avi-ground.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>Apply by email <span aria-hidden="true">→</span></a>
+                    <time dateTime={job.deadline}>{t('careers.applyBy', { date: formatDeadline(job.deadline, language.htmlLang) })}</time>
+                    <a href={`mailto:hr@avi-ground.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>{t('careers.applyEmail')} <span className="dir-arrow" aria-hidden="true">→</span></a>
                   </div>
                 </article>
               ))}
             </div>
           ) : (
             <div className="cr-empty cr-fade">
-              <h3>No current vacancies</h3>
-              <p>We do not have any open positions at the moment. Please check back soon, or send your CV to <a href="mailto:hr@avi-ground.com">hr@avi-ground.com</a> for future consideration.</p>
+              <h3>{t('careers.emptyTitle')}</h3>
+              <p>{t('careers.emptyBefore')} <a href="mailto:hr@avi-ground.com" dir="ltr">hr@avi-ground.com</a> {t('careers.emptyAfter')}</p>
             </div>
           )}
         </section>
 
         <section className="cr-apply cr-fade">
-          <p className="cr-eyebrow">STAY CONNECTED</p>
-          <h2>Ready when<br /><em>the right role is.</em></h2>
-          <p>Email your CV and tell us which area of the business interests you. We will keep your details in mind for relevant future opportunities.</p>
-          <a href="mailto:hr@avi-ground.com?subject=Career%20enquiry%20to%20AGS">Email HR <span aria-hidden="true">→</span></a>
+          <p className="cr-eyebrow">{t('careers.stayTag')}</p>
+          <h2>{rich(t('careers.stayTitle'))}</h2>
+          <p>{t('careers.stayBody')}</p>
+          <a href="mailto:hr@avi-ground.com?subject=Career%20enquiry%20to%20AGS">{t('careers.emailHr')} <span className="dir-arrow" aria-hidden="true">→</span></a>
         </section>
       </main>
       <SiteFooter />

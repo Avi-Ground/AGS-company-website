@@ -29,6 +29,61 @@
 .sh-topbar a:hover { opacity: 1; }
 .sh-lang { font-weight: 700; opacity: 1 !important; }
 
+/* ── LANGUAGE SWITCHER ── */
+.sh-lang-switcher { position: relative; display: inline-flex; }
+.sh-lang-switcher .sh-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--navy);
+  font: inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.sh-lang-chevron { width: 8px; height: 6px; transition: transform .2s; }
+.sh-lang[aria-expanded="true"] .sh-lang-chevron { transform: rotate(180deg); }
+.sh-lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 300;
+  min-width: 150px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(13, 43, 92, .12);
+  border-radius: 10px;
+  box-shadow: 0 14px 34px rgba(13, 43, 92, .14);
+}
+.sh-lang-menu button {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  text-align: start;
+  cursor: pointer;
+}
+.sh-lang-menu button:hover { background: #f1f5fa; }
+.sh-lang-menu button.is-active { color: #c8102e; font-weight: 700; }
+
+/* Right-to-left (Arabic): mirror the desktop header so the logo sits on the right. */
+@media (min-width: 769px) {
+  [dir="rtl"] .sh-logo-area { left: auto; right: 48px; }
+  [dir="rtl"] .sh-nav-links { right: auto; left: 48px; }
+  [dir="rtl"] .sh-mega-menu { right: auto; left: -48px; }
+}
+
 /* ── NAVBAR ── */
 .sh-navbar {
   position: relative;
@@ -133,22 +188,6 @@
 
 .sh-nav-item:hover .sh-nav-chevron { transform: rotate(180deg); }
 
-/* ══════════════════════════════
-   HOMEPAGE-ONLY HEADER ADJUSTMENTS
-══════════════════════════════ */
-
-/* Bigger homepage logo */
-.sh-header--home .sh-logo-img {
-  height: 100px;
-  width: auto;
-  transform: translateY(-20px);
-}
-
-
-/* Move ONLY homepage navigation upward */
-.sh-header--home .sh-nav-links {
-  transform: translateY(5px);
-}
 /* ══════════════════════════════
    HOME NAVIGATION
 ══════════════════════════════ */
@@ -454,4 +493,11 @@
 
   .sh-nav-links { display: none; }
   .sh-mega-menu { display: none; }
+}
+
+/* Right-to-left (Arabic): the mobile menu slides in from the right, next to its button. */
+@media (max-width: 768px) {
+  [dir="rtl"] .sh-mobile-menu { left: auto; right: 0; transform: translateX(100%); }
+  [dir="rtl"] .sh-mobile-menu--open { transform: translateX(0); }
+  [dir="rtl"] .sh-mobile-actions .sh-lang { padding-left: 0; padding-right: 7px; border-left: 0; border-right: 1px solid rgba(13, 43, 92, .28); }
 }

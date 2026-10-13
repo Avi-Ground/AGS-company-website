@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import './OurStory.css'
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
+import { rich, useTranslation } from '../i18n'
 import dasCargo from '../assets/das-cargo.jpeg'
 import qatarAirways from '../assets/qatar-airways.jpeg'
 import mkAirlines from '../assets/mk-airlines.jpeg'
@@ -10,6 +11,7 @@ import atlasAir from '../assets/atlas-air.jpeg'
 
 export default function OurStory() {
   const fadeRefs = useRef([])
+  const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -25,7 +27,7 @@ export default function OurStory() {
 
   return (
     <div className="os-page">
-    
+
 
       {/* ── HERO ── */}
       <header className="os-hero">
@@ -39,65 +41,36 @@ export default function OurStory() {
           </div>
         </div>
         <div className="os-hero-content">
-          <div className="os-tag">OUR JOURNEY</div>
-          <h1 className="os-hero-title">
-            From the tarmac<br />
-            <em>to today.</em>
-          </h1>
-          <p className="os-hero-sub">
-            A Zimbabwean company built on dedication, discipline, and an unshakeable belief
-            that reliable ground handling can be delivered here at home.
-          </p>
+          <div className="os-tag">{t('story.tag')}</div>
+          <h1 className="os-hero-title">{rich(t('story.heroTitle'))}</h1>
+          <p className="os-hero-sub">{t('story.heroSub')}</p>
         </div>
         <div className="os-hero-scroll">
           <div className="os-scroll-mouse"><div className="os-scroll-dot" /></div>
-          <span>Scroll to explore our journey</span>
+          <span>{t('story.scroll')}</span>
         </div>
       </header>
 
       {/* ── INTRO ── */}
       <section className="os-intro" ref={ref}>
         <div className="os-intro-text">
-          <h2 className="os-h2">Our Origins</h2>
-          <p>
-         AGS began in 2001 with a small team and a commitment to handle air cargo carefully. We started on the tarmac 
-          with freighters from DAS Airlines and KLM, working early mornings and 
-          late nights as we built our ground handling services. Over the years, our work has
-          expanded across Southern Africa. We have served airlines including British Airways
-          and South African Airways, handling cargo and supporting aircraft departures.
-          </p>
-          <p>
-          In 2023, we began passenger handling with Fastjet. Today, we serve Air Tanzania,
-          Uganda Airlines, RwandAir, Kenya Airways, and Qatar Airways. Our teams support
-          passenger and cargo operations, building on our experience in ground handling.
-          </p>
+          <h2 className="os-h2">{t('story.originsTitle')}</h2>
+          <p>{t('story.origins1')}</p>
+          <p>{t('story.origins2')}</p>
         </div>
         <div className="os-intro-pull">
           <span className="os-pull-line" />
-          <blockquote>
-           "We didn't just want to handle aircraft —
-we wanted to set the standard."
-
-          </blockquote>
+          <blockquote>{t('story.quote')}</blockquote>
         </div>
       </section>
 
       {/* ── PRESENT-DAY FOCUS ── */}
       <section className="os-focus" ref={ref}>
         <div className="os-focus-content">
-          <div className="os-tag">Present Day</div>
-          <h2 className="os-h2">Present Day </h2>
-          <p>
-            Today, Aviation Ground Services (AGS) focuses on safety, operational procedures, and service.
-            As an ISAGO-registered handler, we monitor on-time performance (OTP) and work with airline
-            partners to meet agreed service-level requirements.
-          </p>
-          <p>
-            This operational DNA is driven by our <strong>EDGE culture</strong> —&nbsp;
-            <strong>E</strong>xcellence, <strong>D</strong>iscipline, <strong>G</strong>rowth, and&nbsp;
-            <strong>E</strong>ngagement — guiding how our teams work and communicate while providing
-            ground and cargo handling services to our airline partners.
-          </p>
+          <div className="os-tag">{t('story.presentTag')}</div>
+          <h2 className="os-h2">{t('story.presentTitle')}</h2>
+          <p>{t('story.present1')}</p>
+          <p>{rich(t('story.present2'))}</p>
         </div>
         <div className="os-focus-img-wrap">
           <div className="os-focus-img-frame">
@@ -109,16 +82,10 @@ we wanted to set the standard."
       {/* ── THE FUTURE ── */}
       <section className="os-focus os-future" ref={ref}>
         <div className="os-focus-content">
-        <div className="os-tag os-tag--dark">The Future</div>
-        <h2 className="os-h2">Our Destination</h2>
-        <p>
-          AGS plans to adopt digital tools where they can support planning and operational efficiency.
-        </p>
-        <p>
-          We plan to expand into additional stations and markets and continue developing services for
-          new and existing carriers. We will build on our <strong>EDGE culture</strong>, maintain our ISAGO
-          registration, and review our services as airline and industry requirements change.
-        </p>
+        <div className="os-tag os-tag--dark">{t('story.futureTag')}</div>
+        <h2 className="os-h2">{t('story.futureTitle')}</h2>
+        <p>{t('story.future1')}</p>
+        <p>{rich(t('story.future2'))}</p>
         </div>
         <div className="os-focus-img-wrap">
           <div className="os-focus-img-frame">

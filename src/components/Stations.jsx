@@ -1,8 +1,10 @@
-﻿import { useEffect, useMemo, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import './Stations.css'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
+import { useTranslation } from '../i18n'
 import victoriaFallsImage from '../assets/victoria-falls-waterfall.png'
+import harareAirportImage from '../assets/harare-airport.jpg'
 
 const inventory = [
   { unit: 'Belt loaders', no: '1', type: 'TLD NBL', manufacturer: 'TLD', fleet: 'BL02', year: '2007', status: 'Serviceable', capacity: '7m / 250kgs', aircraft: 'A320 family, B737, E190' },
@@ -61,19 +63,27 @@ const bulawayoInventory = [
   { unit: 'Washington chair', no: '2', type: '-', manufacturer: '-', fleet: 'SLEPPER CHAIR 01', year: '2023', status: 'Serviceable' },
 ]
 
-const value = (entry) => entry || 'â€”'
+const value = (entry) => entry || '—'
 
-function StationInventory({ city, airport, code, items, services = [] }) {
+const ALL = 'all'
+
+function StationInventory({ code, items, services = [] }) {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState('All equipment')
-  const categories = ['All equipment', ...new Set(items.map((item) => item.unit))]
-  const filtered = useMemo(() => items.filter((item) => {
-    const matchesCategory = category === 'All equipment' || item.unit === category
-    const searchable = [item.unit, item.no, item.type, item.fleet, item.capacity, item.aircraft]
+  const [category, setCategory] = useState(ALL)
+  const key = code.toLowerCase()
+  const city = t(`stations.cities.${key}`)
+  const airport = t(`stations.airports.${key}`)
+  const units = t('stations.units')
+  const unitLabel = (unit) => units[unit] || unit
+  const categories = [...new Set(items.map((item) => item.unit))]
+  const filtered = items.filter((item) => {
+    const matchesCategory = category === ALL || item.unit === category
+    const searchable = [item.unit, units[item.unit], item.no, item.type, item.fleet, item.capacity, item.aircraft]
     const matchesQuery = searchable.join(' ').toLowerCase().includes(query.trim().toLowerCase())
     return matchesCategory && matchesQuery
-  }), [query, category, items])
+  })
 
   return (
     <section className="station-inventory" aria-labelledby={`inventory-title-${code}`}>
@@ -81,65 +91,60 @@ function StationInventory({ city, airport, code, items, services = [] }) {
         {code === 'VFA' && <img className="station-heading-image" src={victoriaFallsImage} alt="" aria-hidden="true" />}
         <span className="station-location-mark" aria-hidden="true">{code}</span>
         <div>
-          <span className="stations-country">{city.toUpperCase()} STATION</span>
+          <span className="stations-country">{t('stations.stationLabel', { city: city.toUpperCase() })}</span>
           <h2 id={`inventory-title-${code}`}>{airport}</h2>
-          <p>Ground support equipment inventory</p>
+          <p>{t('stations.inventoryTitle')}</p>
           <div className="station-services">
-            <span className="station-services-label">Services offered</span>
-            <ul>{services.map((service) => <li key={service}>{service}</li>)}</ul>
+            <span className="station-services-label">{t('stations.servicesOffered')}</span>
+            <ul>{services.map((service) => <li key={service}>{t(service)}</li>)}</ul>
           </div>
         </div>
-        <span className="inventory-total">{items.length} assets</span>
+        <span className="inventory-total">{t('stations.assets', { count: items.length })}</span>
       </div>
       <div className="inventory-overview">
         <div className="inventory-summary">
-          <div><strong>{items.length}</strong><span>Total assets</span></div>
+          <div><strong>{items.length}</strong><span>{t('stations.totalAssets')}</span></div>
         </div>
         <button className="inventory-toggle" type="button" aria-expanded={isOpen} aria-controls={`inventory-list-${code}`} onClick={() => setIsOpen((open) => !open)}>
-          {isOpen ? 'Hide equipment' : 'View equipment'} <span aria-hidden="true">{isOpen ? '↑' : '↓'}</span>
+          {isOpen ? t('stations.hideEquipment') : t('stations.showEquipment')} <span aria-hidden="true">{isOpen ? '↑' : '↓'}</span>
         </button>
       </div>
       {isOpen && <div id={`inventory-list-${code}`}>
         <div className="inventory-toolbar">
-          <label className="inventory-search"><span className="sr-only">Search {city} inventory</span><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search equipment, fleet number…" /></label>
-          <label className="inventory-select"><span className="sr-only">Filter {city} inventory by category</span><select value={category} onChange={(event) => setCategory(event.target.value)}>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
+          <label className="inventory-search"><span className="sr-only">{t('stations.searchLabel', { city })}</span><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('stations.searchPlaceholder')} /></label>
+          <label className="inventory-select"><span className="sr-only">{t('stations.filterLabel', { city })}</span><select value={category} onChange={(event) => setCategory(event.target.value)}><option value={ALL}>{t('stations.allEquipment')}</option>{categories.map((item) => <option key={item} value={item}>{unitLabel(item)}</option>)}</select></label>
         </div>
         <div className="inventory-table-wrap">
           <table className="inventory-table">
-            <thead><tr><th>Unit</th><th>No.</th><th>Equipment type</th><th>Fleet number</th><th>Capacity</th><th>Aircraft types</th></tr></thead>
+            <thead><tr><th>{t('stations.columns.unit')}</th><th>{t('stations.columns.no')}</th><th>{t('stations.columns.type')}</th><th>{t('stations.columns.fleet')}</th><th>{t('stations.columns.capacity')}</th><th>{t('stations.columns.aircraft')}</th></tr></thead>
             <tbody>{filtered.map((item, index) => <tr key={`${item.unit}-${item.no}-${item.fleet}-${index}`}>
-              <td data-label="Unit">{item.unit}</td><td data-label="No.">{value(item.no)}</td><td data-label="Equipment type">{value(item.type)}</td><td data-label="Fleet number">{value(item.fleet)}</td><td data-label="Capacity">{value(item.capacity)}</td><td data-label="Aircraft types">{value(item.aircraft)}</td>
+              <td data-label={t('stations.columns.unit')}>{unitLabel(item.unit)}</td><td data-label={t('stations.columns.no')}>{value(item.no)}</td><td data-label={t('stations.columns.type')}>{value(item.type)}</td><td data-label={t('stations.columns.fleet')}>{value(item.fleet)}</td><td data-label={t('stations.columns.capacity')}>{value(item.capacity)}</td><td data-label={t('stations.columns.aircraft')}>{value(item.aircraft)}</td>
             </tr>)}
-            {filtered.length === 0 && <tr><td className="inventory-empty" colSpan="6">No equipment matches these filters.</td></tr>}</tbody>
+            {filtered.length === 0 && <tr><td className="inventory-empty" colSpan="6">{t('stations.empty')}</td></tr>}</tbody>
           </table>
         </div>
-        <p className="inventory-footnote">{city} station inventory. A dash indicates information not supplied.</p>
+        <p className="inventory-footnote">{t('stations.footnote', { city })}</p>
       </div>}
     </section>
   )
 }
 
 export default function Stations() {
+  const { t } = useTranslation()
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
     <div className="stations-page">
-      <header className="stations-hero">
-        <SiteHeader />
-        <div className="stations-hero-content">
-          <span className="stations-eyebrow">AGS LOCATIONS · ZIMBABWE</span>
-          <h1>Our Stations</h1>
-          <p>Ground handling teams and equipment supporting safe, reliable airport operations.</p>
-        </div>
-      </header>
+      <SiteHeader />
       <main className="stations-main">
-        <section className="station-location">
+        <section className="station-location station-location--photo">
+          <img className="station-heading-image" src={harareAirportImage} alt="" aria-hidden="true" />
           <div className="station-location-mark" aria-hidden="true">HRE</div>
-          <div><span className="stations-country">HARARE STATION</span><h2>Harare International Airport</h2><p>AGS supports passenger and cargo operations at Zimbabwe’s main international gateway.</p></div>
-          <a href="/contact-us">Contact us <span aria-hidden="true">↗</span></a>
+          <div><span className="stations-country">{t('stations.harareTag')}</span><h2>{t('stations.harareAirport')}</h2><p>{t('stations.harareBody')}</p></div>
+          <a href="/contact-us">{t('stations.contactUs')} <span className="dir-arrow" aria-hidden="true">↗</span></a>
         </section>
-        <StationInventory city="Victoria Falls" airport="Victoria Falls International Airport" code="VFA" items={inventory} services={['Passenger Handling', 'Aircraft Appearance Services']} />
-        <StationInventory city="Bulawayo" airport="Joshua Mqabuko Nkomo International Airport" code="BUQ" items={bulawayoInventory} services={['Passenger Handling', 'Aircraft Appearance Services']} />
+        <StationInventory code="VFA" items={inventory} services={['stations.servicePassenger', 'stations.serviceAppearance']} />
+        <StationInventory code="BUQ" items={bulawayoInventory} services={['stations.servicePassenger', 'stations.serviceAppearance']} />
       </main>
       <SiteFooter />
     </div>

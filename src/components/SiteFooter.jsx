@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './SiteFooter.css'
+import { useTranslation } from '../i18n'
 import qatarAirways from '../assets/airline-logos/qatar-airways.png'
 import kenyaAirways from '../assets/airline-logos/kenya-airways.png'
 import ugandaAirlines from '../assets/airline-logos/uganda-airlines.png'
@@ -22,24 +23,25 @@ const airlineLogos = [
   { name: 'Qatar Airways', image: qatarAirways },
   { name: 'Kenya Airways', image: kenyaAirways },
   { name: 'Uganda Airlines', image: ugandaAirlines },
-    { name: 'Fly Emirates', image: flyEmirates },
+  { name: 'Fly Emirates', image: flyEmirates },
   { name: 'RwandAir', image: rwandAir },
-  { name: 'Fastjet', image: fastjet, large: true },
-  { name: 'Pro Charter', image: proCharter, large: true },
-  { name: 'Fireblade', image: fireblade, large: true },
-  { name: 'Airmaster', image: airmaster, large: true },
-  { name: 'National', image: national, large: true },
-  { name: 'Skip Aviation Consultants', image: skipAviation, large: true },
-  { name: 'Astral', image: astral, large: true },
-  { name: 'MKV Aviation', image: mkvAviation, large: true },
-  { name: 'Astra Aviation', image: astraAviation, large: true },
-  { name: 'Geosky', image: geosky, large: true },
-  { name: 'Skyguard', image: skyguard, large: true },
+  { name: 'Fastjet', image: fastjet },
+  { name: 'Pro Charter', image: proCharter },
+  { name: 'Fireblade', image: fireblade },
+  { name: 'Airmaster', image: airmaster },
+  { name: 'National', image: national },
+  { name: 'Skip Aviation Consultants', image: skipAviation },
+  { name: 'Astral', image: astral },
+  { name: 'MKV Aviation', image: mkvAviation },
+  { name: 'Astra Aviation', image: astraAviation },
+  { name: 'Geosky', image: geosky },
+  { name: 'Skyguard', image: skyguard },
 ]
 
 export default function SiteFooter() {
   const footerRef = useRef(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const { t } = useTranslation()
   const showFooterNavigation = false
   const showRelatedPages = false
 
@@ -67,12 +69,12 @@ export default function SiteFooter() {
 
   return (
     <footer className="hp-footer" ref={footerRef}>
-      <section className="hp-airline-marquee" aria-label="Airline partners">
-        <p>Airline partners</p>
+      <section className="hp-airline-marquee" aria-label={t('footer.airlinePartners')}>
+        <p>{t('footer.airlinePartners')}</p>
         <div className="hp-airline-marquee-window">
           <div className="hp-airline-marquee-track">
             {[...airlineLogos, ...airlineLogos].map((airline, index) => (
-              <div className={`hp-airline-logo${airline.large ? ' hp-airline-logo--large' : ''}`} key={`${airline.name}-${index}`}>
+              <div className="hp-airline-logo" key={`${airline.name}-${index}`}>
                 <img src={airline.image} alt={airline.name} />
               </div>
             ))}
@@ -160,16 +162,16 @@ export default function SiteFooter() {
       {/* Contact Us + Social — all pages */}
       <div className="hp-footer-bottom">
         <div className="hp-footer-col">
-          <h4 className="hp-footer-col-title">Contact Us</h4>
+          <h4 className="hp-footer-col-title">{t('footer.contactTitle')}</h4>
           <ul className="hp-footer-links">
-            <li><a href="/contact-us#faq">Frequently asked questions</a></li>
-            <li><a href="/contact-us#enquiry">Enquiry &amp; feedback form</a></li>
-            <li><a href="/contact-us#lost-found">Lost and found</a></li>
-            <li><a href="mailto:info@avi-ground.com?subject=Media%20contact">Media contact and resources</a></li>
+            <li><a href="/contact-us#faq">{t('footer.faq')}</a></li>
+            <li><a href="/contact-us#enquiry">{t('footer.enquiry')}</a></li>
+            <li><a href="/contact-us#lost-found">{t('footer.lostFound')}</a></li>
+            <li><a href="mailto:info@avi-ground.com?subject=Media%20contact">{t('footer.media')}</a></li>
           </ul>
         </div>
         <div className="hp-footer-col">
-          <h4 className="hp-footer-col-title">Connect with us</h4>
+          <h4 className="hp-footer-col-title">{t('footer.connect')}</h4>
           <div className="hp-social-icons">
           <a
   href="https://www.instagram.com/aviationgroundservices?igsh=YnA2d3FqcDdkNjlj"
@@ -215,24 +217,24 @@ export default function SiteFooter() {
 </a>
           </div>
         </div>
-        <a className="hp-flight-radar" href="https://www.flightradar24.com/" target="_blank" rel="noreferrer" aria-label="Open FlightRadar24 in a new tab">
+        <a className="hp-flight-radar" href="https://www.flightradar24.com/" target="_blank" rel="noreferrer" aria-label={t('footer.radarLabel')}>
           <svg className="hp-flight-radar-map" viewBox="0 0 220 76" aria-hidden="true">
             <path className="hp-map-land" d="M8 23 24 12l22 4 8 12-11 9-18-2-9 10-10-6zm64-13 18-6 17 9-3 13-16 5-12-8zm48 8 21-10 22 8 11 16-15 9-19-3-8 12-16-10zm63 30 17-5 12 9-8 13-17 2-9-10z" />
             <path className="hp-map-grid" d="M0 19h220M0 38h220M0 57h220M37 0v76M74 0v76M111 0v76M148 0v76M185 0v76" />
             <path className="hp-flight-route" d="M20 57C55 54 61 19 100 29s48 32 97 2" />
             <g className="hp-flight-radar-plane"><path d="m0-7 2.2 5.2L7 0 2.2 1.8 0 7-2.2 1.8-7 0l4.8-1.8Z" /></g>
           </svg>
-          <span className="hp-flight-radar-copy"><strong>Live flight radar</strong><small>Track flights worldwide ↗</small></span>
+          <span className="hp-flight-radar-copy"><strong>{t('footer.radarTitle')}</strong><small>{t('footer.radarSub')}</small></span>
         </a>
       </div>
 
       <div className="hp-footer-copyright">
-        <span>© {new Date().getFullYear()} Aviation Ground Services. All rights reserved.</span>
+        <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
       </div>
       <button
         className={`hp-back-to-top${showBackToTop ? ' hp-back-to-top--visible' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Back to top"
+        aria-label={t('footer.backToTop')}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M12 19V5" />

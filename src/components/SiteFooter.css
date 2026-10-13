@@ -9,10 +9,8 @@
 .hp-airline-marquee>p { margin:0 0 15px; padding:0 48px; color:#718095; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-align:center; text-transform:uppercase; }
 .hp-airline-marquee-window { width:100%; overflow:hidden; }
 .hp-airline-marquee-track { display:flex; width:max-content; animation:hp-logo-scroll 32s linear infinite; }
-.hp-airline-logo { display:flex; flex:0 0 180px; align-items:center; justify-content:center; height:42px; padding:0 26px; }
-.hp-airline-logo img { display:block; max-width:122px; max-height:36px; object-fit:contain; filter:saturate(.86); transform:scale(1.12); }
-.hp-airline-logo--large { flex-basis:228px; height:88px; padding:8px 18px; background:transparent; border:0; }
-.hp-airline-logo--large img { width:100%; max-width:192px; max-height:68px; filter:none; mix-blend-mode:multiply; transform:none; }
+.hp-airline-logo { display:flex; flex:0 0 auto; align-items:center; justify-content:center; height:56px; padding:0 34px; }
+.hp-airline-logo img { display:block; height:44px; width:auto; max-width:200px; object-fit:contain; }
 .hp-airline-marquee:hover .hp-airline-marquee-track { animation-play-state:paused; }
 @keyframes hp-logo-scroll { to { transform:translateX(-50%); } }
 @media (prefers-reduced-motion:reduce) { .hp-airline-marquee-track { animation:none; } }
@@ -217,7 +215,7 @@
 
 .hp-footer-bottom {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px) minmax(0, 1fr);
   gap: 32px;
   border-top: 1px solid #dde4ee;
   padding: 40px 48px;
@@ -289,7 +287,7 @@
 }
 
 .hp-flight-radar { align-self:start; display:flex;
-  align-items:center; justify-content:center; gap:8px; aspect-ratio:1; min-height:0; padding:12px; overflow:hidden; color:#0d1f3c; text-align:left; text-decoration:none; background:#f6f9fc; border:1px solid #dde4ee; border-radius:10px; transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
+  align-items:center; justify-content:center; gap:14px; min-height:0; padding:16px 20px; overflow:hidden; color:#0d1f3c; text-align:left; text-decoration:none; background:#f6f9fc; border:1px solid #dde4ee; border-radius:10px; transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease; }
 .hp-flight-radar:hover { border-color:rgba(200,16,46,.45); box-shadow:0 10px 24px rgba(13,31,60,.12); transform:translateY(-3px); }
 .hp-flight-radar-map { width:142px; height:62px; flex:0 1 142px; overflow:visible; }
 .hp-map-land { fill:rgba(0,48,135,.09); stroke:rgba(0,48,135,.32); stroke-width:1; }
@@ -418,5 +416,7 @@
 
   /* ── Footer columns ── */
   .hp-footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .hp-footer-bottom { grid-template-columns: minmax(0, 1fr) 115px; gap: 20px; }
+  .hp-footer-bottom { grid-template-columns: minmax(0, 1fr) 150px; gap: 20px; }
+  .hp-flight-radar { flex-direction: column; align-items: flex-start; padding: 12px; }
+  .hp-flight-radar-map { width: 100%; flex-basis: auto; height: auto; }
 }

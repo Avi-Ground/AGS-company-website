@@ -192,7 +192,7 @@
 
 .sv-services {
   position: relative;
-  padding: 110px 8vw 120px;
+  padding: 30px 8vw 120px;
   background: #fff;
   overflow: hidden;
 }
@@ -530,8 +530,14 @@
   margin: 0 auto;
   gap: 2px;
 }
-.sv-partners-grid .sv-partner-card:last-child {
+/* A logo left alone on the last row sits in the middle column. */
+.sv-partners-grid .sv-partner-logo:last-child:nth-child(3n + 1) {
   grid-column: 2;
+}
+
+.sv-tag--center {
+  display: table;
+  margin: 0 auto 40px;
 }
 
 .sv-partner-logo {
@@ -570,14 +576,6 @@
    margin: 0 0 34px;
    color: var(--navy); 
    font-size: clamp(22px, 2.5vw, 30px);
-   }
-
-   .sv-specialist-partners .sv-partner-logo img {
-  width: 100%;
-  max-width: 240px;
-  max-height: 100px;
-  object-fit: contain;
-  transform: scale(1.25);
    }
 .sv-cta {
   background: linear-gradient(180deg, #f7fbff 0%, #eef3f9 100%);
@@ -711,7 +709,7 @@
   }
 
   .sv-services {
-    padding: 72px 20px 85px;
+    padding: 24px 20px 85px;
   }
 
   .sv-services-heading {
@@ -779,6 +777,14 @@
 
   .sv-partners-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Two columns on mobile: centre an odd last logo instead. */
+  .sv-partners-grid .sv-partner-logo:last-child:nth-child(3n + 1) { grid-column: auto; }
+  .sv-partners-grid .sv-partner-logo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1px);
   }
 
   .sv-partner-logo {

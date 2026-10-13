@@ -9,3 +9,42 @@ textarea,
 select {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* ── Language-specific adjustments ── */
+/* Arrows point the reading direction in right-to-left languages. */
+[dir="rtl"] .dir-arrow { display: inline-block; transform: scaleX(-1); }
+/* Letter-spacing breaks Arabic letter joining and looks loose in Chinese; synthetic italics distort both scripts. */
+:lang(ar) *, :lang(zh) * { letter-spacing: 0 !important; }
+:lang(ar) em, :lang(zh) em, :lang(ar) i, :lang(zh) i { font-style: normal; }
+:lang(ar) body { line-height: 1.7; }
+
+/* Right-to-left (Arabic): move hero artwork that is pinned to the right edge over to the left,
+   so it sits opposite the right-aligned text. Desktop only; mobile layouts stack these elements. */
+@media (min-width: 769px) {
+  [dir="rtl"] .sv-hero-art { right: auto; left: 8vw; }
+  [dir="rtl"] .os-hero-bg::before { right: auto; left: calc(6vw - 90px); }
+  [dir="rtl"] .os-hero-bg::after { right: auto; left: calc(6vw - 35px); }
+  [dir="rtl"] .os-hero-plane-wrap { right: auto; left: 0; justify-content: flex-start; padding-right: 0; padding-left: 6vw; }
+  [dir="rtl"] .ww-hero-bg::before { right: auto; left: -160px; }
+  [dir="rtl"] .ww-hero-bg::after { right: auto; left: -80px; }
+  [dir="rtl"] .cr-flight-mark { right: auto; left: -1vw; }
+  [dir="rtl"] .nm-flight-line { right: auto; left: -4vw; }
+  [dir="rtl"] .cu-hero-orbit { right: auto; left: -115px; }
+}
+@media (min-width: 701px) {
+  [dir="rtl"] .edge-word-cloud { right: auto; left: 3vw; }
+  [dir="rtl"] .edge-intro-lines { right: auto; left: 0; }
+  [dir="rtl"] .station-heading-image { right: auto; left: 0; }
+  [dir="rtl"] .station-airport-heading-victoria-falls::before {
+    background: linear-gradient(270deg, #123c66 0%, rgba(18,60,102,.94) 36%, rgba(18,60,102,.42) 70%, rgba(18,60,102,.16) 100%);
+  }
+}
+[dir="rtl"] .edge-intro-graphic { right: auto; left: 7vw !important; }
+@media (max-width: 768px) {
+  [dir="rtl"] .edge-intro-graphic { left: 18px !important; }
+}
+@media (min-width: 701px) {
+  [dir="rtl"] .station-location--photo::before {
+    background: linear-gradient(270deg, #123c66 0%, rgba(18,60,102,.94) 36%, rgba(18,60,102,.42) 70%, rgba(18,60,102,.16) 100%);
+  }
+}
