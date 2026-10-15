@@ -38,9 +38,7 @@ export default function SiteHeader({ variant = '' }) {
       <div className="sh-topbar">
         <a href="/careers" className="sh-topbar-careers">{t('header.careers')}</a>
         <a href="/contact-us">{t('header.contact')}</a>
-        <a href="/" className="sh-topbar-site">
-          {variant === 'home' ? 'aviationgroundservices.com' : 'avi-ground.com'}
-        </a>
+        <a href="/" className="sh-topbar-site">avi-ground.com</a>
         <LanguageSwitcher />
       </div>
 

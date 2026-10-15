@@ -122,10 +122,19 @@ export default function OurServices() {
   const serviceCopy = t('services.items')
 
   useEffect(() => {
+    let settleTimer
     if (hash) {
-      requestAnimationFrame(() => {
-        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      })
+      // Jump straight to the requested service (e.g. from a homepage card) and show it
+      // at once instead of waiting for its scroll fade-in. The second jump corrects for
+      // any layout shift while images above it finish loading.
+      const jumpToService = () => {
+        const target = document.getElementById(hash.slice(1))
+        if (!target) return
+        target.classList.add('sv-visible')
+        target.scrollIntoView({ behavior: 'auto', block: 'start' })
+      }
+      requestAnimationFrame(jumpToService)
+      settleTimer = window.setTimeout(jumpToService, 400)
     } else {
       window.scrollTo(0, 0)
     }
@@ -139,7 +148,10 @@ export default function OurServices() {
       '.sv-strip, .sv-service-card, .sv-why, .sv-partners, .sv-cta'
     )
     targets.forEach(el => observer.observe(el))
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(settleTimer)
+    }
   }, [hash])
 
   return (

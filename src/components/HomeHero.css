@@ -928,8 +928,7 @@ font-size:18px;
 
 /* ===========================================
    FLYING JET (behind all hero content)
-   Flies straight down the right side. The jet trails are part of the same
-   element as the plane, so they always move with it.
+   Flies straight down the right edge.
 =========================================== */
 
 .hero-plane-track{
@@ -952,23 +951,7 @@ font-size:18px;
     animation:heroJetFly 14s linear infinite;
 }
 
-.hero-jet-trails{
-    display:flex;
-    gap:calc(var(--jet-size) * .42);
-    /* Trails start at the wings, not above the tail. */
-    margin-bottom:calc(var(--jet-size) * -.55);
-}
 
-.hero-jet-trail{
-    width:3px;
-    height:150px;
-    border-radius:3px;
-    background:linear-gradient(to bottom, rgba(13,43,92,0) 0%, rgba(13,43,92,.14) 45%, rgba(13,43,92,.4) 100%);
-    filter:blur(.6px);
-    transform-origin:bottom;
-    animation:heroJetTrail 1.6s ease-in-out infinite alternate;
-}
-.hero-jet-trail + .hero-jet-trail{ animation-delay:-.8s; }
 
 .hero-plane{
     width:var(--jet-size);
@@ -979,26 +962,17 @@ font-size:18px;
 }
 
 @keyframes heroJetFly{
-    0%{ translate:0 -240px; opacity:0; }
+    0%{ translate:0 -60px; opacity:0; }
     6%{ opacity:1; }
     92%{ opacity:1; }
     100%{ translate:0 calc(100cqh + 40px); opacity:0; }
 }
 
-/* A gentle stretch so the trails look like moving exhaust. */
-@keyframes heroJetTrail{
-    from{ scale:1 .88; opacity:.75; }
-    to{ scale:1 1; opacity:1; }
-}
 
 @media (max-width:768px){
     .hero-jet{
         --jet-size:24px;
         right:10px;
-    }
-    .hero-jet-trail{
-        width:2px;
-        height:100px;
     }
 }
 
@@ -1010,5 +984,8 @@ font-size:18px;
 @media (prefers-reduced-motion:reduce){
     .hero-jet{ display:none; }
 }
+
+
+
 
 

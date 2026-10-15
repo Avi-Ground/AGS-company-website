@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './HomeServices.css'
 import { useTranslation } from '../i18n'
@@ -5,47 +6,75 @@ import { useTranslation } from '../i18n'
 import cargoImg     from '../assets/cargo.jpeg'
 import passengerImg from '../assets/passenger.jpeg'
 import rampImg      from '../assets/ramp.jpeg'
+import salesImg     from '../assets/our-services/sales.jpg'
+import charterImg   from '../assets/our-services/charter.jpg'
+import loungeImg    from '../assets/our-services/lounge.jpg'
+import appearanceImg from '../assets/our-services/aircraft-appearance.jpg'
+import representationImg from '../assets/our-services/airline-representation.jpg'
+
+// Same order as services.items in the locale files and the Our Services page.
+const services = [
+  { anchor: 'passenger-ticketing', img: passengerImg },
+  { anchor: 'ramp-baggage', img: rampImg },
+  { anchor: 'cargo-handling', img: cargoImg },
+  { anchor: 'general-sales-agent', img: salesImg },
+  { anchor: 'charter-executive-diplomatic', img: charterImg },
+  { anchor: 'lounge-hospitality', img: loungeImg },
+  { anchor: 'aircraft-appearance', img: appearanceImg },
+  { anchor: 'airline-representation', img: representationImg },
+]
+
+const SWAP_EVERY_MS = 3200
 
 export default function HomeServices() {
   const { t } = useTranslation()
+  const titles = t('services.items').map((item) => item.title)
+
+  // Three cards on screen; every few seconds the next card in turn switches to the next
+  // service. Because each new service is the one shown longest ago, a service never
+  // appears twice at once and all eight keep cycling.
+  const [rotation, setRotation] = useState({ shown: [0, 2, 1], previous: [null, null, null], next: 3, slot: 0 })
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setRotation(({ shown, previous, next, slot }) => {
+        const updated = [...shown]
+        const before = [...previous]
+        before[slot] = shown[slot]
+        updated[slot] = next
+        return { shown: updated, previous: before, next: (next + 1) % services.length, slot: (slot + 1) % shown.length }
+      })
+    }, SWAP_EVERY_MS)
+    return () => window.clearInterval(timer)
+  }, [])
+
   return (
     <section className="hp-services">
       <h2 className="hp-services-title hp-animate">{t('home.servicesTitle')}</h2>
       <div className="hp-services-grid">
-        {[
-          { img: passengerImg, name: 'home.servicePassenger', icon: (
-            <svg className="hp-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-              <path d="M7 8h2v3H7zM15 8h2v3h-2z"/>
-            </svg>
-          )},
-          { img: cargoImg, name: 'home.serviceCargo', icon: (
-            <svg className="hp-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/>
-              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-            </svg>
-          )},
-          { img: rampImg, name: 'home.serviceRamp', icon: (
-            <svg className="hp-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="1"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a10 10 0 0 0 0 20"/><path d="M2 12h20"/>
-            </svg>
-          )},
-        ].map((s, i) => (
-          <div className="hp-service-card hp-animate" key={i}>
-            <div className="hp-service-img-wrap">
-              <img src={s.img} alt={t(s.name)} className="hp-service-img" />
-            </div>
-            <div className="hp-service-info">
-              <div className="hp-service-label">
-                {s.icon}
-                <span className="hp-service-name">{t(s.name)}</span>
+        {rotation.shown.map((serviceIndex, slot) => {
+          const service = services[serviceIndex]
+          const previousIndex = rotation.previous[slot]
+          const layer = (index, state) => (
+            <div className={`hp-service-layer hp-service-layer--${state}`} key={`${state}-${services[index].anchor}`}>
+              <div className="hp-service-img-wrap">
+                <img src={services[index].img} alt="" className="hp-service-img" />
               </div>
-              <Link to="/our-services" className="hp-find-out-more">{t('home.findOutMore')}</Link>
+              <span className="hp-service-name">{titles[index]}</span>
             </div>
-          </div>
-        ))}
+          )
+          return (
+            <Link to={`/our-services#${service.anchor}`} className="hp-service-card hp-animate" key={slot}>
+              {/* The previous service stays underneath while the new one crossfades in over it. */}
+              <div className="hp-service-stack">
+                {previousIndex !== null && layer(previousIndex, 'previous')}
+                {layer(serviceIndex, previousIndex === null ? 'first' : 'current')}
+              </div>
+            </Link>
+          )
+        })}
       </div>
-
+      <Link to="/our-services" className="hp-find-out-more">{t('home.findOutMore')}</Link>
     </section>
   )
 }

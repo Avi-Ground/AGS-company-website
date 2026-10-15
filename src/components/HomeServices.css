@@ -20,7 +20,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: 780px;
-  margin: 0 auto 56px;
+  margin: 0 auto 32px;
 }
 
 .hp-service-card {
@@ -30,6 +30,38 @@
   transition: transform 0.45s cubic-bezier(0.2,0.8,0.2,1);
   position: relative;
   overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+}
+
+/* Crossfade: the new service fades in slowly over the previous one,
+   drifting slightly from left to right. */
+.hp-service-stack {
+  display: grid;
+  width: 100%;
+}
+
+.hp-service-layer {
+  grid-area: 1 / 1;
+  width: 100%;
+}
+
+.hp-service-layer--current {
+  animation: hp-service-in 1.6s ease-in-out both;
+}
+
+/* The outgoing name fades away so the two names never overlap; its image stays put underneath. */
+.hp-service-layer--previous .hp-service-name {
+  animation: hp-service-out 0.8s ease-in-out both;
+}
+
+@keyframes hp-service-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hp-service-out {
+  to { opacity: 0; }
 }
 
 .hp-service-card:hover { transform: translateY(-12px) rotateX(4deg) rotateY(-4deg); }
@@ -68,35 +100,35 @@
 
 .hp-service-card:hover .hp-service-img { transform: scale(1.05); }
 
-.hp-service-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding-left: 2px;
-}
-
-.hp-service-label { display: flex; align-items: center; gap: 8px; }
-.hp-service-icon { width: 22px; height: 22px; color: #333; flex-shrink: 0; }
-
 .hp-service-name {
   font-family: 'Montserrat', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
   color: #1a1a1a;
+  display: block;
+  padding-left: 2px;
+  line-height: 1.4;
+  min-height: 2.8em; /* room for two-line names so the layout stays still as cards change */
 }
 
+/* Single button under the three cards, matching "Visit our stations" in the hero */
 .hp-find-out-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #0D2B5C;
+  color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  color: #003087;
+  font-size: 15px;
+  font-weight: 700;
   text-decoration: none;
-  margin-top: 2px;
-  padding-left: 30px;
-  transition: letter-spacing 0.2s ease;
+  box-shadow: 0 10px 24px rgba(13,43,92,.22);
+  transition: background .2s ease, transform .2s ease;
 }
 
-.hp-find-out-more:hover { text-decoration: underline; letter-spacing: 0.5px; }
+.hp-find-out-more:hover { background: #0d1f3c; transform: translateY(-2px); }
 
 /* ── STATS ── */
 .hp-stats-grid {
@@ -163,6 +195,11 @@
   color: #444;
   text-align: center;
   transition: color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-service-layer--current,
+  .hp-service-layer--previous .hp-service-name { animation: none; }
 }
 
 /* ══════════════════════════════
