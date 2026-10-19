@@ -99,12 +99,8 @@ function StationInventory({ code, items, services = [] }) {
             <ul>{services.map((service) => <li key={service}>{t(service)}</li>)}</ul>
           </div>
         </div>
-        <span className="inventory-total">{t('stations.assets', { count: items.length })}</span>
       </div>
       <div className="inventory-overview">
-        <div className="inventory-summary">
-          <div><strong>{items.length}</strong><span>{t('stations.totalAssets')}</span></div>
-        </div>
         <button className="inventory-toggle" type="button" aria-expanded={isOpen} aria-controls={`inventory-list-${code}`} onClick={() => setIsOpen((open) => !open)}>
           {isOpen ? t('stations.hideEquipment') : t('stations.showEquipment')} <span aria-hidden="true">{isOpen ? '↑' : '↓'}</span>
         </button>

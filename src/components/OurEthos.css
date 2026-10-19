@@ -75,13 +75,35 @@
 .edge-inner{max-width:1120px;margin:0 auto}
 .edge-inner--narrow{max-width:680px}
 
-.edge-two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 
-.edge-quote-card{background:var(--edge-navy);color:#fff;border-radius:16px;padding:44px 40px}
-.edge-quote-mark{font-weight:800;font-size:clamp(38px,5vw,54px);letter-spacing:-1px;color:#ffffff20;margin-bottom:18px}
-.edge-quote-card p{color:#c2cad6;font-size:14px;line-height:1.85}
+
+/* Four pillars — 2×2 cards with a large letter watermark */
+.edge-pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.edge-pillar{position:relative;overflow:hidden;background:#fff;border:1px solid var(--edge-line);border-top:3px solid var(--edge-red);border-radius:14px;padding:38px 36px 40px;transition:box-shadow .2s,transform .2s}
+.edge-pillar:hover{box-shadow:0 16px 40px rgba(13,31,60,.09);transform:translateY(-4px)}
+.edge-pillar-letter{position:absolute;inset-inline-end:24px;top:-14px;font-size:150px;font-weight:800;line-height:1;color:rgba(13,31,60,.045);pointer-events:none}
+.edge-pillar h3{position:relative;font-size:24px;letter-spacing:-.5px;margin-bottom:14px}
+.edge-pillar p{position:relative;color:var(--edge-ink);font-size:14px;line-height:1.85;max-width:440px}
+
+/* Client engagement band */
+.edge-feedback{position:relative;overflow:hidden}
+.edge-feedback::before{content:"EDGE";position:absolute;left:50%;bottom:-0.22em;transform:translateX(-50%);font-size:clamp(140px,22vw,300px);font-weight:800;letter-spacing:-6px;line-height:1;color:rgba(255,255,255,.035);pointer-events:none}
+.edge-feedback .edge-inner{position:relative}
+.edge-feedback .edge-inner--narrow{max-width:760px}
+
+/* Values on a soft tint */
+.edge-section--tint{background:var(--edge-light)}
+.edge-section--tint .edge-card{background:#fff;border-color:var(--edge-line)}
+
+/* Outcomes — open columns divided by rules instead of boxed cards */
+.edge-outcomes{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--edge-line)}
+.edge-outcome{padding:32px 26px 8px;border-inline-start:1px solid var(--edge-line)}
+.edge-outcome:first-child{border-inline-start:0;padding-inline-start:0}
+.edge-outcome h3{font-size:18px;margin-bottom:10px}
+.edge-outcome p{color:var(--edge-ink);font-size:13px;line-height:1.8}
 
 .edge-section-head{display:flex;justify-content:space-between;align-items:end;gap:45px;flex-wrap:wrap;margin-bottom:50px}
+.edge-section-head--center{justify-content:center;text-align:center}
 
 .edge-cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .edge-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -98,15 +120,23 @@
 .edge-contact-link span{font-size:17px}
 
 @media(max-width:900px){
-  .edge-two-col{grid-template-columns:1fr;gap:35px}
+
   .edge-section-head{display:block}
   .edge-section-head>p{margin-top:20px}
   .edge-cards-grid{grid-template-columns:repeat(2,1fr)}
   .edge-values-grid{grid-template-columns:repeat(2,1fr)}
+  .edge-outcomes{grid-template-columns:repeat(2,1fr)}
+  .edge-outcome:nth-child(odd){border-inline-start:0;padding-inline-start:0}
+  .edge-outcome:nth-child(n+3){border-top:1px solid var(--edge-line)}
 }
 @media(max-width:620px){
   .edge-section{padding:70px 24px}
-  .edge-cards-grid,.edge-values-grid{grid-template-columns:1fr}
+  .edge-cards-grid,.edge-values-grid,.edge-pillars-grid,.edge-outcomes{grid-template-columns:1fr}
+  .edge-outcome{border-inline-start:0;padding-inline-start:0;padding-inline-end:0}
+  .edge-outcome+.edge-outcome{border-top:1px solid var(--edge-line)}
+  .edge-pillar{padding:32px 26px 34px}
+  .edge-pillar-letter{font-size:110px}
+  .edge-acronym-card{padding:32px 26px 28px}
 }
 
 @media(max-width:768px){

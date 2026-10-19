@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import './Careers.css'
-import { rich, useTranslation } from '../i18n'
+import { useTranslation } from '../i18n'
 
 // Add vacancies here. Listings automatically stop appearing after their deadline.
 const jobListings = [
@@ -47,18 +47,9 @@ export default function Careers() {
     <div className="cr-page">
       <SiteHeader />
       <main>
-        <section className="cr-hero">
-          <div className="cr-hero-copy">
-            <h1>{rich(t('careers.heroTitle'))}</h1>
-            <p>{t('careers.heroBody')}</p>
-          </div>
-          <div className="cr-flight-mark" aria-hidden="true">AGS</div>
-        </section>
-
         <section className="cr-roles" id="open-roles">
           <div className="cr-section-heading cr-fade">
             <div><p className="cr-eyebrow">{t('careers.rolesTag')}</p><h2>{t('careers.rolesTitle')}</h2></div>
-            <p>{t('careers.rolesIntro')} <a href="mailto:hr@avi-ground.com" dir="ltr">hr@avi-ground.com</a>.</p>
           </div>
 
           {openJobs.length > 0 ? (
@@ -76,7 +67,7 @@ export default function Careers() {
                   </div>
                   <div className="cr-job-action">
                     <time dateTime={job.deadline}>{t('careers.applyBy', { date: formatDeadline(job.deadline, language.htmlLang) })}</time>
-                    <a href={`mailto:hr@avi-ground.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>{t('careers.applyEmail')} <span className="dir-arrow" aria-hidden="true">→</span></a>
+                    <a href={`mailto:recruitment@avi-ground.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>{t('careers.applyEmail')} <span className="dir-arrow" aria-hidden="true">→</span></a>
                   </div>
                 </article>
               ))}
@@ -84,16 +75,9 @@ export default function Careers() {
           ) : (
             <div className="cr-empty cr-fade">
               <h3>{t('careers.emptyTitle')}</h3>
-              <p>{t('careers.emptyBefore')} <a href="mailto:hr@avi-ground.com" dir="ltr">hr@avi-ground.com</a> {t('careers.emptyAfter')}</p>
+              <p>{t('careers.emptyBefore')} <a href="mailto: recruitment@avi-ground.com" dir="ltr">recruitment@avi-ground.com</a> {t('careers.emptyAfter')}</p>
             </div>
           )}
-        </section>
-
-        <section className="cr-apply cr-fade">
-          <p className="cr-eyebrow">{t('careers.stayTag')}</p>
-          <h2>{rich(t('careers.stayTitle'))}</h2>
-          <p>{t('careers.stayBody')}</p>
-          <a href="mailto:hr@avi-ground.com?subject=Career%20enquiry%20to%20AGS">{t('careers.emailHr')} <span className="dir-arrow" aria-hidden="true">→</span></a>
         </section>
       </main>
       <SiteFooter />

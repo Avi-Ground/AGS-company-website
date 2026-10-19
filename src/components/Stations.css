@@ -1,5 +1,5 @@
 .stations-page{min-height:100vh;background:#f5f7fb;color:#102b4e;font-family:'Montserrat',sans-serif}
-.stations-page .sh-header{background:#fff}
+.stations-page .sh-header{background:transparent}
 .stations-country{font-size:11px;font-weight:700;letter-spacing:1.8px;color:#c8102e}
 .stations-main{width:min(1180px,92%);margin:0 auto;padding:38px 0 80px}
 .station-location{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:20px;padding:24px 28px;margin-bottom:34px;background:#fff;border:1px solid #e3e9f1;border-radius:14px;box-shadow:0 10px 30px rgba(16,43,78,.05)}

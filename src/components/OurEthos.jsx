@@ -5,6 +5,8 @@ import SiteHeader from "./SiteHeader";
 import { rich, useTranslation } from "../i18n";
 
 // Card text lives in the locale files under edge.pillars, edge.values and edge.outcomes.
+const EDGE_LETTERS = ["E", "D", "G", "E"];
+
 const numbered = (items) => items.map((item, i) => ({ ...item, number: String(i + 1).padStart(2, "0") }));
 
 const wordCloud = [
@@ -89,37 +91,24 @@ export default function OurEthos() {
           </div>
         </section>
 
-        <section className="edge-section edge-fade">
-          <div className="edge-inner edge-two-col">
-            <div>
-              <p className="edge-eyebrow"><i /> {t("edge.meansTag")}</p>
-              <h2 className="edge-h2">{rich(t("edge.meansTitle"))}</h2>
-              <p className="edge-lede" style={{ marginTop: '22px', maxWidth: '520px' }}>{t("edge.meansBody")}</p>
-            </div>
-            <div className="edge-quote-card">
-              <div className="edge-quote-mark">EDGE</div>
-              <p>{t("edge.meansQuote")}</p>
-            </div>
-          </div>
-        </section>
-
         <section className="edge-section">
           <div className="edge-inner">
             <div className="edge-section-head edge-fade">
               <div>
                 <p className="edge-eyebrow"><i /> {t("edge.pillarsTag")}</p>
-                <h2 className="edge-h2">{rich(t("edge.pillarsTitle"))}</h2>
+                <h2 className="edge-h2">{rich(t("edge.meansTitle"))}</h2>
               </div>
               <p className="edge-lede">{t("edge.pillarsBody")}</p>
             </div>
 
-            <div className="edge-cards-grid">
+            <div className="edge-pillars-grid">
               {edgePillars.map((pillar, i) => (
                 <article
-                  className="edge-card edge-fade"
+                  className="edge-pillar edge-fade"
                   key={pillar.number}
-                  style={{ transitionDelay: `${i * 0.1}s` }}
+                  style={{ transitionDelay: `${(i % 2) * 0.1}s` }}
                 >
+                  <span className="edge-pillar-letter" aria-hidden="true">{EDGE_LETTERS[i]}</span>
                   <span className="edge-card-number">{pillar.number}</span>
                   <h3>{pillar.title}</h3>
                   <p>{pillar.description}</p>
@@ -129,7 +118,7 @@ export default function OurEthos() {
           </div>
         </section>
 
-        <section className="edge-section edge-section--dark edge-fade">
+        <section className="edge-section edge-section--dark edge-feedback edge-fade">
           <div className="edge-inner edge-inner--narrow" style={{ textAlign: 'center' }}>
             <p className="edge-eyebrow edge-eyebrow--center"><i /> {t("edge.feedbackTag")}</p>
             <h2 className="edge-h2">{rich(t("edge.feedbackTitle"))}</h2>
@@ -140,10 +129,10 @@ export default function OurEthos() {
           </div>
         </section>
 
-        <section className="edge-section">
+        <section className="edge-section edge-section--tint">
           <div className="edge-inner">
-            <div className="edge-section-head edge-fade">
-              <p className="edge-eyebrow"><i /> {t("edge.valuesTag")}</p>
+            <div className="edge-section-head edge-section-head--center edge-fade">
+              <p className="edge-eyebrow edge-eyebrow--center"><i /> {t("edge.valuesTag")}</p>
             </div>
             <div className="edge-values-grid">
               {values.map((value, i) => (
@@ -170,10 +159,10 @@ export default function OurEthos() {
               </div>
               <p className="edge-lede">{t("edge.practiceBody")}</p>
             </div>
-            <div className="edge-cards-grid">
+            <div className="edge-outcomes">
               {outcomes.map((outcome, i) => (
                 <article
-                  className="edge-card edge-fade"
+                  className="edge-outcome edge-fade"
                   key={outcome.number}
                   style={{ transitionDelay: `${i * 0.1}s` }}
                 >
