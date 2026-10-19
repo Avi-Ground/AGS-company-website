@@ -134,7 +134,7 @@ export default function OurEthos() {
             <p className="edge-eyebrow edge-eyebrow--center"><i /> {t("edge.feedbackTag")}</p>
             <h2 className="edge-h2">{rich(t("edge.feedbackTitle"))}</h2>
             <p className="edge-lede" style={{ margin: '22px auto 0' }}>{t("edge.feedbackBody")}</p>
-            <a href="mailto:EDGE@aviground.com" className="edge-contact-link">
+            <a href="mailto:EDGE@avi-ground.com" className="edge-contact-link">
               EDGE@avi-ground.com <span className="dir-arrow" aria-hidden="true">→</span>
             </a>
           </div>

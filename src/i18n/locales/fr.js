@@ -284,7 +284,6 @@ export default {
     communityTitle: 'Communauté\net bien-être',
     communityIntro: 'AGS se veut un voisin constructif. Nous soutenons des initiatives communautaires autour de nos aéroports ainsi que le bien-être de nos collaborateurs.',
     cards: [
-      { title: 'Jeunesse et éducation', body: 'Nous collaborons avec des écoles et des établissements locaux pour ouvrir aux jeunes Zimbabwéens des parcours vers les métiers de l’aviation.' },
       { title: 'Bien-être du personnel', body: 'Nous offrons une couverture santé, un soutien en santé mentale et un environnement de travail sûr et respectueux.' },
       { title: 'Responsabilité environnementale', body: 'Nous réduisons notre empreinte grâce à des équipements efficaces, à la réduction des déchets et à des pratiques durables.' },
       { title: 'Achats locaux', body: 'Nous achetons des biens et des services localement dans la mesure du possible, afin que la valeur reste dans nos communautés.' },

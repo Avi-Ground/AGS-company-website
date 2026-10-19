@@ -284,7 +284,6 @@ export default {
     communityTitle: 'Comunidad\ny bienestar',
     communityIntro: 'AGS aspira a ser un buen vecino. Apoyamos iniciativas comunitarias en torno a nuestros aeropuertos y el bienestar de nuestro personal.',
     cards: [
-      { title: 'Juventud y educación', body: 'Colaboramos con escuelas y centros de formación locales para abrir a los jóvenes zimbabuenses caminos hacia carreras en la aviación.' },
       { title: 'Bienestar del personal', body: 'Ofrecemos cobertura sanitaria, apoyo en salud mental y un entorno de trabajo seguro y respetuoso.' },
       { title: 'Responsabilidad ambiental', body: 'Reducimos nuestra huella con equipos eficientes, la reducción de residuos y prácticas sostenibles.' },
       { title: 'Compras locales', body: 'Siempre que es posible, adquirimos bienes y servicios a proveedores locales para que el valor se quede en nuestras comunidades.' },

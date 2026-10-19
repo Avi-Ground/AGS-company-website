@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 import './ContactUs.css'
@@ -37,10 +38,26 @@ export default function ContactUs() {
   const [openFaq, setOpenFaq] = useState(null)
   const { t } = useTranslation()
   const faqs = t('contact.faqs')
-  const [form, setForm] = useState({ name: '', email: '', topic: 'General enquiry', message: '' })
+  const { hash, search } = useLocation()
+  // Arriving from "Discuss this service" pre-fills the form with that service.
+  const [form, setForm] = useState(() => {
+    const service = new URLSearchParams(search).get('service')
+    return service
+      ? { name: '', email: '', topic: 'Service request', message: `I would like to discuss: ${service}
+
+` }
+      : { name: '', email: '', topic: 'General enquiry', message: '' }
+  })
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // Jump to a section such as #enquiry when the link asks for one; otherwise start at the top.
+    const target = hash && document.getElementById(hash.slice(1))
+    if (target) {
+      target.classList.add('cu-visible')
+      target.scrollIntoView({ behavior: 'auto', block: 'start' })
+    } else {
+      window.scrollTo(0, 0)
+    }
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) e.target.classList.add('cu-visible')
@@ -49,7 +66,7 @@ export default function ContactUs() {
     )
     document.querySelectorAll('.cu-fade').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [hash])
 
   const submitEnquiry = (event) => {
     event.preventDefault()

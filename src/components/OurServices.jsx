@@ -209,7 +209,7 @@ export default function OurServices() {
                     ))}
                   </ul>
 
-                  <Link to={`/contact?service=${encodeURIComponent(copy.title)}`} className="sv-service-link">
+                  <Link to={`/contact-us?service=${encodeURIComponent(copy.title)}#enquiry`} className="sv-service-link">
                     {t('services.discuss')} <span className="dir-arrow" aria-hidden="true">→</span>
                   </Link>
                 </div>
