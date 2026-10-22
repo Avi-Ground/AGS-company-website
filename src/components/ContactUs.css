@@ -10,7 +10,8 @@
 .cu-hero-orbit--one { width: 620px; height: 620px; }
 .cu-hero-orbit--two { width: 440px; height: 440px; right: -25px; border-color: rgba(200, 16, 46, .08); }
 .cu-details { padding: 80px 0; }
-.cu-details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cu-details-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 1100px) and (min-width: 769px) { .cu-details-grid { grid-template-columns: repeat(2, 1fr); } }
 .cu-card { min-height: 230px; padding: 34px 30px; background: #f4f7fb; border: 1px solid rgba(13, 31, 60, .08); border-radius: 10px; display: flex; flex-direction: column; align-items: flex-start; }
 .cu-card-label { color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: 2px; margin-bottom: 26px; }
 .cu-card h2 { font-size: 20px; margin-bottom: 15px; }
@@ -40,6 +41,20 @@
 .cu-lost-found p:not(.cu-eyebrow) { max-width: 560px; color: rgba(255, 255, 255, .7); }
 .cu-whatsapp { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 10px; padding: 15px 20px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; background: #25d366; border-radius: 4px; transition: transform .2s, background .2s; }
 .cu-whatsapp:hover { background: #1db954; transform: translateY(-2px); }
+.cu-proposal { padding: 0 0 84px; }
+.cu-proposal-card { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; padding: 60px 56px; background: linear-gradient(135deg, #fff 0%, #fdf1f3 100%); border: 1px solid rgba(200, 16, 46, .14); border-radius: 16px; box-shadow: 0 24px 60px -32px rgba(13, 31, 60, .25); }
+.cu-proposal-card::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--red); }
+.cu-proposal-orbit { position: absolute; border: 1px solid rgba(200, 16, 46, .12); border-radius: 50%; pointer-events: none; }
+.cu-proposal-orbit--one { width: 420px; height: 420px; right: -140px; top: -170px; }
+.cu-proposal-orbit--two { width: 260px; height: 260px; right: -60px; top: -90px; border-color: rgba(200, 16, 46, .07); }
+.cu-proposal-copy, .cu-proposal-btn { position: relative; z-index: 1; }
+.cu-proposal h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1.4px; line-height: 1.1; }
+.cu-proposal-copy > p:not(.cu-eyebrow) { max-width: 460px; margin-top: 18px; color: var(--gray); font-size: 14px; line-height: 1.8; }
+.cu-proposal-btn { display: inline-flex; align-items: center; gap: 12px; justify-self: end; padding: 17px 30px; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .4px; text-decoration: none; background: var(--red); border-radius: 999px; box-shadow: 0 12px 24px -12px rgba(200, 16, 46, .7); transition: background .2s, transform .2s, box-shadow .2s; }
+.cu-proposal-btn:hover { background: #a90d27; transform: translateY(-2px); box-shadow: 0 16px 28px -12px rgba(200, 16, 46, .8); }
+.cu-proposal-btn .dir-arrow { font-size: 17px; transition: transform .2s; }
+.cu-proposal-btn:hover .dir-arrow { transform: translateX(4px); }
+@media (max-width: 768px) { .cu-proposal { padding-bottom: 60px; } .cu-proposal-card { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px 32px 28px; } .cu-proposal-btn { justify-self: start; } }
 .cu-whatsapp-icon { font-size: 22px; line-height: 1; }
 .cu-social-section { padding: 80px 0 100px; text-align: center; background: var(--navy); color: #fff; }
 .cu-social-section h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1px; }

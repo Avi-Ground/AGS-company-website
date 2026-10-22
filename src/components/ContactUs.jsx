@@ -17,6 +17,11 @@ const socialLinks = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
   },
   {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/aviationgroundservices/',
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>,
+  },
+  {
     name: 'X (Twitter)',
     href: 'https://x.com/avi_ground',
     icon: <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>,
@@ -86,7 +91,7 @@ export default function ContactUs() {
             <article className="cu-card cu-fade">
               <span className="cu-card-label">{t('contact.postalLabel')}</span>
               <h2>Aviation Ground Services</h2>
-              <address>P.O. Box AP 13<br />{t('contact.postalAirport')}</address>
+              <address>{t('contact.postalArea')}<br />{t('contact.postalAirport')}</address>
             </article>
             <article className="cu-card cu-fade" style={{ transitionDelay: '0.1s' }}>
               <span className="cu-card-label">{t('contact.phoneLabel')}</span>
@@ -99,6 +104,28 @@ export default function ContactUs() {
               <h2>{t('contact.emailTitle')}</h2>
               <a href="mailto:info@avi-ground.com" dir="ltr">info@avi-ground.com</a>
             </article>
+            <article className="cu-card cu-fade" style={{ transitionDelay: '0.3s' }}>
+              <span className="cu-card-label">{t('contact.careLabel')}</span>
+              <h2>{t('contact.careTitle')}</h2>
+              <a href="mailto:EDGE@avi-ground.com" dir="ltr">EDGE@avi-ground.com</a>
+            </article>
+          </div>
+        </section>
+
+        <section className="cu-proposal cu-fade" id="request-proposal" aria-labelledby="proposal-heading">
+          <div className="cu-inner">
+            <div className="cu-proposal-card">
+              <span className="cu-proposal-orbit cu-proposal-orbit--one" aria-hidden="true" />
+              <span className="cu-proposal-orbit cu-proposal-orbit--two" aria-hidden="true" />
+              <div className="cu-proposal-copy">
+                <p className="cu-eyebrow">{t('contact.proposalTag')}</p>
+                <h2 id="proposal-heading">{t('contact.proposalTitle')}</h2>
+                <p>{t('contact.proposalBody')}</p>
+              </div>
+              <a className="cu-proposal-btn" href="mailto:info@avi-ground.com?subject=Request%20for%20Proposal">
+                {t('contact.proposalButton')} <span className="dir-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </section>
 

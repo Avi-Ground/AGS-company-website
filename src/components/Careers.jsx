@@ -75,7 +75,7 @@ export default function Careers() {
           ) : (
             <div className="cr-empty cr-fade">
               <h3>{t('careers.emptyTitle')}</h3>
-              <p>{t('careers.emptyBefore')} <a href="mailto: recruitment@avi-ground.com" dir="ltr">recruitment@avi-ground.com</a> {t('careers.emptyAfter')}</p>
+              <p>{t('careers.emptyBefore')} <a href="mailto:recruitment@avi-ground.com" dir="ltr">recruitment@avi-ground.com</a> {t('careers.emptyAfter')}</p>
             </div>
           )}
         </section>

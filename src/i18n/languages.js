@@ -7,10 +7,10 @@ import zh from './locales/zh'
 // Languages offered in the header switcher, in display order.
 export const LANGUAGES = [
   { code: 'en', short: 'EN', label: 'English', htmlLang: 'en', locale: en },
-  { code: 'fr', short: 'FR', label: 'Français', htmlLang: 'fr', locale: fr },
-  { code: 'es', short: 'ES', label: 'Español', htmlLang: 'es', locale: es },
-  { code: 'ar', short: 'AR', label: 'العربية', htmlLang: 'ar', dir: 'rtl', locale: ar },
   { code: 'zh', short: '中文', label: '中文', htmlLang: 'zh-Hans', locale: zh },
+  { code: 'ar', short: 'AR', label: 'العربية', htmlLang: 'ar', dir: 'rtl', locale: ar },
+  { code: 'es', short: 'ES', label: 'Español', htmlLang: 'es', locale: es },
+  { code: 'fr', short: 'FR', label: 'Français', htmlLang: 'fr', locale: fr },
 ]
 
 export const DEFAULT_LOCALE = en
