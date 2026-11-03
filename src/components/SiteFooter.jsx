@@ -230,15 +230,26 @@ export default function SiteFooter() {
 </a>
           </div>
         </div>
-        <a className="hp-flight-radar" href="https://www.flightradar24.com/" target="_blank" rel="noreferrer" aria-label={t('footer.radarLabel')}>
-          <svg className="hp-flight-radar-map" viewBox="0 0 220 76" aria-hidden="true">
-            <path className="hp-map-land" d="M8 23 24 12l22 4 8 12-11 9-18-2-9 10-10-6zm64-13 18-6 17 9-3 13-16 5-12-8zm48 8 21-10 22 8 11 16-15 9-19-3-8 12-16-10zm63 30 17-5 12 9-8 13-17 2-9-10z" />
-            <path className="hp-map-grid" d="M0 19h220M0 38h220M0 57h220M37 0v76M74 0v76M111 0v76M148 0v76M185 0v76" />
-            <path className="hp-flight-route" d="M20 57C55 54 61 19 100 29s48 32 97 2" />
-            <g className="hp-flight-radar-plane"><path d="m0-7 2.2 5.2L7 0 2.2 1.8 0 7-2.2 1.8-7 0l4.8-1.8Z" /></g>
-          </svg>
-          <span className="hp-flight-radar-copy"><strong>{t('footer.radarTitle')}</strong><small>{t('footer.radarSub')}</small></span>
-        </a>
+        <div className="hp-footer-trackers">
+          <a className="hp-flight-radar" href="https://www.flightradar24.com/" target="_blank" rel="noreferrer" aria-label={t('footer.radarLabel')}>
+            <svg className="hp-flight-radar-map" viewBox="0 0 220 76" aria-hidden="true">
+              <path className="hp-map-land" d="M8 23 24 12l22 4 8 12-11 9-18-2-9 10-10-6zm64-13 18-6 17 9-3 13-16 5-12-8zm48 8 21-10 22 8 11 16-15 9-19-3-8 12-16-10zm63 30 17-5 12 9-8 13-17 2-9-10z" />
+              <path className="hp-map-grid" d="M0 19h220M0 38h220M0 57h220M37 0v76M74 0v76M111 0v76M148 0v76M185 0v76" />
+              <path className="hp-flight-route" d="M20 57C55 54 61 19 100 29s48 32 97 2" />
+              <g className="hp-flight-radar-plane"><path d="m0-7 2.2 5.2L7 0 2.2 1.8 0 7-2.2 1.8-7 0l4.8-1.8Z" /></g>
+            </svg>
+            <span className="hp-flight-radar-copy"><strong>{t('footer.radarTitle')}</strong><small>{t('footer.radarSub')}</small></span>
+          </a>
+          <a className="hp-flight-radar" href="https://www.track-trace.com/aircargo" target="_blank" rel="noreferrer" aria-label={t('footer.cargoTrackLabel')}>
+            <svg className="hp-flight-radar-map" viewBox="0 0 220 76" aria-hidden="true">
+              <path className="hp-map-land" d="M8 23 24 12l22 4 8 12-11 9-18-2-9 10-10-6zm64-13 18-6 17 9-3 13-16 5-12-8zm48 8 21-10 22 8 11 16-15 9-19-3-8 12-16-10zm63 30 17-5 12 9-8 13-17 2-9-10z" />
+              <path className="hp-map-grid" d="M0 19h220M0 38h220M0 57h220M37 0v76M74 0v76M111 0v76M148 0v76M185 0v76" />
+              <path className="hp-flight-route" d="M20 57C55 54 61 19 100 29s48 32 97 2" />
+              <g className="hp-flight-radar-plane hp-cargo-box"><path d="M-6-5h12v10h-12z" /><path className="hp-cargo-box-tape" d="M-6 0h12M0-5v10" /></g>
+            </svg>
+            <span className="hp-flight-radar-copy"><strong>{t('footer.cargoTrackTitle')}</strong><small>{t('footer.cargoTrackSub')}</small></span>
+          </a>
+        </div>
       </div>
 
       <div className="hp-footer-copyright">

@@ -13,6 +13,25 @@ const stationServices = {
   BUQ: ['stations.servicePassenger', 'stations.serviceAppearance'],
 }
 
+// Background photos for the station cards. Import BUQ's photo like victoriaFallsImage and set it here when it's ready.
+const stationImages = {
+  VFA: victoriaFallsImage,
+  BUQ: null,
+}
+
+// On-time performance shown on each station.
+const stationOtp = { HRE: '98%', VFA: '99%', BUQ: '92%' }
+
+function StationOtp({ code }) {
+  const { t } = useTranslation()
+  return (
+    <div className="station-otp">
+      <strong>{stationOtp[code]}</strong>
+      <span>{t('stations.otpLabel')}</span>
+    </div>
+  )
+}
+
 function StationServices({ code }) {
   const { t } = useTranslation()
   return (
@@ -27,16 +46,18 @@ function StationCard({ code }) {
   const { t } = useTranslation()
   const key = code.toLowerCase()
   const city = t(`stations.cities.${key}`)
+  const image = stationImages[code]
 
   return (
     <section className="station-inventory" aria-labelledby={`station-title-${code}`}>
-      <div className={`station-airport-heading${code === 'VFA' ? ' station-airport-heading-victoria-falls' : ''}`}>
-        {code === 'VFA' && <img className="station-heading-image" src={victoriaFallsImage} alt="" aria-hidden="true" />}
+      <div className={`station-airport-heading${image ? ' station-airport-heading--photo' : ''}`}>
+        {image && <img className="station-heading-image" src={image} alt="" aria-hidden="true" />}
         <span className="station-location-mark" aria-hidden="true">{code}</span>
         <div>
           <span className="stations-country">{t('stations.stationLabel', { city: city.toUpperCase() })}</span>
           <h2 id={`station-title-${code}`}>{t(`stations.airports.${key}`)}</h2>
           <StationServices code={code} />
+          <StationOtp code={code} />
         </div>
       </div>
     </section>
@@ -63,6 +84,7 @@ export default function Stations() {
             <h2>{t('stations.harareAirport')}</h2>
             <p>{t('stations.harareBody')}</p>
             <StationServices code="HRE" />
+            <StationOtp code="HRE" />
           </div>
           <a href="/contact-us">{t('stations.contactUs')} <span className="dir-arrow" aria-hidden="true">↗</span></a>
         </section>

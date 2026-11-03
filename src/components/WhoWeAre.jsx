@@ -222,15 +222,14 @@ export default function WhoWeAre() {
           </p>
           <div className="ww-commitments-grid">
             {[
-              { metric: '99.8%', label: 'On-Time Performance', desc: 'Reported on-time departure performance across handled flights.' },
-              { metric: '< 30 min', label: 'Turnaround Time', desc: 'Target turnaround time for narrow-body aircraft; actual times vary by flight and operating conditions.' },
-              { metric: '24 / 7', label: 'Operations Support', desc: 'Operations support is provided throughout the day and night.' },
-              { metric: '0', label: 'Major Safety Incidents', desc: 'No major incidents recorded in the period represented by this figure.' },
-              { metric: '100%', label: 'Trained Staff', desc: 'Ramp staff receive role-specific training and certification.' },
-              { metric: '< 2 hrs', label: 'Issue Follow-up', desc: 'Reported issues are assigned for follow-up; response times depend on the issue.' },
+              { label: 'On-Time Performance', desc: 'Reported on-time departure performance across handled flights.' },
+              { label: 'Turnaround Time', desc: 'Wide and narrow-body aircraft turnarounds are completed within SLA adherence times without compromising safety and quality.' },
+              { label: 'Operations Support', desc: 'Operations support is provided throughout the day and night.' },
+              { label: 'Major Safety Incidents', desc: 'No major incidents recorded in the period represented by this figure.' },
+              { label: 'Trained Staff', desc: 'Ramp staff receive role-specific training and certification.' },
+              { label: 'Issue Follow-up', desc: 'Reported issues are assigned for follow-up; response times depend on the issue.' },
             ].map((c, i) => (
               <div className="ww-commitment-card" key={i}>
-                <div className="ww-commitment-metric">{c.metric}</div>
                 <h3 className="ww-commitment-label">{c.label}</h3>
                 <p className="ww-commitment-desc">{c.desc}</p>
               </div>

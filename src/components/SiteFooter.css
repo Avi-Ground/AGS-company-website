@@ -223,7 +223,7 @@
 
 .hp-footer-bottom .hp-footer-col:nth-child(2) { grid-column: 1; }
 .hp-footer-bottom .hp-footer-col:nth-child(2) .hp-footer-col-title { display: none; }
-.hp-footer-bottom .hp-flight-radar { grid-column: 2; grid-row: 1 / span 2; }
+.hp-footer-bottom .hp-footer-trackers { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; gap: 12px; align-self: start; }
 
 .hp-footer-col-title {
   font-family: 'Montserrat', sans-serif;
@@ -294,6 +294,7 @@
 .hp-map-grid { fill:none; stroke:rgba(13,31,60,.08); stroke-width:.65; }
 .hp-flight-route { fill:none; stroke:#c8102e; stroke-width:1.4; stroke-dasharray:3 3; }
 .hp-flight-radar-plane { fill:#c8102e; transform-box:fill-box; transform-origin:center; animation:hp-flight-radar-fly 4.8s ease-in-out infinite; }
+.hp-cargo-box-tape { fill:none; stroke:#fff; stroke-width:1.2; }
 .hp-flight-radar-copy { display:flex; flex-direction:column; gap:3px; min-width:0; }
 .hp-flight-radar-copy strong { font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
 .hp-flight-radar-copy small { color:#68778c; font-size:10px; line-height:1.35; }
@@ -353,7 +354,7 @@
     padding-right: 16px;
   }
 
-  .hp-flight-radar { grid-column:2 !important; grid-row:1 / span 2 !important; min-height:0; }
+  .hp-footer-trackers { grid-column:2 !important; grid-row:1 / span 2 !important; }
 
   /* ── News swipeable ── */
   .hp-news-grid {

@@ -27,7 +27,6 @@ const wordCloud = [
 export default function OurEthos() {
   const { t } = useTranslation();
   const edgePillars = numbered(t("edge.pillars"));
-  const values = numbered(t("edge.values"));
   const outcomes = numbered(t("edge.outcomes"));
 
   useEffect(() => {
@@ -126,27 +125,6 @@ export default function OurEthos() {
             <a href="mailto:EDGE@avi-ground.com" className="edge-contact-link">
               EDGE@avi-ground.com <span className="dir-arrow" aria-hidden="true">→</span>
             </a>
-          </div>
-        </section>
-
-        <section className="edge-section edge-section--tint">
-          <div className="edge-inner">
-            <div className="edge-section-head edge-section-head--center edge-fade">
-              <p className="edge-eyebrow edge-eyebrow--center"><i /> {t("edge.valuesTag")}</p>
-            </div>
-            <div className="edge-values-grid">
-              {values.map((value, i) => (
-                <article
-                  className="edge-card edge-fade"
-                  key={value.number}
-                  style={{ transitionDelay: `${(i % 3) * 0.1}s` }}
-                >
-                  <span className="edge-card-number">{value.number}</span>
-                  <h3>{value.title}</h3>
-                  <p className="edge-card-quote">{value.quote}</p>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 

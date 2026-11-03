@@ -1,0 +1,57 @@
+/* ══════════════════════════════
+   VALUES
+══════════════════════════════ */
+.hp-values {
+  padding: 60px 48px 24px;
+  text-align: center;
+}
+
+.hp-values-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #08153f;
+  margin-bottom: 36px;
+}
+
+.hp-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: start;
+}
+
+.hp-value-card {
+  padding: 30px 26px;
+  background: #fff;
+  border: 1px solid rgba(13, 31, 60, .08);
+  border-top: 3px solid #c8102e;
+  border-radius: 12px;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.hp-value-card:hover { box-shadow: 0 12px 32px rgba(0, 0, 0, .08); transform: translateY(-4px); }
+
+.hp-value-number {
+  display: block;
+  color: #c8102e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.hp-value-card h3 { color: #08153f; font-size: 18px; margin-bottom: 10px; }
+.hp-value-card p { color: #4a5568; font-size: 13px; font-style: italic; line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .hp-values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .hp-values { padding: 44px 16px 16px; }
+  .hp-values-title { font-size: 24px; margin-bottom: 26px; }
+  .hp-values-grid { grid-template-columns: 1fr; }
+}

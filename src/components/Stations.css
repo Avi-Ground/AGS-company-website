@@ -14,27 +14,27 @@
 .station-inventory{overflow:hidden;background:#fff;border:1px solid #e1e7ef;border-radius:16px;box-shadow:0 18px 50px rgba(16,43,78,.07)}
 .station-inventory+.station-inventory{margin-top:34px}
 .station-airport-heading{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:18px;padding:28px 30px 22px;border-bottom:1px solid #edf0f4}
-.station-airport-heading-victoria-falls{position:relative;isolation:isolate;overflow:hidden;min-height:360px;box-sizing:border-box;align-content:center;color:#fff;border-bottom-color:rgba(255,255,255,.22);background:#123c66}
-.station-airport-heading-victoria-falls::before{position:absolute;z-index:1;inset:0;content:"";background:linear-gradient(90deg,#123c66 0%,rgba(18,60,102,.94) 36%,rgba(18,60,102,.42) 70%,rgba(18,60,102,.16) 100%);pointer-events:none}
-.station-airport-heading-victoria-falls>*:not(.station-heading-image){position:relative;z-index:2}
+.station-airport-heading--photo{position:relative;isolation:isolate;overflow:hidden;min-height:360px;box-sizing:border-box;align-content:center;color:#fff;border-bottom-color:rgba(255,255,255,.22);background:#123c66}
+.station-airport-heading--photo::before{position:absolute;z-index:1;inset:0;content:"";background:linear-gradient(90deg,#123c66 0%,rgba(18,60,102,.94) 36%,rgba(18,60,102,.42) 70%,rgba(18,60,102,.16) 100%);pointer-events:none}
+.station-airport-heading--photo>*:not(.station-heading-image){position:relative;z-index:2}
 .station-heading-image{position:absolute;z-index:0;top:0;right:0;width:54%;height:100%;object-fit:cover;object-position:center 48%;filter:brightness(.86)}
-.station-airport-heading-victoria-falls .stations-country{color:#ffd2d8}
-.station-airport-heading-victoria-falls h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.3)}
-.station-airport-heading-victoria-falls p{color:rgba(255,255,255,.88)}
-.station-airport-heading-victoria-falls .station-location-mark{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px)}
+.station-airport-heading--photo .stations-country{color:#ffd2d8}
+.station-airport-heading--photo h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.3)}
+.station-airport-heading--photo p{color:rgba(255,255,255,.88)}
+.station-airport-heading--photo .station-location-mark{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px)}
 .station-services{margin-top:16px}
 .station-services-label{display:block;margin-bottom:8px;color:#64748b;font-size:10px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
 .station-services ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .station-services li{padding:7px 11px;border:1px solid #dfe7ef;border-radius:999px;background:#f7f9fc;color:#234564;font-size:11px;font-weight:700}
-.station-airport-heading-victoria-falls .station-services-label{color:rgba(255,255,255,.78)}
-.station-airport-heading-victoria-falls .station-services li{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px)}
+.station-airport-heading--photo .station-services-label{color:rgba(255,255,255,.78)}
+.station-airport-heading--photo .station-services li{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px)}
 .station-airport-heading .station-location-mark{width:54px;height:54px}
 .station-airport-heading h2{margin:6px 0;font-size:clamp(21px,2.5vw,29px);line-height:1.2}
 .station-airport-heading p{color:#68778b;font-size:13px}
 @media(max-width:700px){
  .stations-main{padding-top:22px}
  .station-location{grid-template-columns:48px 1fr;gap:14px;padding:18px;margin-bottom:22px}.station-location-mark{width:46px;height:46px;font-size:12px}.station-location h2{font-size:17px}.station-location p{font-size:12px}.station-location>a{grid-column:2}
- .station-inventory+.station-inventory{margin-top:22px}.station-airport-heading{grid-template-columns:46px 1fr;gap:13px;padding:20px 18px 17px}.station-airport-heading .station-location-mark{grid-row:1;width:44px;height:44px}.station-airport-heading>div{grid-column:2}.station-airport-heading h2{font-size:19px}.station-airport-heading p{font-size:11px}.station-airport-heading-victoria-falls{min-height:330px}.station-heading-image{width:68%;object-position:52% center}.station-services{margin-top:12px}.station-services ul{gap:6px}.station-services li{font-size:10px;padding:6px 9px}
+ .station-inventory+.station-inventory{margin-top:22px}.station-airport-heading{grid-template-columns:46px 1fr;gap:13px;padding:20px 18px 17px}.station-airport-heading .station-location-mark{grid-row:1;width:44px;height:44px}.station-airport-heading>div{grid-column:2}.station-airport-heading h2{font-size:19px}.station-airport-heading p{font-size:11px}.station-airport-heading--photo{min-height:330px}.station-heading-image{width:68%;object-position:52% center}.station-services{margin-top:12px}.station-services ul{gap:6px}.station-services li{font-size:10px;padding:6px 9px}
 }
 
 /* Harare card: airport photo banner, matching the Victoria Falls heading treatment */
@@ -54,3 +54,9 @@
 .station-location--photo .station-services-label{color:rgba(255,255,255,.78)}
 .station-location--photo .station-services li{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px)}
 @media(max-width:700px){.stations-intro{padding:8px 2px 24px}.stations-intro p{font-size:13px}}
+.station-otp{display:inline-flex;align-items:baseline;gap:8px;margin-top:16px;padding:8px 14px;border-radius:10px;background:#fdf1f3;border:1px solid rgba(200,16,46,.18)}
+.station-otp strong{color:#c8102e;font-size:22px;font-weight:800;line-height:1}
+.station-otp span{color:#234564;font-size:10px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
+.station-location--photo .station-otp,.station-airport-heading--photo .station-otp{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.36);backdrop-filter:blur(4px)}
+.station-location--photo .station-otp strong,.station-airport-heading--photo .station-otp strong{color:#fff}
+.station-location--photo .station-otp span,.station-airport-heading--photo .station-otp span{color:rgba(255,255,255,.85)}

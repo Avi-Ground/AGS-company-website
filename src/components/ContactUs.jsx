@@ -39,6 +39,12 @@ const topics = [
 // Update this number if the Lost Property Office contact changes.
 const lostPropertyWhatsApp = '2638677004791'
 
+// Cargo desks on WhatsApp (international format, digits only). Until a number is set, its button shows as unavailable.
+const cargoDesks = [
+  { key: 'imports', whatsApp: '' },
+  { key: 'exports', whatsApp: '' },
+]
+
 export default function ContactUs() {
   const [openFaq, setOpenFaq] = useState(null)
   const { t } = useTranslation()
@@ -183,6 +189,30 @@ export default function ContactUs() {
               </label>
               <button type="submit" className="cu-submit">{t('contact.send')} <span className="dir-arrow" aria-hidden="true">→</span></button>
             </form>
+          </div>
+        </section>
+
+        <section className="cu-cargo cu-fade" id="cargo-queries" aria-labelledby="cargo-heading">
+          <div className="cu-inner">
+            <p className="cu-eyebrow">{t('contact.cargoTag')}</p>
+            <h2 id="cargo-heading">{t('contact.cargoTitle')}</h2>
+            <p className="cu-cargo-intro">{t('contact.cargoBody')}</p>
+            <div className="cu-cargo-grid">
+              {cargoDesks.map(({ key, whatsApp }) => (
+                <article className="cu-cargo-card" key={key}>
+                  <h3>{t(`contact.cargo.${key}Title`)}</h3>
+                  <p>{t(`contact.cargo.${key}Body`)}</p>
+                  {whatsApp ? (
+                    <a className="cu-whatsapp" href={`https://wa.me/${whatsApp}`} target="_blank" rel="noopener noreferrer">
+                      <span className="cu-whatsapp-icon" aria-hidden="true">◔</span>
+                      {t('contact.whatsapp')} <span className="dir-arrow" aria-hidden="true">→</span>
+                    </a>
+                  ) : (
+                    <span className="cu-whatsapp cu-whatsapp--pending">{t('contact.cargoPending')}</span>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

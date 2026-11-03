@@ -1,0 +1,9 @@
+# Azure App Service (Linux/Apache): serve the React app, and send client-side routes like /contact-us to index.html.
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>

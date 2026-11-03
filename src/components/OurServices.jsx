@@ -245,7 +245,7 @@ export default function OurServices() {
           <h2 className="sv-h2">{t('services.promiseTitle')}</h2>
           <p className="sv-commitments-intro">{t('services.promiseIntro')}</p>
           <div className="sv-commitments-grid">
-            {t('services.commitments').map(({ metric, label, body }) => <article className="sv-commitment-card" key={label}><strong>{metric}</strong><h3>{label}</h3><p>{body}</p></article>)}
+            {t('services.commitments').map(({ label, body }) => <article className="sv-commitment-card" key={label}><h3>{label}</h3><p>{body}</p></article>)}
           </div>
         </div>
       </section>
